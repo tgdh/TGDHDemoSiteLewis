@@ -1,0 +1,38 @@
+@using Skybrud.Social.Umbraco.Twitter.PropertyEditors.OAuth
+@using Umbraco.Web
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    var settings = Model.Descendants("globalSettings").FirstOrDefault();
+
+    if (settings == null)
+    {
+        return;
+    }
+
+    var twitter = settings.GetPropertyValue<TwitterOAuthData>("twitterAccount");
+
+    if (twitter != null && twitter.IsValid)
+    {
+        var service = twitter.GetService();
+        var user = service.Users.GetUser(twitter.Id).Body;
+        var latestTweets = service.Statuses.GetUserTimeline(user.Id, 4).Body;
+        var twitterHandler = "@" + user.ScreenName;
+        var userProfileUrl = "https://www.twitter.com/" + user.ScreenName;
+
+        <article class="c-tweet">
+            <h2 class="u-zeta c-tweet__handler">
+                <i class="ico-twitter"></i>
+                <a href="@userProfileUrl" class="c-tweet__handler__link" target="_blank">
+                    <span class="u-hide-text">Twitter handler: </span>@twitterHandler
+                </a>
+            </h2>
+            <section class="c-tweet__list c-carousel js-carousel--twitter" data-nav="false" data-dots="true" data-autoplay="true" data-loop="true" data-fade="true" data-auto-height="true">
+                @foreach (var status in latestTweets)
+                {
+                    <p class="c-tweet__item js-linkify-tweet">@status.Text</p>
+                }
+            </section>
+        </article>
+    }
+}
+

@@ -1,0 +1,18 @@
+@using Umbraco.Web
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    var homePage = Model.Site();
+    var settings = homePage.Descendants("globalSettings").FirstOrDefault();
+    var list = settings.GetPropertyValue<IEnumerable<IPublishedContent>>("socialIcons");
+    if(list == null)
+    {
+      return;
+    }
+}
+@foreach(var item in list)
+{
+	var title = item.GetPropertyValue<string>("iconTitle");
+	<a href="#" class="c-nav__social-icon">
+	  <i class="icon-@title.ToLower()"></i>
+	</a>
+}

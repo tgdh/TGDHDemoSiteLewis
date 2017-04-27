@@ -1,0 +1,24 @@
+@using UmbracoStarterKit.Core.Models.Components
+@inherits UmbracoViewPage<VideoViewModel>
+@{
+	var video = Model.VideoUrl;
+	var title = Model.Title;
+	var Image = Model.Image;
+	var ImageUrl = Umbraco.Media(Image);
+	var ImageUrlNull = ImageUrl != null ? ImageUrl.Url : "";
+	if(video == null || Image == null){
+		return;
+	}
+}
+
+<div class="c-video">
+	@if(!string.IsNullOrWhiteSpace(title))
+	{
+		<h2 class="u-epsilon c-video__top-title"><a href="@video" class="js-popup__video">@title</a></h2>
+	}
+	<div class="c-video__subpage" style="background-image: url(@ImageUrlNull?width=1200);">
+		<a href="@video" class="c-video__link js-popup__video">
+			<span class="c-video__play-btn"></span>
+		</a>
+	</div>
+</div>

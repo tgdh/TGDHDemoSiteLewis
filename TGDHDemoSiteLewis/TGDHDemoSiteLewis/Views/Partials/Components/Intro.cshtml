@@ -1,0 +1,36 @@
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+	var heading = Model.GetPropertyValue<string>("introHeading");
+	var subHeading = Model.GetPropertyValue<string>("introSubHeading");
+	var content = Model.GetPropertyValue<string>("introContent");
+	var link = Model.GetPropertyValue<string>("introLink");
+	var decode = Json.Decode(link);
+	if(string.IsNullOrWhiteSpace(heading) && string.IsNullOrWhiteSpace(subHeading) && string.IsNullOrWhiteSpace(content))
+	{
+		return;
+	}
+}
+<section class="c-text o-section">
+	<div class="o-wrap o-wrap--large">
+		<div class="c-intro__inner">
+			@if(!string.IsNullOrWhiteSpace(heading))
+			{
+				<h3 class="c-intro__heading u-mega js-underline">@heading</h3>
+			}
+			@if(!string.IsNullOrWhiteSpace(subHeading))
+			{
+				<p class="c-intro__sub-heading o-section__line line--black o-section__fancy">@subHeading</p>
+			}
+			@if(!string.IsNullOrWhiteSpace(content))
+			{
+				@Html.Raw(content.Replace("\n","<br>"))
+			}
+			@if(decode != null)
+			{
+				<a href="@decode.url" class="o-section__link border--black c-intro__link">
+					<span>@decode.name</span>
+				</a>
+			}
+		</div>
+	</div>
+</section>

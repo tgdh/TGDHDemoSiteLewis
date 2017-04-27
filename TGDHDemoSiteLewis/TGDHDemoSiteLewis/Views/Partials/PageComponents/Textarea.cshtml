@@ -1,0 +1,12 @@
+﻿@using UmbracoStarterKit.Core.Models.Components
+@inherits UmbracoViewPage<TextareaViewModel>
+@{
+    if (string.IsNullOrWhiteSpace(Model.Text.ToString()))
+    {
+        return;
+    }
+}
+
+<div class="@Model.AdditionalClass @Model.WrapClasses c-component">
+    @Model.Text
+</div>

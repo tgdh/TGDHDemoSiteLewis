@@ -1,0 +1,29 @@
+﻿@using UmbracoStarterKit.Core.ExtensionMethods
+@using UmbracoStarterKit.Core.Models.Components
+@inherits UmbracoViewPage<TabListViewModel>
+@{
+    if (!Model.Tabs.Any())
+    {
+        return;
+    }
+}
+
+<div class="c-accordion js-accordion @Model.AdditionalClass @Model.WrapClasses">
+    @foreach (var tab in Model.Tabs)
+    {
+		<div class="c-accordion_item">
+			<span class="c-accordion__button">
+				<i class="plus"></i>
+				<i class="minus"></i>
+			</span>
+			<h2 class="c-accordion__header js-accordion__header u-delta js-toggle-accordion">@tab.Title</h2>
+			<div class="c-accordion__content">
+		        <div class="c-accordion__panel js-accordion__panel">
+		            <div class="c-accordion__panel-inner">
+		                @tab.Content
+		            </div>
+		        </div>
+			</div>
+		</div>
+    }
+</div>

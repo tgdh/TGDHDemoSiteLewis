@@ -1,0 +1,27 @@
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    var headline = Model.HasValue("headline") ? Model.GetPropertyValue<string>("headline") : Model.Name;
+    var subtitle = Model.GetPropertyValue<string>("subtitle");
+    var hasIntroduction = Model.HasValue("introduction");
+}
+
+<div class="c-heading o-section">
+    <div class="o-wrap o-wrap--medium">
+        <h1 class="c-heading__headline u-mega">@headline</h1>
+
+        @if (!string.IsNullOrWhiteSpace(subtitle))
+        {
+            <span class="c-heading__subtitle">@subtitle</span>
+        }
+
+        @if (hasIntroduction)
+        {
+            var introduction = Model.GetPropertyValue<HtmlString>("introduction");
+
+            <div class="c-heading__introduction">
+                @introduction
+            </div>
+        }
+
+    </div>
+</div>

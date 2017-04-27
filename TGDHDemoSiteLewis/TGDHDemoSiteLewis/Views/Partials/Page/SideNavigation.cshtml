@@ -1,0 +1,40 @@
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+  if(Model.Level == 2 && Model.Children.Count() == 0)
+  {
+    return;
+  }
+  var selector = Model.AncestorOrSelf(2).Children().Where( x => x.IsVisible() && x.TemplateId > 0 );
+  if(selector == null)
+  {
+    return;
+  }
+}
+<aside class="c-side-navigation">
+  <ul class="c-side__list">
+    @foreach(var childPage in selector)
+    {
+      var addClass = Model.Id == childPage.Id || Model.Parent.Id == childPage.Id ? "show--children" : "hide--children";
+      <li class="c-side__item c-side__item--parent @addClass">
+        <a href="@childPage.Url" class="c-side__link @(Model.Id == childPage.Id ? "is-active" : null)">@childPage.Name</a>
+        @Traverse(childPage)
+      </li>
+    }
+  </ul>
+</aside>
+@helper Traverse(IPublishedContent node) {
+  var addClass = Model.Id == node.Id ? "show--children" : "";
+  var maxLevelForNav = 4;
+  var items = node.Children.Where(x => x.IsVisible() &&x.Level <= maxLevelForNav &&x.TemplateId > 0).ToList();
+  if ( items.Any() )
+  {
+    <ul class="c-side__list--sub">
+      @foreach (var item in items) {
+        <li class="c-side__item c-side__item--child c-nav__item--child--@item.Level @addClass">
+          <a href="@item.Url" class="c-nav__link @(Model.Id == item.Id ? "is-active" : null)">@item.Name</a>
+          @Traverse(item)
+        </li>
+      }
+    </ul>
+  }
+}

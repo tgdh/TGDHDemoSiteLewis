@@ -1,0 +1,54 @@
+﻿@using Umbraco.Web
+@using UmbracoStarterKit.ExtensionMethods.Strings
+@using Constants = UmbracoStarterKit.Core.Constants
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+
+    var homePage = Model.Site();
+    var news = homePage.Descendants("news").FirstOrDefault();
+
+    if (news == null)
+    {
+        return;
+    }
+
+    var qCat = Request.QueryString["category"].ConvertToId() ?? "";
+    var allArticles = news.Children().ToList();
+    var hasGeneral = allArticles.Any(x => x.IsVisible() && x.DocumentTypeAlias == Constants.GeneralNews);
+    var hasInTheMedia = allArticles.Any(x => x.IsVisible() && x.DocumentTypeAlias == Constants.InTheMedia);
+    var hasPress = allArticles.Any(x => x.IsVisible() && x.DocumentTypeAlias == Constants.PressRelease);
+}
+
+
+@if (hasGeneral || hasInTheMedia || hasPress)
+{
+    <div class="c-pod">
+        <h3 class="c-pod__title">Categories</h3>
+        <ul class="c-link-list">
+            @if (hasGeneral)
+            {
+                var activeClass = qCat.Equals(Constants.GeneralNews.ConvertToId(), StringComparison.OrdinalIgnoreCase) ? "is-active" : "";
+
+                <li class="c-link-list__item">
+                    <a href="@news.Url?category=general-news" class="c-link-list__link @activeClass">General news</a>
+                </li>
+            }
+            @if (hasInTheMedia)
+            {
+                var activeClass = qCat.Equals(Constants.InTheMedia.ConvertToId(), StringComparison.OrdinalIgnoreCase) ? "is-active" : "";
+
+                <li class="c-link-list__item">
+                    <a href="@news.Url?category=in-the-media" class="c-link-list__link @activeClass">In the media</a>
+                </li>
+            }
+            @if (hasPress)
+            {
+                var activeClass = qCat.Equals(Constants.PressRelease.ConvertToId(), StringComparison.OrdinalIgnoreCase) ? "is-active" : "";
+
+                <li class="c-link-list__item">
+                    <a href="@news.Url?category=press-release" class="c-link-list__link @activeClass">Press release</a>
+                </li>
+            }
+        </ul>
+    </div>
+}

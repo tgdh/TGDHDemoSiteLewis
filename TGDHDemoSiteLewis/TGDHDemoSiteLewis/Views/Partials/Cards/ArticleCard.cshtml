@@ -1,0 +1,45 @@
+﻿@using UmbracoStarterKit.ExtensionMethods.Int
+@using UmbracoStarterKit.Core.Models.Interfaces
+@inherits UmbracoViewPage<IArticleCard>
+
+<article class="c-listing--article @Model.ExtraClasses" itemscope itemtype="http://schema.org/Article">
+    <a href="@Model.Url" class="c-listing__link" itemprop="url" target="@Model.LinkTarget">
+        @if (Model.Thumbnail != null)
+        {
+            var imageUrl = Url.GetCropUrl(Model.Thumbnail, cropAlias:  "21:9", width: 1000, quality: 85, htmlEncode: false).ToString();
+
+            <div class="c-listing__image-wrap">
+                <img src="@imageUrl" class="c-listing__image" alt="@Model.Name"/>
+            </div>
+        }
+
+        <div class="c-listing__content">
+            <h2 class="c-listing__headline" itemprop="name">@Model.Name</h2>
+            <ul class="c-meta-data__item">
+                <li class="c-meta-data__item__item">
+                    <time datetime="{{metaDate}}" pubdate="pubdate">
+                        @Model.CreateDate.ToString("%d")<sup>@IntExtentionsMethods.GetDaySuffix(Model.CreateDate.Day)</sup> @Model.CreateDate.ToString("MMMM yyyy")
+                    </time>
+                    <meta itemprop="dateCreated" content="@Model.CreateDate.ToString("yyyy-MM-dd")">
+                </li>
+
+                @if (!string.IsNullOrWhiteSpace(Model.Author))
+                {
+                    <li class="c-meta-data__item__item" itemprop="author">@Model.Author</li>
+                }
+
+                @if (!string.IsNullOrWhiteSpace(Model.Category))
+                {
+                    <li class="c-meta-data__item__item" itemprop="keywords">@Model.Category</li>
+                }
+            </ul>
+
+            @if (!string.IsNullOrWhiteSpace(Model.Excerpt))
+            {
+                <div class="c-listing__description">
+                    <p>@Model.Excerpt</p>
+                </div>
+            }
+        </div>
+    </a>
+</article>

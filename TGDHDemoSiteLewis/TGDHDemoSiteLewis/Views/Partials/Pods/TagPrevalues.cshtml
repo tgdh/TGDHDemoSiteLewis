@@ -1,0 +1,51 @@
+﻿@using Umbraco.Web
+@using UmbracoStarterKit.ExtensionMethods.Strings
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    var title = ViewData["title"] as string;
+    var docType = ViewData["docType"] as string;
+    var baseUrl = ViewData["baseUrl"] as string;
+
+    if (baseUrl == null)
+    {
+        return;
+    }
+
+    if (title == null && docType == null)
+    {
+        return;
+    }
+
+    var homePage = Model.Site();
+    var tagSettings = homePage.Descendants("tagSettings").FirstOrDefault();
+
+    if (tagSettings == null)
+    {
+        return;
+    }
+
+    var prevalues = tagSettings.Descendants(docType).ToList();
+    var prevalueQueryString = Request.QueryString[docType].ConvertToId() ?? "";
+}
+
+
+@if (prevalues.Any())
+{
+    <div class="c-pod">
+        @if (!string.IsNullOrWhiteSpace(title))
+        {
+            <h3 class="c-pod__title">@title</h3>
+        }
+        <ul class="c-link-list">
+            @foreach (var prevalue in prevalues)
+            {
+                var activeClass = prevalueQueryString.Equals(prevalue.Name.ConvertToId(), StringComparison.OrdinalIgnoreCase) ? "is-active" : "";
+                var prevalueLink = baseUrl + "?" + docType + "=" + prevalue.Name.ConvertToId();
+
+                <li class="c-link-list__item">
+                    <a href="@prevalueLink" class="c-link-list__link @activeClass">@prevalue.Name</a>
+                </li>
+            }
+        </ul>
+    </div>
+}

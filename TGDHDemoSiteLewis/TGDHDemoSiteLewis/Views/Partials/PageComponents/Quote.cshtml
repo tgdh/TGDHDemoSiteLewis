@@ -1,0 +1,17 @@
+@using UmbracoStarterKit.Core.Models.Components
+@inherits UmbracoViewPage<QuoteViewModel>
+@{
+	if(Model.Quote == null){
+		return;
+	}
+}
+
+<blockquote class="c-quote">
+	<h2 class="c-quote__heading u-uppercase u-alpha c-block__heading c-section o-heading">@Model.Quote</h2>
+	@if(!string.IsNullOrWhiteSpace(Model.Source))
+	{
+		<footer>
+			<p class="c-quote__source">@Model.Source</p>
+		</footer>
+	}
+</blockquote>

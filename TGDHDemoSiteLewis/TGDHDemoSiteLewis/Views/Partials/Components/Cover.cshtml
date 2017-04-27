@@ -1,0 +1,33 @@
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+	var heading = Model.GetPropertyValue<string>("coverHeading");
+	var subHeading = Model.GetPropertyValue<string>("coverSubHeading");
+	var link = Model.GetPropertyValue<string>("coverLink");
+	var decode = Json.Decode(link);
+	var image = Model.GetPropertyValue<int>("coverBackgroundImage");
+	var imageUrl = image != 0 || image != null ? Umbraco.Media(image).Url : "";
+	if(string.IsNullOrWhiteSpace(heading) && string.IsNullOrWhiteSpace(subHeading) && image == 0)
+	{
+		return;
+	}
+}
+<section class="c-cover" style="background-image: url(@imageUrl)">
+	<div class="o-wrap o-wrap--large c-cover__flex">
+		<div class="c-cover__inner">
+			@if(!string.IsNullOrWhiteSpace(heading))
+			{
+				<h2 class="c-cover__heading u-tera o-section__line line--white">@heading</h2>
+			}
+			@if(!string.IsNullOrWhiteSpace(subHeading))
+			{
+				<p class="c-cover__sub-heading">@subHeading</p>
+			}
+			@if(decode != null)
+			{
+				<a href="@decode.url" class="o-section__link border--white c-cover__link">
+					<span>@decode.name</span>
+				</a>
+			}
+		</div>
+	</div>
+</section>

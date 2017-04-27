@@ -1,0 +1,51 @@
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    var homePage = Model.Site();
+    var settings = homePage.Descendants("globalSettings").FirstOrDefault();
+    var copyright = string.Empty;
+	var address = string.Empty;
+
+    if (settings != null)
+    {
+        copyright = settings.GetPropertyValue<string>("copyrightDisclaimer");
+		address = settings.GetPropertyValue<string>("address");
+    }
+}
+
+<footer id="footer" class="c-footer" role="contentinfo">
+	<div class="o-wrap o-wrap--large u-clearfix">
+		<div class="c-footer__contacts c-footer__item">
+			<h2 class="c-footer__title u-delta">Contacts</h2>
+			@if(!string.IsNullOrWhiteSpace(address))
+			{
+				<p class="c-footer__text">@Html.Raw(address.Replace("\n","<br>"))</p>
+			}
+		</div>
+		<div class="c-footer__links c-footer__item">
+			<h2 class="c-footer__title u-delta">Useful links</h2>
+			@Html.Partial("~/Views/Partials/Page/FooterNavigation.cshtml")
+		</div>
+		<div class="c-footer__social c-footer__item">
+			<h2 class="c-footer__title u-delta">Connect with</h2>
+			@Html.Partial("~/Views/Partials/Components/SocialIcons.cshtml")
+		</div>
+		<div class="c-footer__bottom u-clearfix">
+			<div class="c-footer__contacts c-footer__item">
+				<a href="/" class="c-footer__home">
+					<i class="icon-house"></i>
+				</a>
+			</div>
+			<div class="c-footer__links c-footer__item">
+				@if (!string.IsNullOrWhiteSpace(copyright))
+			    {
+			        <p class="c-footer__copyright">
+			            @Html.Raw(copyright.Replace("\n", "<br/>"))
+			        </p>
+			    }
+			</div>
+		</div>
+		<a href="#" class="c-footer__scroll-top">
+			<i class="icon-arrow"></i>
+		</a>
+	</div>
+</footer>

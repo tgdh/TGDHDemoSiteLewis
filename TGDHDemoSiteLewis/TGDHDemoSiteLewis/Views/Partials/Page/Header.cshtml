@@ -1,0 +1,29 @@
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    var homePage = Model.Site();
+    var settings = homePage.Descendants("globalSettings").FirstOrDefault();
+    var siteName = string.Empty;
+
+    if (settings != null)
+    {
+        siteName = settings.GetPropertyValue<string>("websiteName");
+    }
+}
+
+<header id="header" class="c-header" role="banner">
+	<div class="o-wrap o-wrap--large o-relative">
+		<a href="/" class="c-header__logo-link">
+			<img src="/assets/img/house.svg" alt="@siteName" class="c-header__logo-image">
+		</a>
+		@Html.Partial("~/Views/Partials/Page/MainNavigation.cshtml")
+		<div class="c-header__search">
+			<span class="c-header__search-button"></span>
+		</div>
+		<div class="c-header__menu-button">
+			<p class="c-header__burger-text"></p>
+			<div class="c-header__burger">
+				<span class="c-header__lines"></span>
+			</div>
+		</div>
+	</div>
+</header>
