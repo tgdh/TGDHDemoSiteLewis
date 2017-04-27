@@ -1,7 +1,7 @@
 ﻿@using System.Web.Mvc.Html
-@using TMP.Core.Data
-@using TMP.Core.Models.Components
-@using TMP.Core.Utility
+@using UmbracoStarterKit.Core.Data
+@using UmbracoStarterKit.Core.Models.Components
+@using UmbracoStarterKit.Core.Utility
 @inherits UmbracoViewPage<IPublishedContent>
 @{
     Layout = "MasterBlog.cshtml";
@@ -38,7 +38,7 @@
 		                    CreateDate = post.GetPropertyValue<DateTime>("releaseDate")
 		                };
 
-		                if (post.DocumentTypeAlias == TMP.Core.Constants.InTheMedia)
+		                if (post.DocumentTypeAlias == UmbracoStarterKit.Core.Constants.InTheMedia)
 		                {
 		                    articleModel.Url = post.HasValue("source") ? post.GetPropertyValue<string>("source") : "#";
 		                    articleModel.LinkTarget = "_blank";
@@ -48,9 +48,9 @@
 		                @Html.Partial("~/Views/Partials/Cards/ArticleCard.cshtml", articleModel)
 		            }
 
-		            <nav class="c-blogs__pagination">
+		            @*<nav class="c-blogs__pagination">
 		                @PagingTemplate.RenderPaging(paging, Model.Id)
-		            </nav>
+		            </nav>*@
 		        }
 		        else
 		        {
@@ -58,7 +58,10 @@
 		            var tagSettings = homePage.Descendant("tagSettings");
 		            var noResultsMessage = tagSettings.GetPropertyValue<IHtmlString>("noResultsMessage");
 
-		            @noResultsMessage
+		            if(noResultsMessage != null)
+					{
+						@noResultsMessage
+					}
 		        }
 		    </section>
 		</div>
