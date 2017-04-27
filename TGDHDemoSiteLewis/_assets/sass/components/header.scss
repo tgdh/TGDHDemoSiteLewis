@@ -5,22 +5,55 @@
 =========================================================== */
 
 .c-header {
-	background-color: $light-1;
-	position: relative;
+	background-color: $white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
 	z-index: 10;
 	transition: background $speed $ease,
 				border-color $speed $ease;
+	&.js-sticky{
+		.c-header__logo-link{
+			margin-top: 1.5rem;
+			margin-bottom: 1.5rem;
+		}
+		.c-header__logo-image{
+			width: 4.75rem;
+		}
+		.c-nav--main{
+			padding: 1.25rem 0;
+			height: 7.75rem;
+		}
+		.c-header__search{
+			height: 7.75rem;
+		}
+	}
+	.c-header__logo-link{
+		transition: $ease $speed margin-top,
+					$ease $speed margin-bottom;
+	}
+	.c-header__logo-image{
+		transition: $ease $speed width;
+	}
+	.c-nav--main{
+		transition: $ease $speed padding,
+					$ease $speed height;
+	}
+	.c-header__search{
+		transition: $ease $speed height;
+	}
 }
 
 .c-header__logo-link {
 	display: block;
 	float: left;
-	margin-top: 1.5rem;
-	margin-bottom: 1.5rem;
+	margin-top: 2.5rem;
+	margin-bottom: 2.5rem;
 }
 
 .c-header__logo-image {
-	width: 9.3rem;
+	width: 5rem;
 }
 
 .c-header__toggle-menu-button {
@@ -69,12 +102,93 @@
 
 	}
 
+	.c-header__menu-button{
+		display: block;
+		width: 130px;
+		height: 65px;
+		background-color: black;
+		position: absolute;
+		top: 0;
+		right: 0;
+		cursor: pointer;
+		.c-header__burger-text{
+			float: left;
+			height: 22px;
+			overflow: hidden;
+			margin-left: 1.5rem;
+			margin-top: 2.1rem;
+			&::before,&::after{
+				display: block;
+				color: white;
+				font-size: 1.75rem;
+
+			}
+			&::before{
+				content: "Menu";
+			}
+			&::after{
+				content: "Close";
+			}
+		}
+		.c-header__burger{
+			width: 35px;
+			height: 35px;
+			margin: 1.5rem 1.5rem 1.5rem 0;
+			float: right;
+			.c-header__lines,.c-header__lines::before,.c-header__lines::after{
+				content: "";
+				display: block;
+				position: relative;
+				background-color: white;
+				width: 35px;
+				height: 3px;
+			}
+			.c-header__lines{
+				top: calc(50% - 1px);
+				&::before{
+					top: -11px;
+				}
+				&::after{
+					top: 8px;
+				}
+			}
+		}
+	}
+
+	.c-header__logo-link{
+		margin-top: 1.25rem;
+		margin-bottom: 1.25rem;
+	}
+	.c-header__logo-image{
+		width: 4rem;
+	}
+
+	.c-header__search{
+		display: none;
+	}
 }
 
 @include respond-min( $mq-large ) {
 
+	.c-header{
+		&::before{
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 50%;
+			z-index: -1;
+			background-color: black;
+		}
+	}
+
+	.c-header__burger{
+		display: none;
+	}
+
 	.c-header__logo-image {
-		width: 15rem;
+		width: 6rem;
 	}
 
 	.c-header__inner {
@@ -82,9 +196,54 @@
 	}
 
 	.c-nav--main {
-		float: right;
+		float: left;
+		padding: 2.5rem 0;
+		height: 11rem;
+		background-color: white;
 	}
 
+	.c-header__search{
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 11rem;
+		height: 11rem;
+		background-color: black;
+		z-index: 2;
+		.c-header__search-button{
+			display: block;
+			width: 3rem;
+			height: 3rem;
+			background-color: red;
+		}
+	}
+
+	.flexbox{
+		.c-header{
+			&::before{
+				height: 100%;
+			}
+		}
+
+		.c-header__search{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	.no-flexbox{
+
+		.c-header{
+			&::before{
+				height: 11rem;
+			}
+		}
+
+		.c-header__search-button{
+			position: relative;
+			top: calc(50% - 1.5rem);
+			left: calc(50% - 1.5rem);
+		}
+	}
 }
-
-
