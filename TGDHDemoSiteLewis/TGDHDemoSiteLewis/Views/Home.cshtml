@@ -5,13 +5,8 @@
 
 <div class="c-page__wrapper">
 	<main class="o-page__inner u-clearfix" role="main">
-	    @Html.Partial("~/Views/Partials/Home/Banner.cshtml")
-		<div class="c-block u-clearfix">
-			@Html.Partial("~/Views/Partials/Home/LastWeek.cshtml")
-		    @Html.Partial("~/Views/Partials/Home/ClientReviews.cshtml")
-		</div>
-	    @Html.Partial("~/Views/Partials/Home/FeaturedContent.cshtml")
+	    @Html.Partial("~/Views/Partials/Components/Cover.cshtml")
+		@Html.Partial("~/Views/Partials/Components/Intro.cshtml")
+		@Html.Partial("~/Views/Partials/Components/About.cshtml")
 	</main>
-	@Html.Partial("~/Views/Partials/Page/Newsletter.cshtml")
-	@Html.Partial("~/Views/Partials/Page/Accreditations.cshtml")
 </div>
