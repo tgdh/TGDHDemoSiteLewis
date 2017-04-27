@@ -1,0 +1,83 @@
+﻿@using System.Web.Mvc.Html
+@using TMP.Core.Data
+@using TMP.Core.Models.Components
+@using TMP.Core.Utility
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "MasterBlog.cshtml";
+
+    var allBlogPosts = BlogRepository.AllBlogPosts(Umbraco).ToList();
+    var filteredBlogPosts = BlogRepository.FilterSelection(allBlogPosts, Request.QueryString["author"], Request.QueryString["category"], Request.QueryString["year"], Request.QueryString["month"]).ToList();
+    var paging = Paging.GetPages(filteredBlogPosts.Count);
+    var selectedBlogPosts = filteredBlogPosts.Skip(paging.Skip).Take(paging.Take).ToList();
+}
+
+<main class="o-page__inner" role="main">
+	<div class="c-page__wrapper">
+	    @Html.Partial("~/Views/Partials/Page/Headline.cshtml")
+		<div class="c-grid o-wrap o-wrap--large u-clearfix o-section">
+			<aside class="c-grid__sidebar">
+			    @Html.Partial("~/Views/Partials/Pods/TagPrevalues.cshtml", Model, new ViewDataDictionary { { "title", "Authors" }, { "docType", "author" }, { "baseUrl", Model.Url } })
+			    @Html.Partial("~/Views/Partials/Pods/TagPrevalues.cshtml", Model, new ViewDataDictionary { { "title", "Categories" }, { "docType", "category" }, { "baseUrl", Model.Url } })
+			    @Html.Partial("~/Views/Partials/Pods/DateArchive.cshtml", allBlogPosts)
+			</aside>
+			<section class="c-grid__main-content">
+		        @if (selectedBlogPosts.Any())
+		        {
+		            foreach (var post in selectedBlogPosts)
+		            {
+		                var articleModel = new ArticleViewModel
+		                {
+		                    Id = post.Id,
+		                    Name = post.HasValue("headline") ? post.GetPropertyValue<string>("headline") : post.Name,
+		                    Thumbnail = Umbraco.TypedMedia(post.GetPropertyValue<int>("coverImage")),
+		                    Excerpt = post.GetPropertyValue<string>("excerpt"),
+		                    Url = post.Url,
+		                    Category = GetMetaById(post.GetPropertyValue<int>("category")),
+		                    Author = GetMetaById(post.GetPropertyValue<int>("author")),
+		                    CreateDate = post.GetPropertyValue<DateTime>("releaseDate")
+		                };
+
+		                if (post.DocumentTypeAlias == TMP.Core.Constants.InTheMedia)
+		                {
+		                    articleModel.Url = post.HasValue("source") ? post.GetPropertyValue<string>("source") : "#";
+		                    articleModel.LinkTarget = "_blank";
+		                    articleModel.ExtraClasses = "is-external";
+		                }
+
+		                @Html.Partial("~/Views/Partials/Cards/ArticleCard.cshtml", articleModel)
+		            }
+
+		            <nav class="c-blogs__pagination">
+		                @PagingTemplate.RenderPaging(paging, Model.Id)
+		            </nav>
+		        }
+		        else
+		        {
+		            var homePage = Model.Site();
+		            var tagSettings = homePage.Descendant("tagSettings");
+		            var noResultsMessage = tagSettings.GetPropertyValue<IHtmlString>("noResultsMessage");
+
+		            @noResultsMessage
+		        }
+		    </section>
+		</div>
+	</div>
+</main>
+
+@functions
+{
+
+    public string GetMetaById(int id)
+    {
+        var metaLabel = Umbraco.TypedContent(id);
+
+        if (metaLabel == null)
+        {
+            return "";
+        }
+
+        return metaLabel.Name;
+    }
+
+}

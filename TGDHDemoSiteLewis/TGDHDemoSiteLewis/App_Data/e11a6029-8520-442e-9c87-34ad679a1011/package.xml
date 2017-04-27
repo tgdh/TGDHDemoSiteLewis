@@ -1,0 +1,2745 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+  <files />
+  <info>
+    <package>
+      <name>TGDH - Starter Pack</name>
+      <version>1</version>
+      <iconUrl />
+      <license url="http://opensource.org/licenses/MIT">MIT License</license>
+      <url>www.tgdh.co.uk</url>
+      <requirements type="strict">
+        <major>7</major>
+        <minor>5</minor>
+        <patch>12</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>The Graphic Design House</name>
+      <website>www.tgdh.co.uk</website>
+    </author>
+    <readme><![CDATA[The Dependences must be installed before installing this for the pack to install correctly. 
+
+List of dependencies:
+- Link Picker
+- Char Limit
+- Nested Content
+- EZSearch
+
+This pack installs the following:
+- Data types 
+- Templates
+- Doc Types
+
+The Partial Views must be created / copied across manually. ]]></readme>
+  </info>
+  <Documents>
+    <DocumentSet importMode="root">
+      <home id="1534" key="1560e043-870d-430b-be86-fc18b5fc3a1b" parentID="-1" level="1" creatorID="0" sortOrder="0" createDate="2017-04-11T12:18:21" updateDate="2017-04-11T12:18:21" nodeName="Homepage" urlName="homepage" path="-1,1534" isDoc="" nodeType="1517" creatorName="Lewis Smith" writerName="Lewis Smith" writerID="0" template="1479" nodeTypeAlias="home">
+        <dontFollow>0</dontFollow>
+        <hideFromSearch>0</hideFromSearch>
+        <umbracoNaviHide>0</umbracoNaviHide>
+        <news id="1535" key="2f67c299-93c0-42b1-93c9-f34ee4a55dae" parentID="1534" level="2" creatorID="0" sortOrder="0" createDate="2017-04-11T12:18:37" updateDate="2017-04-11T12:18:37" nodeName="News" urlName="news" path="-1,1534,1535" isDoc="" nodeType="1522" creatorName="Lewis Smith" writerName="Lewis Smith" writerID="0" template="1484" nodeTypeAlias="news">
+          <dontFollow>0</dontFollow>
+          <hideFromSearch>0</hideFromSearch>
+          <umbracoNaviHide>0</umbracoNaviHide>
+        </news>
+        <blog id="1536" key="b2a6eef5-f377-437b-b6ff-ea42d282b971" parentID="1534" level="2" creatorID="0" sortOrder="1" createDate="2017-04-11T12:18:44" updateDate="2017-04-11T12:18:44" nodeName="Blog" urlName="blog" path="-1,1534,1536" isDoc="" nodeType="1503" creatorName="Lewis Smith" writerName="Lewis Smith" writerID="0" template="1478" nodeTypeAlias="blog">
+          <dontFollow>0</dontFollow>
+          <hideFromSearch>0</hideFromSearch>
+          <umbracoNaviHide>0</umbracoNaviHide>
+        </blog>
+        <errorPage id="1537" key="58127502-12bc-4e6d-acf5-fe27f59665c4" parentID="1534" level="2" creatorID="0" sortOrder="2" createDate="2017-04-11T12:18:53" updateDate="2017-04-11T12:18:53" nodeName="Error Page" urlName="error-page" path="-1,1534,1537" isDoc="" nodeType="1510" creatorName="Lewis Smith" writerName="Lewis Smith" writerID="0" template="1488" nodeTypeAlias="errorPage">
+          <dontFollow>0</dontFollow>
+          <hideFromSearch>0</hideFromSearch>
+          <umbracoNaviHide>0</umbracoNaviHide>
+        </errorPage>
+        <notFound id="1538" key="1ad5c65e-472f-4e6c-a5c2-d99541643388" parentID="1534" level="2" creatorID="0" sortOrder="3" createDate="2017-04-11T12:19:01" updateDate="2017-04-11T12:19:01" nodeName="Not Found" urlName="not-found" path="-1,1534,1538" isDoc="" nodeType="1523" creatorName="Lewis Smith" writerName="Lewis Smith" writerID="0" template="1488" nodeTypeAlias="notFound">
+          <dontFollow>0</dontFollow>
+          <hideFromSearch>0</hideFromSearch>
+          <umbracoNaviHide>0</umbracoNaviHide>
+        </notFound>
+        <sitemap id="1539" key="07a4ac79-c290-4fed-9587-279c7114e7dc" parentID="1534" level="2" creatorID="0" sortOrder="4" createDate="2017-04-11T12:19:10" updateDate="2017-04-11T12:19:10" nodeName="Sitemap" urlName="sitemap" path="-1,1534,1539" isDoc="" nodeType="1527" creatorName="Lewis Smith" writerName="Lewis Smith" writerID="0" template="1487" nodeTypeAlias="sitemap">
+          <dontFollow>0</dontFollow>
+          <hideFromSearch>0</hideFromSearch>
+          <umbracoNaviHide>0</umbracoNaviHide>
+        </sitemap>
+      </home>
+    </DocumentSet>
+  </Documents>
+  <DocumentTypes>
+    <DocumentType Folders="Nested+Content/Components">
+      <Info>
+        <Name>Accordion</Name>
+        <Alias>accordion</Alias>
+        <Icon>icon-umb-contour</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Content</Name>
+          <Alias>content</Alias>
+          <Type>Our.Umbraco.NestedContent</Type>
+          <Definition>2bead533-2b3f-4866-9a66-5c4abf1e2f97</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Each entry will be a new accordion tab]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>290</Id>
+          <Caption>Content</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Blog">
+      <Info>
+        <Name>Author</Name>
+        <Alias>author</Alias>
+        <Icon>icon-user-glasses</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties />
+      <Tabs />
+    </DocumentType>
+    <DocumentType Folders="Blog">
+      <Info>
+        <Name>Authors</Name>
+        <Alias>authors</Alias>
+        <Icon>icon-users-alt</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties />
+      <Tabs />
+    </DocumentType>
+    <DocumentType Folders="Blog">
+      <Info>
+        <Name>Blog</Name>
+        <Alias>blog</Alias>
+        <Icon>icon-chat-active</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description>Page holding all the blog posts</Description>
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions>
+          <Composition>cAdmin</Composition>
+          <Composition>cHeadlineWithSubtitle</Composition>
+          <Composition>cIntroduction</Composition>
+          <Composition>cMeta</Composition>
+          <Composition>cSEO</Composition>
+        </Compositions>
+        <AllowedTemplates>
+          <Template>Blog</Template>
+        </AllowedTemplates>
+        <DefaultTemplate>Blog</DefaultTemplate>
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Posts</Name>
+          <Alias>posts</Alias>
+          <Type>Umbraco.ListView</Type>
+          <Definition>c0808dd3-8133-4e4b-8ce8-e2bea84a96a4</Definition>
+          <Tab>Posts</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>302</Id>
+          <Caption>Posts</Caption>
+          <SortOrder>-1</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Compositions">
+      <Info>
+        <Name>C - Admin</Name>
+        <Alias>cAdmin</Alias>
+        <Icon>icon-umb-contour</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>URL slug</Name>
+          <Alias>umbracoUrlName</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Admin</Tab>
+          <SortOrder>3</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Optionally change the URL of the page]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Don't follow</Name>
+          <Alias>dontFollow</Alias>
+          <Type>Umbraco.TrueFalse</Type>
+          <Definition>92897bc6-a5f3-4ffe-ae27-f2e7e33dda49</Definition>
+          <Tab>Admin</Tab>
+          <SortOrder>6</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[When checked the page has a "noindex, nofollow" meta tag]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Invisible redirect</Name>
+          <Alias>umbracoInternalRedirectId</Alias>
+          <Type>Umbraco.ContentPickerAlias</Type>
+          <Definition>a6857c73-d6e9-480c-b6e6-f15f6ad11125</Definition>
+          <Tab>Admin</Tab>
+          <SortOrder>5</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Redirect to the selected page with NO URL redirection]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>URL alias</Name>
+          <Alias>umbracoUrlAlias</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Admin</Tab>
+          <SortOrder>4</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Optionally create multiple URLs for the same page. Use wisely, too many can damage SEO ranking]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Hide from search</Name>
+          <Alias>hideFromSearch</Alias>
+          <Type>Umbraco.TrueFalse</Type>
+          <Definition>92897bc6-a5f3-4ffe-ae27-f2e7e33dda49</Definition>
+          <Tab>Admin</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Checking this will hide the age from the site search results]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Hide from navigation</Name>
+          <Alias>umbracoNaviHide</Alias>
+          <Type>Umbraco.TrueFalse</Type>
+          <Definition>92897bc6-a5f3-4ffe-ae27-f2e7e33dda49</Definition>
+          <Tab>Admin</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Checking this will hide the page from the navigation]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>291</Id>
+          <Caption>Admin</Caption>
+          <SortOrder>20</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Compositions">
+      <Info>
+        <Name>C - Headline only</Name>
+        <Alias>cHeadlineOnly</Alias>
+        <Icon>icon-umb-contour</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Headline</Name>
+          <Alias>headline</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[If left blank, the page name will be used]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>292</Id>
+          <Caption>Content</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Compositions">
+      <Info>
+        <Name>C - Headline with excerpt</Name>
+        <Alias>cHeadlineWithExcerpt</Alias>
+        <Icon>icon-umb-contour</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Excerpt</Name>
+          <Alias>excerpt</Alias>
+          <Type>Input.CharLimitEditor</Type>
+          <Definition>12b5f55a-f46e-4a8c-b106-80d6e8d60f1a</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[A short description of the article]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Headline</Name>
+          <Alias>headline</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[If left blank, the page name will be used]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>293</Id>
+          <Caption>Content</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Compositions">
+      <Info>
+        <Name>C - Headline with subtitle</Name>
+        <Alias>cHeadlineWithSubtitle</Alias>
+        <Icon>icon-umb-contour</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Subtitle</Name>
+          <Alias>subtitle</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Subtitle displayed below the page name]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Headline</Name>
+          <Alias>headline</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[If left blank, the page name will be used]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>294</Id>
+          <Caption>Content</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Compositions">
+      <Info>
+        <Name>C - Introduction</Name>
+        <Alias>cIntroduction</Alias>
+        <Icon>icon-umb-contour</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Introduction</Name>
+          <Alias>introduction</Alias>
+          <Type>Umbraco.TinyMCEv3</Type>
+          <Definition>82a71e25-19f4-47d4-b50f-36ff56192868</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Short introduction to the page and subpages]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>295</Id>
+          <Caption>Content</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Compositions">
+      <Info>
+        <Name>C - Meta</Name>
+        <Alias>cMeta</Alias>
+        <Icon>icon-umb-contour</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Featured image</Name>
+          <Alias>featuredImage</Alias>
+          <Type>Umbraco.MultipleMediaPicker</Type>
+          <Definition>a78af6a5-2a4c-42a4-b6d5-8a9c4bd58662</Definition>
+          <Tab>Meta</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[The main image of the page (e.g when page is listed on the website)]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Page description</Name>
+          <Alias>pageDescription</Alias>
+          <Type>Input.CharLimitEditor</Type>
+          <Definition>12b5f55a-f46e-4a8c-b106-80d6e8d60f1a</Definition>
+          <Tab>Meta</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Description of the page (only used on the website)]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>296</Id>
+          <Caption>Meta</Caption>
+          <SortOrder>7</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Compositions">
+      <Info>
+        <Name>C - Meta tags</Name>
+        <Alias>cMetaTags</Alias>
+        <Icon>icon-document</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Tags</Name>
+          <Alias>tags</Alias>
+          <Type>Umbraco.NoEdit</Type>
+          <Definition>f0bc4bfb-b499-40d6-ba86-058885a5178c</Definition>
+          <Tab>Meta</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Add tag properties here]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>297</Id>
+          <Caption>Meta</Caption>
+          <SortOrder>7</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Compositions">
+      <Info>
+        <Name>C - Page Components</Name>
+        <Alias>cPageComponents</Alias>
+        <Icon>icon-umb-contour</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Page content</Name>
+          <Alias>pageContent</Alias>
+          <Type>Our.Umbraco.NestedContent</Type>
+          <Definition>43214c94-a0ff-407a-8f2d-4ff07c64384e</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Main content of the page]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>298</Id>
+          <Caption>Content</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Compositions">
+      <Info>
+        <Name>C - Page Content</Name>
+        <Alias>cPageContent</Alias>
+        <Icon>icon-cloud</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Textarea</Name>
+          <Alias>pageTextarea</Alias>
+          <Type>Umbraco.TinyMCEv3</Type>
+          <Definition>2c79d1ca-119d-4ba6-af9a-847412147144</Definition>
+          <Tab>Page Content</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[This is where the main text for this section would be input. You have access to titles by pressing Format. (Optional)]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>299</Id>
+          <Caption>Page Content</Caption>
+          <SortOrder>1</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Compositions">
+      <Info>
+        <Name>C - Release date and time</Name>
+        <Alias>cReleaseDate</Alias>
+        <Icon>icon-calendar</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Release date</Name>
+          <Alias>releaseDate</Alias>
+          <Type>Umbraco.DateTime</Type>
+          <Definition>e4d66c0f-b935-4200-81f0-025f7256b89a</Definition>
+          <Tab>Meta</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>True</Mandatory>
+          <Description><![CDATA[Date and time (used for sorting)]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>300</Id>
+          <Caption>Meta</Caption>
+          <SortOrder>2</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Compositions">
+      <Info>
+        <Name>C - SEO &amp; Social</Name>
+        <Alias>cSEO</Alias>
+        <Icon>icon-umb-contour</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Social media image</Name>
+          <Alias>socialMediaImage</Alias>
+          <Type>Umbraco.MultipleMediaPicker</Type>
+          <Definition>a78af6a5-2a4c-42a4-b6d5-8a9c4bd58662</Definition>
+          <Tab>SEO / Social</Tab>
+          <SortOrder>2</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Image used when sharing on social media]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>SEO title</Name>
+          <Alias>seoTitle</Alias>
+          <Type>Input.CharLimitEditor</Type>
+          <Definition>c11b0533-4322-42d4-a469-b98904d47cef</Definition>
+          <Tab>SEO / Social</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[When left empty the 'page name + website name' will be used]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>SEO description</Name>
+          <Alias>seoDescription</Alias>
+          <Type>Input.CharLimitEditor</Type>
+          <Definition>7444db9b-02c5-41f4-b666-3cc17664d3d4</Definition>
+          <Tab>SEO / Social</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Description shown when sharing the page on social platforms and search engine results]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>301</Id>
+          <Caption>SEO / Social</Caption>
+          <SortOrder>19</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Blog">
+      <Info>
+        <Name>Categories</Name>
+        <Alias>categories</Alias>
+        <Icon>icon-tags</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties />
+      <Tabs />
+    </DocumentType>
+    <DocumentType Folders="Blog">
+      <Info>
+        <Name>Category</Name>
+        <Alias>category</Alias>
+        <Icon>icon-tag</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties />
+      <Tabs />
+    </DocumentType>
+    <DocumentType Folders="Nested+Content/Misc">
+      <Info>
+        <Name>Contact details</Name>
+        <Alias>contactDetail</Alias>
+        <Icon>icon-old-phone</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Title</Name>
+          <Alias>title</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Title of the contact details block]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Contact details</Name>
+          <Alias>contactDetails</Alias>
+          <Type>Our.Umbraco.NestedContent</Type>
+          <Definition>982ed8c5-b625-4a43-8511-97d9c6b049d4</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[All contact details for this section (phone, email, fax)]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>303</Id>
+          <Caption>Content</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Forms/Form+types">
+      <Info>
+        <Name>Contact form</Name>
+        <Alias>contactForm</Alias>
+        <Icon>icon-umb-members</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Message</Name>
+          <Alias>message</Alias>
+          <Type>Umbraco.TextboxMultiple</Type>
+          <Definition>c6bac0dd-4ab9-45b1-8e30-e4b619ee5da3</Definition>
+          <Tab>Information</Tab>
+          <SortOrder>3</SortOrder>
+          <Mandatory>True</Mandatory>
+          <Validation />
+          <Description><![CDATA[]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Name</Name>
+          <Alias>name</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Information</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>True</Mandatory>
+          <Description><![CDATA[]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Page name</Name>
+          <Alias>pageName</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Information</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Email address</Name>
+          <Alias>emailAddress</Alias>
+          <Type>Umbraco.NoEdit</Type>
+          <Definition>f0bc4bfb-b499-40d6-ba86-058885a5178c</Definition>
+          <Tab>Information</Tab>
+          <SortOrder>2</SortOrder>
+          <Mandatory>True</Mandatory>
+          <Validation>[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+</Validation>
+          <Description><![CDATA[]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>304</Id>
+          <Caption>Information</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Nested+Content/Components">
+      <Info>
+        <Name>Downloads</Name>
+        <Alias>downloads</Alias>
+        <Icon>icon-download</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Files</Name>
+          <Alias>files</Alias>
+          <Type>Umbraco.MultiNodeTreePicker</Type>
+          <Definition>12d07bf8-45fa-40bb-b380-a862f72eb03a</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Files to be listed in the downloads area]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Title</Name>
+          <Alias>title</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Title of the downloads area]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>305</Id>
+          <Caption>Content</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Nested+Content/Components">
+      <Info>
+        <Name>Embed</Name>
+        <Alias>embed</Alias>
+        <Icon>icon-code</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Alignment</Name>
+          <Alias>alignment</Alias>
+          <Type>Umbraco.DropDown</Type>
+          <Definition>ceb59c88-f237-4939-9d5d-5f0a34b02def</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[The embedded content will be aligned to this selection (full width if blank)]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Embed code</Name>
+          <Alias>embedCode</Alias>
+          <Type>Umbraco.TextboxMultiple</Type>
+          <Definition>c6bac0dd-4ab9-45b1-8e30-e4b619ee5da3</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Embed code from source (YouTube, Google Maps)]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>306</Id>
+          <Caption>Content</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="General">
+      <Info>
+        <Name>Error page</Name>
+        <Alias>errorPage</Alias>
+        <Icon>icon-application-error</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description>User friendly error page</Description>
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions>
+          <Composition>cAdmin</Composition>
+          <Composition>cHeadlineOnly</Composition>
+          <Composition>cPageComponents</Composition>
+        </Compositions>
+        <AllowedTemplates>
+          <Template>TextPage</Template>
+        </AllowedTemplates>
+        <DefaultTemplate>TextPage</DefaultTemplate>
+      </Info>
+      <Structure />
+      <GenericProperties />
+      <Tabs />
+    </DocumentType>
+    <DocumentType>
+      <Info>
+        <Name>ezSearch</Name>
+        <Alias>ezSearch</Alias>
+        <Icon>.sprTreeDoc3</Icon>
+        <Thumbnail>docWithImage.png</Thumbnail>
+        <Description>ezSearch page.
+(adjust settings via the macro in the ezSearch template)</Description>
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates>
+          <Template>ezSearch</Template>
+        </AllowedTemplates>
+        <DefaultTemplate>ezSearch</DefaultTemplate>
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Hide page?</Name>
+          <Alias>umbracoNaviHide</Alias>
+          <Type>Umbraco.TrueFalse</Type>
+          <Definition>92897bc6-a5f3-4ffe-ae27-f2e7e33dda49</Definition>
+          <Tab />
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Validation />
+          <Description><![CDATA[]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs />
+    </DocumentType>
+    <DocumentType Folders="Nested+Content/Components">
+      <Info>
+        <Name>Form</Name>
+        <Alias>form</Alias>
+        <Icon>icon-umb-contour</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Form</Name>
+          <Alias>form</Alias>
+          <Type>Umbraco.DropDown</Type>
+          <Definition>93402f93-eba3-497d-831b-af41d7925580</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Form to display]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Title</Name>
+          <Alias>title</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Title of the form (optional)]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>307</Id>
+          <Caption>Content</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Forms">
+      <Info>
+        <Name>Form folder</Name>
+        <Alias>formFolder</Alias>
+        <Icon>icon-paper-plane</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description>Folder to store all form submissions</Description>
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>True</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Submit message</Name>
+          <Alias>submissionMessage</Alias>
+          <Type>Umbraco.TinyMCEv3</Type>
+          <Definition>82a71e25-19f4-47d4-b50f-36ff56192868</Definition>
+          <Tab>General settings</Tab>
+          <SortOrder>3</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[If no 'submit page' is selected (above), this message will be shown when the form is submitted]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Submit page</Name>
+          <Alias>redirectPage</Alias>
+          <Type>Umbraco.ContentPickerAlias</Type>
+          <Definition>a6857c73-d6e9-480c-b6e6-f15f6ad11125</Definition>
+          <Tab>General settings</Tab>
+          <SortOrder>2</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[If a page is selected, the user will be redirected to it when submitting the form]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Internal notifications</Name>
+          <Alias>internalNotificationAddress</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>General settings</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Email address for internal notifications]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Internal notifications CC</Name>
+          <Alias>internalNotificationCc</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>General settings</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[CC addresses for internal notifications (comma separated)]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Notification message</Name>
+          <Alias>notificationMessage</Alias>
+          <Type>Umbraco.TinyMCEv3</Type>
+          <Definition>82a71e25-19f4-47d4-b50f-36ff56192868</Definition>
+          <Tab>Notifications</Tab>
+          <SortOrder>4</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Confirmation email body send to the person submitting the form.]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Send notification</Name>
+          <Alias>sendNotification</Alias>
+          <Type>Umbraco.TrueFalse</Type>
+          <Definition>92897bc6-a5f3-4ffe-ae27-f2e7e33dda49</Definition>
+          <Tab>Notifications</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Send notification email to the person who submitted the form]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Notification title</Name>
+          <Alias>notificationTitle</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Notifications</Tab>
+          <SortOrder>3</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Title of the confirmation email notification]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>From address</Name>
+          <Alias>fromAddress</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Notifications</Tab>
+          <SortOrder>2</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[FROM email address (default is noreply@)]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Sender name</Name>
+          <Alias>senderName</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Notifications</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Name of the sender]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>308</Id>
+          <Caption>General settings</Caption>
+          <SortOrder>1</SortOrder>
+        </Tab>
+        <Tab>
+          <Id>309</Id>
+          <Caption>Notifications</Caption>
+          <SortOrder>2</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Nested+Content/Components">
+      <Info>
+        <Name>Gallery</Name>
+        <Alias>imageGallery</Alias>
+        <Icon>icon-pictures-alt-2</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Aspect ratio</Name>
+          <Alias>aspectRatio</Alias>
+          <Type>Umbraco.DropDown</Type>
+          <Definition>fdc18e34-b855-41d2-9faa-3192698c2c1c</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Picking an aspect ratio will use the crop from the media section]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Alignment</Name>
+          <Alias>alignment</Alias>
+          <Type>Umbraco.DropDown</Type>
+          <Definition>ceb59c88-f237-4939-9d5d-5f0a34b02def</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>2</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[The gallery will be aligned to this selection  (full width if blank)]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Gallery</Name>
+          <Alias>galleryIds</Alias>
+          <Type>Umbraco.MultipleMediaPicker</Type>
+          <Definition>08bc6a4c-5d0a-4582-8a5f-03762ff3e1f3</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Images for the gallery]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>310</Id>
+          <Caption>Content</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="News">
+      <Info>
+        <Name>General news</Name>
+        <Alias>generalNews</Alias>
+        <Icon>icon-article</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description>General news article</Description>
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions>
+          <Composition>cAdmin</Composition>
+          <Composition>cHeadlineWithSubtitle</Composition>
+          <Composition>cMeta</Composition>
+          <Composition>cPageComponents</Composition>
+          <Composition>cReleaseDate</Composition>
+          <Composition>cSEO</Composition>
+        </Compositions>
+        <AllowedTemplates>
+          <Template>Article</Template>
+        </AllowedTemplates>
+        <DefaultTemplate>Article</DefaultTemplate>
+      </Info>
+      <Structure />
+      <GenericProperties />
+      <Tabs />
+    </DocumentType>
+    <DocumentType Folders="Settings">
+      <Info>
+        <Name>Global settings</Name>
+        <Alias>globalSettings</Alias>
+        <Icon>icon-settings-alt</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description>Global settings and site-wide content</Description>
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Website name</Name>
+          <Alias>websiteName</Alias>
+          <Type>Input.CharLimitEditor</Type>
+          <Definition>a7d4d525-ff03-403d-a7b2-1d6f4d860f4b</Definition>
+          <Tab>General</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[This is used in titles on search engines and social media]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Default social media image</Name>
+          <Alias>defaultSocialMediaImage</Alias>
+          <Type>Umbraco.MultipleMediaPicker</Type>
+          <Definition>a78af6a5-2a4c-42a4-b6d5-8a9c4bd58662</Definition>
+          <Tab>General</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Default image used when sharing a page on social media]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Tracking Id</Name>
+          <Alias>trackingId</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>General</Tab>
+          <SortOrder>3</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Google Analytics ID (UA-000000-01)]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Default featured image</Name>
+          <Alias>defaultFeaturedImage</Alias>
+          <Type>Umbraco.MultipleMediaPicker</Type>
+          <Definition>a78af6a5-2a4c-42a4-b6d5-8a9c4bd58662</Definition>
+          <Tab>General</Tab>
+          <SortOrder>2</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Default image used in gateway pages and listings]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Contact Number</Name>
+          <Alias>contactNumber</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>General</Tab>
+          <SortOrder>4</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Validation />
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Footer navigation</Name>
+          <Alias>footerNavigation</Alias>
+          <Type>Umbraco.MultiNodeTreePicker</Type>
+          <Definition>73205e2a-cea5-439c-b6f7-405db9046868</Definition>
+          <Tab>Footer</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Selected pages are displayed at the bottom of the page]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Copyright disclaimer</Name>
+          <Alias>copyrightDisclaimer</Alias>
+          <Type>Input.CharLimitEditor</Type>
+          <Definition>12b5f55a-f46e-4a8c-b106-80d6e8d60f1a</Definition>
+          <Tab>Footer</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Legal information that appears at the bottom of the page (Press Shift + ENTER for new line)]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Introduction text</Name>
+          <Alias>introductionText</Alias>
+          <Type>Umbraco.TinyMCEv3</Type>
+          <Definition>82a71e25-19f4-47d4-b50f-36ff56192868</Definition>
+          <Tab>Accreditations</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Introduction text for the accreditation section above the footer]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Accreditations</Name>
+          <Alias>accreditations</Alias>
+          <Type>Our.Umbraco.NestedContent</Type>
+          <Definition>982ed8c5-b625-4a43-8511-97d9c6b049d4</Definition>
+          <Tab>Accreditations</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Accreditation logos shown in the section]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>311</Id>
+          <Caption>General</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+        <Tab>
+          <Id>312</Id>
+          <Caption>Footer</Caption>
+          <SortOrder>1</SortOrder>
+        </Tab>
+        <Tab>
+          <Id>313</Id>
+          <Caption>Accreditations</Caption>
+          <SortOrder>3</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="General">
+      <Info>
+        <Name>Home</Name>
+        <Alias>home</Alias>
+        <Icon>icon-home</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description>Landing page of the website</Description>
+        <AllowAtRoot>True</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions>
+          <Composition>cAdmin</Composition>
+          <Composition>cSEO</Composition>
+        </Compositions>
+        <AllowedTemplates>
+          <Template>Home</Template>
+        </AllowedTemplates>
+        <DefaultTemplate>Home</DefaultTemplate>
+      </Info>
+      <Structure>
+        <DocumentType>textPage</DocumentType>
+      </Structure>
+      <GenericProperties />
+      <Tabs />
+    </DocumentType>
+    <DocumentType Folders="Nested+Content/Components">
+      <Info>
+        <Name>Image</Name>
+        <Alias>singleImage</Alias>
+        <Icon>icon-umb-media</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Aspect ratio</Name>
+          <Alias>aspectRatio</Alias>
+          <Type>Umbraco.DropDown</Type>
+          <Definition>fdc18e34-b855-41d2-9faa-3192698c2c1c</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Picking an aspect ratio will use the crop from the media section]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Image</Name>
+          <Alias>imageId</Alias>
+          <Type>Umbraco.MultipleMediaPicker</Type>
+          <Definition>a78af6a5-2a4c-42a4-b6d5-8a9c4bd58662</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Pick an image from the media library]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Alignment</Name>
+          <Alias>alignment</Alias>
+          <Type>Umbraco.DropDown</Type>
+          <Definition>51242885-95a5-41c0-a6b0-11124261080f</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>2</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[The image will be aligned to this selection  (full width if blank)]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>314</Id>
+          <Caption>Content</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="News">
+      <Info>
+        <Name>In the media</Name>
+        <Alias>inTheMedia</Alias>
+        <Icon>icon-conversation</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description>In the media - link to external source</Description>
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions>
+          <Composition>cHeadlineWithExcerpt</Composition>
+          <Composition>cMeta</Composition>
+          <Composition>cReleaseDate</Composition>
+        </Compositions>
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Source</Name>
+          <Alias>source</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Meta</Tab>
+          <SortOrder>3</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Link to the source]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>315</Id>
+          <Caption>Meta</Caption>
+          <SortOrder>7</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Nested+Content/Misc">
+      <Info>
+        <Name>Label with value</Name>
+        <Alias>keyValue</Alias>
+        <Icon>icon-info</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Value</Name>
+          <Alias>value</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Value shown]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Label</Name>
+          <Alias>label</Alias>
+          <Type>Input.CharLimitEditor</Type>
+          <Definition>a7d4d525-ff03-403d-a7b2-1d6f4d860f4b</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Label of the value]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>316</Id>
+          <Caption>Content</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Nested+Content/Misc">
+      <Info>
+        <Name>Logo with link</Name>
+        <Alias>logoWithLink</Alias>
+        <Icon>icon-window-popin</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Logo</Name>
+          <Alias>imageId</Alias>
+          <Type>Umbraco.MultipleMediaPicker</Type>
+          <Definition>a78af6a5-2a4c-42a4-b6d5-8a9c4bd58662</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Logo]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Link name</Name>
+          <Alias>linkName</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Link name]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Link url</Name>
+          <Alias>linkUrl</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>2</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Link URL to a source]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>317</Id>
+          <Caption>Content</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="News">
+      <Info>
+        <Name>News</Name>
+        <Alias>news</Alias>
+        <Icon>icon-newspaper</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description>Page holding all news articles</Description>
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions>
+          <Composition>cAdmin</Composition>
+          <Composition>cHeadlineWithSubtitle</Composition>
+          <Composition>cIntroduction</Composition>
+          <Composition>cSEO</Composition>
+        </Compositions>
+        <AllowedTemplates>
+          <Template>News</Template>
+        </AllowedTemplates>
+        <DefaultTemplate>News</DefaultTemplate>
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>No results message</Name>
+          <Alias>noResultsMessage</Alias>
+          <Type>Umbraco.TinyMCEv3</Type>
+          <Definition>82a71e25-19f4-47d4-b50f-36ff56192868</Definition>
+          <Tab>Settings</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Message shown when there are no results found]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Articles</Name>
+          <Alias>articles</Alias>
+          <Type>Umbraco.ListView</Type>
+          <Definition>c0808dd3-8133-4e4b-8ce8-e2bea84a96a4</Definition>
+          <Tab>Articles</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>318</Id>
+          <Caption>Settings</Caption>
+          <SortOrder>1</SortOrder>
+        </Tab>
+        <Tab>
+          <Id>319</Id>
+          <Caption>Articles</Caption>
+          <SortOrder>-1</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="General">
+      <Info>
+        <Name>Not found</Name>
+        <Alias>notFound</Alias>
+        <Icon>icon-directions</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description>User friendly not found page</Description>
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions>
+          <Composition>cAdmin</Composition>
+          <Composition>cHeadlineOnly</Composition>
+          <Composition>cPageComponents</Composition>
+        </Compositions>
+        <AllowedTemplates>
+          <Template>TextPage</Template>
+        </AllowedTemplates>
+        <DefaultTemplate>TextPage</DefaultTemplate>
+      </Info>
+      <Structure />
+      <GenericProperties />
+      <Tabs />
+    </DocumentType>
+    <DocumentType Folders="Blog">
+      <Info>
+        <Name>Post</Name>
+        <Alias>post</Alias>
+        <Icon>icon-newspaper-alt</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description>A single blog post</Description>
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions>
+          <Composition>cAdmin</Composition>
+          <Composition>cHeadlineWithSubtitle</Composition>
+          <Composition>cMeta</Composition>
+          <Composition>cPageComponents</Composition>
+          <Composition>cReleaseDate</Composition>
+          <Composition>cSEO</Composition>
+        </Compositions>
+        <AllowedTemplates>
+          <Template>Post</Template>
+        </AllowedTemplates>
+        <DefaultTemplate>Post</DefaultTemplate>
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Author</Name>
+          <Alias>author</Alias>
+          <Type>Umbraco.MultiNodeTreePicker</Type>
+          <Definition>6fe47baf-1059-48e7-a505-0ac866a9fca0</Definition>
+          <Tab>Meta</Tab>
+          <SortOrder>3</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Author of the post]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Category</Name>
+          <Alias>category</Alias>
+          <Type>Umbraco.MultiNodeTreePicker</Type>
+          <Definition>21025d51-646e-45e7-a3c6-360ba65c5e81</Definition>
+          <Tab>Meta</Tab>
+          <SortOrder>4</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Category of the post]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>320</Id>
+          <Caption>Meta</Caption>
+          <SortOrder>7</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="News">
+      <Info>
+        <Name>Press release</Name>
+        <Alias>pressRelease</Alias>
+        <Icon>icon-megaphone</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description>Press release article</Description>
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions>
+          <Composition>cAdmin</Composition>
+          <Composition>cHeadlineWithSubtitle</Composition>
+          <Composition>cMeta</Composition>
+          <Composition>cPageComponents</Composition>
+          <Composition>cReleaseDate</Composition>
+          <Composition>cSEO</Composition>
+        </Compositions>
+        <AllowedTemplates>
+          <Template>Article</Template>
+        </AllowedTemplates>
+        <DefaultTemplate>Article</DefaultTemplate>
+      </Info>
+      <Structure />
+      <GenericProperties />
+      <Tabs />
+    </DocumentType>
+    <DocumentType Folders="Nested+Content/Components">
+      <Info>
+        <Name>Quote</Name>
+        <Alias>quote</Alias>
+        <Icon>icon-quote</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Source</Name>
+          <Alias>source</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Quote</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Quote</Name>
+          <Alias>quote</Alias>
+          <Type>Input.CharLimitEditor</Type>
+          <Definition>12b5f55a-f46e-4a8c-b106-80d6e8d60f1a</Definition>
+          <Tab>Quote</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>321</Id>
+          <Caption>Quote</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="General">
+      <Info>
+        <Name>Sitemap</Name>
+        <Alias>sitemap</Alias>
+        <Icon>icon-sitemap</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description>A list of pages of a web site accessible to users</Description>
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions>
+          <Composition>cAdmin</Composition>
+          <Composition>cHeadlineOnly</Composition>
+          <Composition>cIntroduction</Composition>
+          <Composition>cSEO</Composition>
+        </Compositions>
+        <AllowedTemplates>
+          <Template>Sitemap</Template>
+        </AllowedTemplates>
+        <DefaultTemplate>Sitemap</DefaultTemplate>
+      </Info>
+      <Structure />
+      <GenericProperties />
+      <Tabs />
+    </DocumentType>
+    <DocumentType Folders="Nested+Content/Misc">
+      <Info>
+        <Name>Social platform</Name>
+        <Alias>socialPlatform</Alias>
+        <Icon>icon-link</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Social platform</Name>
+          <Alias>socialPlatformName</Alias>
+          <Type>Umbraco.DropDown</Type>
+          <Definition>0b6a45e7-44ba-430d-9da5-4e46060b9e03</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Social platform name]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Link</Name>
+          <Alias>socialPlatformLink</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Full link to the chosen social platform account (with http://)]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>322</Id>
+          <Caption>Content</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Nested+Content/Components">
+      <Info>
+        <Name>Tabs</Name>
+        <Alias>tabs</Alias>
+        <Icon>icon-tab</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Content</Name>
+          <Alias>content</Alias>
+          <Type>Our.Umbraco.NestedContent</Type>
+          <Definition>2bead533-2b3f-4866-9a66-5c4abf1e2f97</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Each entry will be a new tab]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>323</Id>
+          <Caption>Content</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Settings">
+      <Info>
+        <Name>Tags</Name>
+        <Alias>tagSettings</Alias>
+        <Icon>icon-mindmap</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>No results message</Name>
+          <Alias>noResultsMessage</Alias>
+          <Type>Umbraco.TinyMCEv3</Type>
+          <Definition>82a71e25-19f4-47d4-b50f-36ff56192868</Definition>
+          <Tab>Settings</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Message shown when no results are found]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>324</Id>
+          <Caption>Settings</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="General">
+      <Info>
+        <Name>Text Page</Name>
+        <Alias>textPage</Alias>
+        <Icon>icon-umb-content</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions>
+          <Composition>cAdmin</Composition>
+          <Composition>cHeadlineOnly</Composition>
+          <Composition>cIntroduction</Composition>
+          <Composition>cPageComponents</Composition>
+          <Composition>cSEO</Composition>
+        </Compositions>
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties />
+      <Tabs />
+    </DocumentType>
+    <DocumentType Folders="Nested+Content/Components">
+      <Info>
+        <Name>Textarea</Name>
+        <Alias>textarea</Alias>
+        <Icon>icon-font</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Content</Name>
+          <Alias>text</Alias>
+          <Type>Umbraco.TinyMCEv3</Type>
+          <Definition>2c79d1ca-119d-4ba6-af9a-847412147144</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Text content for the page]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Label</Name>
+          <Alias>label</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Internal use label for this area (not visible on the website)]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>325</Id>
+          <Caption>Content</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+    <DocumentType Folders="Nested+Content/Misc">
+      <Info>
+        <Name>Title with text</Name>
+        <Alias>titleWithText</Alias>
+        <Icon>icon-page-down</Icon>
+        <Thumbnail>folder.png</Thumbnail>
+        <Description />
+        <AllowAtRoot>False</AllowAtRoot>
+        <IsListView>False</IsListView>
+        <Compositions />
+        <AllowedTemplates />
+        <DefaultTemplate />
+      </Info>
+      <Structure />
+      <GenericProperties>
+        <GenericProperty>
+          <Name>Title</Name>
+          <Alias>title</Alias>
+          <Type>Umbraco.Textbox</Type>
+          <Definition>0cc0eba1-9960-42c9-bf9b-60e150b429ae</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>0</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Title of this section]]></Description>
+        </GenericProperty>
+        <GenericProperty>
+          <Name>Content</Name>
+          <Alias>content</Alias>
+          <Type>Umbraco.TinyMCEv3</Type>
+          <Definition>2c79d1ca-119d-4ba6-af9a-847412147144</Definition>
+          <Tab>Content</Tab>
+          <SortOrder>1</SortOrder>
+          <Mandatory>False</Mandatory>
+          <Description><![CDATA[Text content for this section]]></Description>
+        </GenericProperty>
+      </GenericProperties>
+      <Tabs>
+        <Tab>
+          <Id>326</Id>
+          <Caption>Content</Caption>
+          <SortOrder>0</SortOrder>
+        </Tab>
+      </Tabs>
+    </DocumentType>
+  </DocumentTypes>
+  <Templates>
+    <Template>
+      <Name>Article</Name>
+      <Alias>Article</Alias>
+      <Design><![CDATA[@using TMP.Core.Data
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "MasterNews.cshtml";
+
+    var allNewsArticles = NewsRepository.AllNewsArticles(Umbraco).ToList();
+}
+
+<main class="o-page__inner" role="main">
+    @Html.Partial("~/Views/Partials/Page/Headline.cshtml")
+    @Html.Partial("~/Views/Partials/Page/Components.cshtml")
+</main>
+
+<aside class="o-page__aside">
+    @Html.Partial("~/Views/Partials/Pods/DateArchive.cshtml", allNewsArticles)
+
+    @Html.Partial("~/Views/Partials/Pods/NewsFilter.cshtml")
+</aside>
+]]></Design>
+    </Template>
+    <Template>
+      <Name>Blog</Name>
+      <Alias>Blog</Alias>
+      <Design><![CDATA[@using System.Web.Mvc.Html
+@using TMP.Core.Data
+@using TMP.Core.Models.Components
+@using TMP.Core.Utility
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "MasterBlog.cshtml";
+
+    var allBlogPosts = BlogRepository.AllBlogPosts(Umbraco).ToList();
+    var filteredBlogPosts = BlogRepository.FilterSelection(allBlogPosts, Request.QueryString["author"], Request.QueryString["category"], Request.QueryString["year"], Request.QueryString["month"]).ToList();
+    var paging = Paging.GetPages(filteredBlogPosts.Count);
+    var selectedBlogPosts = filteredBlogPosts.Skip(paging.Skip).Take(paging.Take).ToList();
+}
+
+<main class="o-page__inner" role="main">
+	<div class="c-page__wrapper">
+	    @Html.Partial("~/Views/Partials/Page/Headline.cshtml")
+		<div class="c-grid o-wrap o-wrap--large u-clearfix o-section">
+			<aside class="c-grid__sidebar">
+			    @Html.Partial("~/Views/Partials/Pods/TagPrevalues.cshtml", Model, new ViewDataDictionary { { "title", "Authors" }, { "docType", "author" }, { "baseUrl", Model.Url } })
+			    @Html.Partial("~/Views/Partials/Pods/TagPrevalues.cshtml", Model, new ViewDataDictionary { { "title", "Categories" }, { "docType", "category" }, { "baseUrl", Model.Url } })
+			    @Html.Partial("~/Views/Partials/Pods/DateArchive.cshtml", allBlogPosts)
+			</aside>
+			<section class="c-grid__main-content">
+		        @if (selectedBlogPosts.Any())
+		        {
+		            foreach (var post in selectedBlogPosts)
+		            {
+		                var articleModel = new ArticleViewModel
+		                {
+		                    Id = post.Id,
+		                    Name = post.HasValue("headline") ? post.GetPropertyValue<string>("headline") : post.Name,
+		                    Thumbnail = Umbraco.TypedMedia(post.GetPropertyValue<int>("coverImage")),
+		                    Excerpt = post.GetPropertyValue<string>("excerpt"),
+		                    Url = post.Url,
+		                    Category = GetMetaById(post.GetPropertyValue<int>("category")),
+		                    Author = GetMetaById(post.GetPropertyValue<int>("author")),
+		                    CreateDate = post.GetPropertyValue<DateTime>("releaseDate")
+		                };
+
+		                if (post.DocumentTypeAlias == TMP.Core.Constants.InTheMedia)
+		                {
+		                    articleModel.Url = post.HasValue("source") ? post.GetPropertyValue<string>("source") : "#";
+		                    articleModel.LinkTarget = "_blank";
+		                    articleModel.ExtraClasses = "is-external";
+		                }
+
+		                @Html.Partial("~/Views/Partials/Cards/ArticleCard.cshtml", articleModel)
+		            }
+
+		            <nav class="c-blogs__pagination">
+		                @PagingTemplate.RenderPaging(paging, Model.Id)
+		            </nav>
+		        }
+		        else
+		        {
+		            var homePage = Model.Site();
+		            var tagSettings = homePage.Descendant("tagSettings");
+		            var noResultsMessage = tagSettings.GetPropertyValue<IHtmlString>("noResultsMessage");
+
+		            @noResultsMessage
+		        }
+		    </section>
+		</div>
+	</div>
+</main>
+
+@functions
+{
+
+    public string GetMetaById(int id)
+    {
+        var metaLabel = Umbraco.TypedContent(id);
+
+        if (metaLabel == null)
+        {
+            return "";
+        }
+
+        return metaLabel.Name;
+    }
+
+}
+]]></Design>
+    </Template>
+    <Template>
+      <Name>ezSearch</Name>
+      <Alias>ezSearch</Alias>
+      <Design><![CDATA[@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = null;
+}
+<h2>@Umbraco.Field("pageName")</h2>
+@Umbraco.RenderMacro("ezSearch")]]></Design>
+    </Template>
+    <Template>
+      <Name>Home</Name>
+      <Alias>Home</Alias>
+      <Design><![CDATA[@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "Master.cshtml";
+}
+
+<div class="c-page__wrapper">
+	<main class="o-page__inner u-clearfix" role="main">
+	    @Html.Partial("~/Views/Partials/Home/Banner.cshtml")
+		<div class="c-block u-clearfix">
+			@Html.Partial("~/Views/Partials/Home/LastWeek.cshtml")
+		    @Html.Partial("~/Views/Partials/Home/ClientReviews.cshtml")
+		</div>
+	    @Html.Partial("~/Views/Partials/Home/FeaturedContent.cshtml")
+	</main>
+	@Html.Partial("~/Views/Partials/Page/Newsletter.cshtml")
+	@Html.Partial("~/Views/Partials/Page/Accreditations.cshtml")
+</div>
+]]></Design>
+    </Template>
+    <Template>
+      <Name>Layout</Name>
+      <Alias>Layout</Alias>
+      <Design><![CDATA[@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "Master.cshtml";
+}
+
+@* @Html.Partial("~/Views/Partials/Page/Breadcrumbs.cshtml") *@
+@RenderBody()
+]]></Design>
+    </Template>
+    <Template>
+      <Name>Master</Name>
+      <Alias>Master</Alias>
+      <Design><![CDATA[@using TMP.Core.ExtensionMethods
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = null;
+
+    var pageScope = "s-" + Model.DocumentTypeAlias.ConvertToId();
+}
+
+<!doctype html>
+<html lang="en" class="no-enhance @pageScope">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
+
+        @Html.Partial("~/Views/Partials/Components/SEO.cshtml")
+        @RenderSection("OpenGraph", false)
+
+        <!--[if gt IE 8]><!-->
+            <link rel="stylesheet" href="/assets/css/style.css">
+        <!--<![endif]-->
+
+        <!--[if lt IE 9]>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+            <link rel="stylesheet" href="/assets/css/ie.css">
+        <![endif]-->
+
+        <script src="/assets/js/head.js"></script>
+
+        @RenderSection("HeadScripts", false)
+        @Html.Partial("~/Views/Partials/Components/Fonts.cshtml")
+        @Html.Partial("~/Views/Partials/Components/Favicons.cshtml")
+    </head>
+    <body class="o-page">
+        @Html.Partial("~/Views/Partials/Page/Header.cshtml")
+        @RenderBody()
+        @Html.Partial("~/Views/Partials/Page/Footer.cshtml")
+
+        <!--[if lt IE 9]>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <![endif]-->
+
+        <!--[if gte IE 9]><!-->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.js"></script>
+            <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.1/jquery.validate.unobtrusive.min.js"></script>
+            <script src="/assets/js/main.js"></script>
+        <!--<![endif]-->
+
+        @Html.Partial("~/Views/Partials/Components/Analytics.cshtml")
+        @RenderSection("Scripts", false)
+
+        <!--[if (gte IE 6)&(lte IE 8)]>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+        <![endif]-->
+    </body>
+</html>
+]]></Design>
+    </Template>
+    <Template>
+      <Name>Master blog</Name>
+      <Alias>MasterBlog</Alias>
+      <Design><![CDATA[@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "Layout.cshtml";
+}
+
+@RenderBody()
+]]></Design>
+    </Template>
+    <Template>
+      <Name>Master news</Name>
+      <Alias>MasterNews</Alias>
+      <Design><![CDATA[@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "Layout.cshtml";
+}
+
+@RenderBody()
+]]></Design>
+    </Template>
+    <Template>
+      <Name>News</Name>
+      <Alias>News</Alias>
+      <Design><![CDATA[@using TMP.Core.Utility
+@using TMP.Core.Data
+@using TMP.Core.Models.Components
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "MasterNews.cshtml";
+
+    var allNewsArticles = NewsRepository.AllNewsArticles(Umbraco).ToList();
+    var filteredNewsArticle = NewsRepository.FilterSelection(allNewsArticles, Request.QueryString["category"], Request.QueryString["year"], Request.QueryString["month"]).ToList();
+    var paging = Paging.GetPages(filteredNewsArticle.Count);
+    var selectedArticles = filteredNewsArticle.Skip(paging.Skip).Take(paging.Take).ToList();
+}
+
+<main class="o-page__inner" role="main">
+    @Html.Partial("~/Views/Partials/Page/Headline.cshtml")
+    <section>
+        @if (selectedArticles.Any())
+        {
+            foreach (var article in selectedArticles)
+            {
+                var articleModel = new ArticleViewModel
+                {
+                    Id = article.Id,
+                    Name = article.HasValue("headline") ? article.GetPropertyValue<string>("headline") : article.Name,
+                    Thumbnail = Umbraco.TypedMedia(article.GetPropertyValue<int>("coverImage")),
+                    Excerpt = article.GetPropertyValue<string>("excerpt"),
+                    Url = article.Url,
+                    Category = GetArticleCategory(article.DocumentTypeAlias),
+                    CreateDate = article.GetPropertyValue<DateTime>("releaseDate")
+                };
+
+                if (article.DocumentTypeAlias == TMP.Core.Constants.InTheMedia)
+                {
+                    articleModel.Url = article.HasValue("source") ? article.GetPropertyValue<string>("source") : "#";
+                    articleModel.LinkTarget = "_blank";
+                    articleModel.ExtraClasses = "is-external";
+                }
+
+                @Html.Partial("~/Views/Partials/Cards/ArticleCard.cshtml", articleModel)
+            }
+
+            if (paging.TotalPages > 1)
+            {
+                <nav>
+                    @PagingTemplate.RenderPaging(paging, Model.Id)
+                </nav>
+            }
+        }
+        else
+        {
+            var noResultsMessage = Model.GetPropertyValue<IHtmlString>("noResultsMessage");
+
+            @noResultsMessage
+        }
+    </section>
+</main>
+
+<aside class="o-page__aside">
+    @Html.Partial("~/Views/Partials/Pods/DateArchive.cshtml", allNewsArticles)
+    @Html.Partial("~/Views/Partials/Pods/NewsFilter.cshtml")
+</aside>
+
+@functions
+{
+
+    public string GetArticleCategory(string docType)
+    {
+        var category = string.Empty;
+
+        switch (docType)
+        {
+            case "inTheMedia":
+                category = "In the media";
+                break;
+            case "pressRelease":
+                category = "Press release";
+                break;
+            case "generalNews":
+                category = "General news";
+                break;
+        }
+
+        return category;
+    }
+
+}
+]]></Design>
+    </Template>
+    <Template>
+      <Name>Post</Name>
+      <Alias>Post</Alias>
+      <Design><![CDATA[@using TMP.Core.Data
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "MasterBlog.cshtml";
+
+    var allBlogPosts = BlogRepository.AllBlogPosts(Umbraco).ToList();
+}
+
+<main class="o-page__inner" role="main">
+		<div class="c-page__wrapper">
+	    @Html.Partial("~/Views/Partials/Page/Headline.cshtml")
+		<div class="c-section_wrapper c-grid o-wrap o-wrap--large u-clearfix o-section">
+			<aside class="c-grid__sidebar c-service__page-list">
+			    @Html.Partial("~/Views/Partials/Pods/TagPrevalues.cshtml", Model, new ViewDataDictionary { { "title", "Authors" }, { "docType", "author" }, { "baseUrl", Model.Url } })
+			    @Html.Partial("~/Views/Partials/Pods/TagPrevalues.cshtml", Model, new ViewDataDictionary { { "title", "Categories" }, { "docType", "category" }, { "baseUrl", Model.Url } })
+			    @Html.Partial("~/Views/Partials/Pods/DateArchive.cshtml", allBlogPosts)
+			</aside>
+			<div class="c-grid__main-content c-blogs__blog-post">
+	    		@Html.Partial("~/Views/Partials/Page/Components.cshtml")
+			</div>
+		</div>
+	</div>
+</main>
+]]></Design>
+    </Template>
+    <Template>
+      <Name>Search</Name>
+      <Alias>Search</Alias>
+      <Design><![CDATA[@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "Layout.cshtml";
+
+    var homePage = Model.Site();
+}
+<div class="c-page__wrapper">
+	<main class="o-page__inner" role="main">
+	    @Html.Partial("~/Views/Partials/Page/Headline.cshtml")
+	    <div class="o-section s-free-content o-wrap o-wrap--medium">
+	        @Html.Partial("~/Views/Partials/Components/SearchForm.cshtml")
+	        @Umbraco.RenderMacro("ezSearch", new
+	            {
+	                rootContentNodeId = homePage.Id,
+	                rootMediaNodeId = "",
+	                indexType = "CONTENT",
+	                searchFields = "nodeName,headline,pageContent,content,seoDescription,seoTitle,onSiteSearchKeywords",
+	                previewFields = "",
+	                previewLength = "155",
+	                pageSize = "10",
+	                hideFromSearchField = "hideFromSearch",
+	                searchFormLocation = "None"
+	            })
+	    </div>
+	</main>
+</div>
+]]></Design>
+    </Template>
+    <Template>
+      <Name>Sitemap</Name>
+      <Alias>Sitemap</Alias>
+      <Design><![CDATA[@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "Layout.cshtml";
+}
+
+<main class="o-page__inner" role="main">
+	<div class="c-page__wrapper">
+		@Html.Partial("~/Views/Partials/Page/Headline.cshtml")
+
+		<div class="o-section s-free-content">
+		    @Html.Partial("~/Views/Partials/Page/Components.cshtml")
+
+		    <div class=" o-wrap o-wrap--medium">
+		        @Html.Partial("~/Views/Partials/Page/Sitemap.cshtml")
+		    </div>
+		</div>
+	</div>
+</main>
+]]></Design>
+    </Template>
+    <Template>
+      <Name>Text page</Name>
+      <Alias>TextPage</Alias>
+      <Design><![CDATA[@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "Layout.cshtml";
+}
+
+<main class="o-page__inner" role="main">
+	<div class="c-page__wrapper">
+	    @Html.Partial("~/Views/Partials/Page/Headline.cshtml")
+	    <div class="o-section">
+			<div class="c-grid o-wrap o-wrap--large">
+				<div class="c-grid__main-content">
+					@Html.Partial("~/Views/Partials/Page/Components.cshtml")
+				</div>
+				<div class="c-grid__sidebar">
+					<div class="o-page-component o-wrap o-wrap--large is-first">
+						<h1 class="o-heading c-block__headline u-mega u-uppercase c-section">Tips & Advice</h1>
+						@Html.Partial("~/Views/Partials/Page/Sidebar/Textpage.cshtml")
+					</div>
+				</div>
+			</div>
+	    </div>
+		@Html.Partial("~/Views/Partials/Page/Newsletter.cshtml")
+		@Html.Partial("~/Views/Partials/Page/Accreditations.cshtml")
+	</div>
+</main>
+]]></Design>
+    </Template>
+  </Templates>
+  <Stylesheets />
+  <Macros>
+    <macro>
+      <name>ezSearch</name>
+      <alias>ezSearch</alias>
+      <scriptType />
+      <scriptAssembly />
+      <scriptingFile>~/Views/MacroPartials/ezSearch.cshtml</scriptingFile>
+      <xslt />
+      <useInEditor>False</useInEditor>
+      <dontRender>True</dontRender>
+      <refreshRate>0</refreshRate>
+      <cacheByMember>False</cacheByMember>
+      <cacheByPage>False</cacheByPage>
+      <properties>
+        <property name="Field that flags whether page should be hidden from results" alias="hideFromSearchField" sortOrder="7" propertyType="Umbraco.Textbox" />
+        <property name="Type of content to search for (CONTENT, MEDIA, BOTH)" alias="indexType" sortOrder="2" propertyType="Umbraco.Textbox" />
+        <property name="Number of results to show per page" alias="pageSize" sortOrder="6" propertyType="Umbraco.Integer" />
+        <property name="Fields to show as the result preview" alias="previewFields" sortOrder="4" propertyType="Umbraco.Textbox" />
+        <property name="Maximum length of the preview text" alias="previewLength" sortOrder="5" propertyType="Umbraco.Integer" />
+        <property name="Root content node to search from" alias="rootContentNodeId" sortOrder="0" propertyType="Umbraco.ContentPickerAlias" />
+        <property name="Root media node to search from" alias="rootMediaNodeId" sortOrder="1" propertyType="Umbraco.MediaPicker" />
+        <property name="Fields to search against" alias="searchFields" sortOrder="3" propertyType="Umbraco.Textbox" />
+        <property name="Location of the search form (TOP, BOTTOM, BOTH, NONE)" alias="searchFormLocation" sortOrder="8" propertyType="Umbraco.Textbox" />
+      </properties>
+    </macro>
+  </Macros>
+  <DictionaryItems>
+    <DictionaryItem Key="ezSearch">
+      <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[]]></Value>
+      <DictionaryItem Key="[ezSearch] Results Range">
+        <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Showing results <strong>{0}</strong> to <strong>{1}</strong>.]]></Value>
+      </DictionaryItem>
+      <DictionaryItem Key="[ezSearch] Search">
+        <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Search]]></Value>
+      </DictionaryItem>
+      <DictionaryItem Key="[ezSearch] Summary">
+        <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Your search for <strong>"{0}"</strong> matched <strong>{1}</strong> page(s).]]></Value>
+      </DictionaryItem>
+      <DictionaryItem Key="[ezSearch] Next">
+        <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Next]]></Value>
+      </DictionaryItem>
+      <DictionaryItem Key="[ezSearch] No Results">
+        <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[No results found for search term <strong>{0}</strong>.]]></Value>
+      </DictionaryItem>
+      <DictionaryItem Key="[ezSearch] Previous">
+        <Value LanguageId="1" LanguageCultureAlias="en-US"><![CDATA[Previous]]></Value>
+      </DictionaryItem>
+    </DictionaryItem>
+  </DictionaryItems>
+  <Languages />
+  <DataTypes>
+    <DataType Name="Dropdown multiple" Id="Umbraco.DropDownMultiple" Definition="f38f0ac7-1d27-439c-9f3f-089cd8825a53" DatabaseType="Nvarchar">
+      <PreValues />
+    </DataType>
+    <DataType Name="Radiobox" Id="Umbraco.RadioButtonList" Definition="bb5f57c9-ce2b-4bb9-b697-4caca783a805" DatabaseType="Nvarchar">
+      <PreValues />
+    </DataType>
+    <DataType Name="NC - Page Components" Id="Our.Umbraco.NestedContent" Definition="43214c94-a0ff-407a-8f2d-4ff07c64384e" DatabaseType="Ntext" Folders="Nested+Content">
+      <PreValues>
+        <PreValue Id="151" Value="[&#xD;&#xA;  {&#xD;&#xA;    &quot;ncAlias&quot;: &quot;imageGallery&quot;,&#xD;&#xA;    &quot;ncTabAlias&quot;: &quot;Content&quot;,&#xD;&#xA;    &quot;nameTemplate&quot;: &quot;Gallery&quot;&#xD;&#xA;  },&#xD;&#xA;  {&#xD;&#xA;    &quot;ncAlias&quot;: &quot;singleImage&quot;,&#xD;&#xA;    &quot;ncTabAlias&quot;: &quot;Content&quot;,&#xD;&#xA;    &quot;nameTemplate&quot;: &quot;Image&quot;&#xD;&#xA;  },&#xD;&#xA;  {&#xD;&#xA;    &quot;ncAlias&quot;: &quot;downloads&quot;,&#xD;&#xA;    &quot;ncTabAlias&quot;: &quot;Content&quot;,&#xD;&#xA;    &quot;nameTemplate&quot;: &quot;{{  title ? \&quot;Downloads: \&quot; + title : \&quot;Downloads\&quot; }}&quot;&#xD;&#xA;  },&#xD;&#xA;  {&#xD;&#xA;    &quot;ncAlias&quot;: &quot;embed&quot;,&#xD;&#xA;    &quot;ncTabAlias&quot;: &quot;Content&quot;,&#xD;&#xA;    &quot;nameTemplate&quot;: &quot;Embed&quot;&#xD;&#xA;  },&#xD;&#xA;  {&#xD;&#xA;    &quot;ncAlias&quot;: &quot;textarea&quot;,&#xD;&#xA;    &quot;ncTabAlias&quot;: &quot;Content&quot;,&#xD;&#xA;    &quot;nameTemplate&quot;: &quot;{{  label ? \&quot;Text: \&quot; + label : \&quot;Text\&quot; }}&quot;&#xD;&#xA;  },&#xD;&#xA;  {&#xD;&#xA;    &quot;ncAlias&quot;: &quot;accordion&quot;,&#xD;&#xA;    &quot;ncTabAlias&quot;: &quot;Content&quot;,&#xD;&#xA;    &quot;nameTemplate&quot;: &quot;Accordion&quot;&#xD;&#xA;  },&#xD;&#xA;  {&#xD;&#xA;    &quot;ncAlias&quot;: &quot;tabs&quot;,&#xD;&#xA;    &quot;ncTabAlias&quot;: &quot;Content&quot;,&#xD;&#xA;    &quot;nameTemplate&quot;: &quot;Tabs&quot;&#xD;&#xA;  },&#xD;&#xA;  {&#xD;&#xA;    &quot;ncAlias&quot;: &quot;form&quot;,&#xD;&#xA;    &quot;ncTabAlias&quot;: &quot;Content&quot;,&#xD;&#xA;    &quot;nameTemplate&quot;: &quot;{{  title ? \&quot;Form: \&quot; + title : \&quot;Form\&quot; }}&quot;&#xD;&#xA;  },&#xD;&#xA;  {&#xD;&#xA;    &quot;ncAlias&quot;: &quot;quote&quot;,&#xD;&#xA;    &quot;ncTabAlias&quot;: &quot;Quote&quot;,&#xD;&#xA;    &quot;nameTemplate&quot;: &quot;Quote - {{source}}&quot;&#xD;&#xA;  }&#xD;&#xA;]" Alias="contentTypes" SortOrder="0" />
+        <PreValue Id="152" Value="0" Alias="minItems" SortOrder="1" />
+        <PreValue Id="153" Value="0" Alias="maxItems" SortOrder="2" />
+        <PreValue Id="154" Value="0" Alias="confirmDeletes" SortOrder="3" />
+        <PreValue Id="155" Value="1" Alias="showIcons" SortOrder="4" />
+        <PreValue Id="156" Value="" Alias="hideLabel" SortOrder="5" />
+      </PreValues>
+    </DataType>
+    <DataType Name="Dropdown list - Form picker" Id="Umbraco.DropDown" Definition="93402f93-eba3-497d-831b-af41d7925580" DatabaseType="Nvarchar" Folders="Dropdown+list">
+      <PreValues>
+        <PreValue Id="193" Value="Contact form" Alias="0" SortOrder="0" />
+      </PreValues>
+    </DataType>
+    <DataType Name="Input Char limit - 65 characters" Id="Input.CharLimitEditor" Definition="c11b0533-4322-42d4-a469-b98904d47cef" DatabaseType="Nvarchar" Folders="Input+Char+limit">
+      <PreValues>
+        <PreValue Id="115" Value="65" Alias="limit" SortOrder="0" />
+      </PreValues>
+    </DataType>
+    <DataType Name="Media Picker - Multiple items, images only, folders enabled" Id="Umbraco.MultipleMediaPicker" Definition="08bc6a4c-5d0a-4582-8a5f-03762ff3e1f3" DatabaseType="Nvarchar" Folders="Media+Picker">
+      <PreValues>
+        <PreValue Id="141" Value="1" Alias="multiPicker" SortOrder="0" />
+        <PreValue Id="142" Value="1" Alias="onlyImages" SortOrder="1" />
+        <PreValue Id="143" Value="" Alias="disableFolderSelect" SortOrder="2" />
+        <PreValue Id="144" Value="" Alias="startNodeId" SortOrder="3" />
+      </PreValues>
+    </DataType>
+    <DataType Name="RTE - 350px, code, remove format, style, triple emphasis, list, anchor, image, table, no label" Id="Umbraco.TinyMCEv3" Definition="2c79d1ca-119d-4ba6-af9a-847412147144" DatabaseType="Ntext" Folders="Rich+Text+Editor">
+      <PreValues>
+        <PreValue Id="168" Value="{&#xD;&#xA;  &quot;toolbar&quot;: [&#xD;&#xA;    &quot;codemirror&quot;,&#xD;&#xA;    &quot;removeformat&quot;,&#xD;&#xA;    &quot;styleselect&quot;,&#xD;&#xA;    &quot;bold&quot;,&#xD;&#xA;    &quot;italic&quot;,&#xD;&#xA;    &quot;underline&quot;,&#xD;&#xA;    &quot;bullist&quot;,&#xD;&#xA;    &quot;numlist&quot;,&#xD;&#xA;    &quot;link&quot;,&#xD;&#xA;    &quot;unlink&quot;,&#xD;&#xA;    &quot;umbmediapicker&quot;,&#xD;&#xA;    &quot;table&quot;&#xD;&#xA;  ],&#xD;&#xA;  &quot;stylesheets&quot;: [&#xD;&#xA;    &quot;RTE&quot;&#xD;&#xA;  ],&#xD;&#xA;  &quot;dimensions&quot;: {&#xD;&#xA;    &quot;height&quot;: 350&#xD;&#xA;  },&#xD;&#xA;  &quot;maxImageSize&quot;: 500&#xD;&#xA;}" Alias="editor" SortOrder="0" />
+        <PreValue Id="169" Value="1" Alias="hideLabel" SortOrder="1" />
+      </PreValues>
+    </DataType>
+    <DataType Name="Image Cropper - Basic" Id="Umbraco.ImageCropper" Definition="764af74d-b32f-48e0-84c2-9e32952fd1f7" DatabaseType="Ntext" Folders="Image+Cropper">
+      <PreValues>
+        <PreValue Id="120" Value="[&#xD;&#xA;  {&#xD;&#xA;    &quot;alias&quot;: &quot;3:4&quot;,&#xD;&#xA;    &quot;width&quot;: 675,&#xD;&#xA;    &quot;height&quot;: 900&#xD;&#xA;  },&#xD;&#xA;  {&#xD;&#xA;    &quot;alias&quot;: &quot;1:1&quot;,&#xD;&#xA;    &quot;width&quot;: 900,&#xD;&#xA;    &quot;height&quot;: 900&#xD;&#xA;  },&#xD;&#xA;  {&#xD;&#xA;    &quot;alias&quot;: &quot;4:3&quot;,&#xD;&#xA;    &quot;width&quot;: 900,&#xD;&#xA;    &quot;height&quot;: 675&#xD;&#xA;  },&#xD;&#xA;  {&#xD;&#xA;    &quot;alias&quot;: &quot;3:2&quot;,&#xD;&#xA;    &quot;width&quot;: 900,&#xD;&#xA;    &quot;height&quot;: 600&#xD;&#xA;  },&#xD;&#xA;  {&#xD;&#xA;    &quot;alias&quot;: &quot;16:9&quot;,&#xD;&#xA;    &quot;width&quot;: 900,&#xD;&#xA;    &quot;height&quot;: 506.25&#xD;&#xA;  },&#xD;&#xA;  {&#xD;&#xA;    &quot;alias&quot;: &quot;21:9&quot;,&#xD;&#xA;    &quot;width&quot;: 900,&#xD;&#xA;    &quot;height&quot;: 385.71&#xD;&#xA;  },&#xD;&#xA;  {&#xD;&#xA;    &quot;alias&quot;: &quot;open-graph&quot;,&#xD;&#xA;    &quot;width&quot;: 1024,&#xD;&#xA;    &quot;height&quot;: 512&#xD;&#xA;  }&#xD;&#xA;]" Alias="crops" SortOrder="0" />
+      </PreValues>
+    </DataType>
+    <DataType Name="Multinode Treepicker - Media, no limit" Id="Umbraco.MultiNodeTreePicker" Definition="12d07bf8-45fa-40bb-b380-a862f72eb03a" DatabaseType="Nvarchar" Folders="Multinode+Treepicker">
+      <PreValues>
+        <PreValue Id="159" Value="{&#xD;&#xA;  &quot;type&quot;: &quot;media&quot;&#xD;&#xA;}" Alias="startNode" SortOrder="0" />
+        <PreValue Id="160" Value="" Alias="filter" SortOrder="1" />
+        <PreValue Id="161" Value="" Alias="minNumber" SortOrder="2" />
+        <PreValue Id="162" Value="" Alias="maxNumber" SortOrder="3" />
+        <PreValue Id="163" Value="1" Alias="showOpenButton" SortOrder="4" />
+        <PreValue Id="164" Value="0" Alias="showEditButton" SortOrder="5" />
+        <PreValue Id="165" Value="0" Alias="showPathOnHover" SortOrder="6" />
+      </PreValues>
+    </DataType>
+    <DataType Name="List View - Members" Id="Umbraco.ListView" Definition="aa2c52a0-ce87-4e65-a47c-7df09358585d" DatabaseType="Nvarchar">
+      <PreValues>
+        <PreValue Id="-1" Value="10" Alias="pageSize" SortOrder="0" />
+        <PreValue Id="-2" Value="username" Alias="orderBy" SortOrder="1" />
+        <PreValue Id="-3" Value="asc" Alias="orderDirection" SortOrder="2" />
+        <PreValue Id="-4" Value="[{&quot;alias&quot;:&quot;username&quot;,&quot;isSystem&quot;:1},{&quot;alias&quot;:&quot;email&quot;,&quot;isSystem&quot;:1},{&quot;alias&quot;:&quot;updateDate&quot;,&quot;header&quot;:&quot;Last edited&quot;,&quot;isSystem&quot;:1}]" Alias="includeProperties" SortOrder="3" />
+      </PreValues>
+    </DataType>
+    <DataType Name="Textstring" Id="Umbraco.Textbox" Definition="0cc0eba1-9960-42c9-bf9b-60e150b429ae" DatabaseType="Nvarchar">
+      <PreValues />
+    </DataType>
+    <DataType Name="List View - Content" Id="Umbraco.ListView" Definition="c0808dd3-8133-4e4b-8ce8-e2bea84a96a4" DatabaseType="Nvarchar">
+      <PreValues />
+    </DataType>
+    <DataType Name="Input Char limit - 200 characters" Id="Input.CharLimitEditor" Definition="12b5f55a-f46e-4a8c-b106-80d6e8d60f1a" DatabaseType="Nvarchar" Folders="Input+Char+limit">
+      <PreValues>
+        <PreValue Id="128" Value="200" Alias="limit" SortOrder="0" />
+      </PreValues>
+    </DataType>
+    <DataType Name="Media Picker" Id="Umbraco.MultipleMediaPicker" Definition="93929b9a-93a2-4e2a-b239-d99334440a59" DatabaseType="Nvarchar">
+      <PreValues />
+    </DataType>
+    <DataType Name="RTE - Only Bold" Id="Umbraco.TinyMCEv3" Definition="3ab9e850-0e4b-44e0-af48-a8b861b99631" DatabaseType="Ntext">
+      <PreValues>
+        <PreValue Id="201" Value="{&#xD;&#xA;  &quot;toolbar&quot;: [&#xD;&#xA;    &quot;bold&quot;&#xD;&#xA;  ],&#xD;&#xA;  &quot;stylesheets&quot;: [],&#xD;&#xA;  &quot;dimensions&quot;: {&#xD;&#xA;    &quot;height&quot;: 500&#xD;&#xA;  },&#xD;&#xA;  &quot;maxImageSize&quot;: 500&#xD;&#xA;}" Alias="editor" SortOrder="0" />
+        <PreValue Id="202" Value="" Alias="hideLabel" SortOrder="1" />
+      </PreValues>
+    </DataType>
+    <DataType Name="Related Links" Id="Umbraco.RelatedLinks" Definition="21e798da-e06e-4eda-a511-ed257f78d4fa" DatabaseType="Ntext">
+      <PreValues />
+    </DataType>
+    <DataType Name="Multinode Treepicker - Category" Id="Umbraco.MultiNodeTreePicker" Definition="21025d51-646e-45e7-a3c6-360ba65c5e81" DatabaseType="Nvarchar" Folders="Multinode+Treepicker">
+      <PreValues>
+        <PreValue Id="183" Value="{&#xD;&#xA;  &quot;type&quot;: &quot;content&quot;,&#xD;&#xA;  &quot;query&quot;: &quot;$site/descendant-or-self::categories&quot;&#xD;&#xA;}" Alias="startNode" SortOrder="0" />
+        <PreValue Id="184" Value="category" Alias="filter" SortOrder="1" />
+        <PreValue Id="185" Value="" Alias="minNumber" SortOrder="2" />
+        <PreValue Id="186" Value="1" Alias="maxNumber" SortOrder="3" />
+        <PreValue Id="187" Value="0" Alias="showOpenButton" SortOrder="4" />
+        <PreValue Id="188" Value="1" Alias="showEditButton" SortOrder="5" />
+        <PreValue Id="189" Value="0" Alias="showPathOnHover" SortOrder="6" />
+      </PreValues>
+    </DataType>
+    <DataType Name="NC - Key - value, Max 10" Id="Our.Umbraco.NestedContent" Definition="982ed8c5-b625-4a43-8511-97d9c6b049d4" DatabaseType="Ntext" Folders="Nested+Content">
+      <PreValues>
+        <PreValue Id="129" Value="[&#xD;&#xA;  {&#xD;&#xA;    &quot;ncAlias&quot;: &quot;keyValue&quot;,&#xD;&#xA;    &quot;ncTabAlias&quot;: &quot;Content&quot;,&#xD;&#xA;    &quot;nameTemplate&quot;: &quot;{{  label ? label + \&quot;: \&quot; : \&quot;\&quot; }}{{ value }}&quot;&#xD;&#xA;  }&#xD;&#xA;]" Alias="contentTypes" SortOrder="0" />
+        <PreValue Id="130" Value="0" Alias="minItems" SortOrder="1" />
+        <PreValue Id="131" Value="10" Alias="maxItems" SortOrder="2" />
+        <PreValue Id="132" Value="0" Alias="confirmDeletes" SortOrder="3" />
+        <PreValue Id="133" Value="1" Alias="showIcons" SortOrder="4" />
+        <PreValue Id="134" Value="" Alias="hideLabel" SortOrder="5" />
+      </PreValues>
+    </DataType>
+    <DataType Name="RTE - 200px, code, remove format, style, triple emphasis, list, anchor" Id="Umbraco.TinyMCEv3" Definition="82a71e25-19f4-47d4-b50f-36ff56192868" DatabaseType="Ntext" Folders="Rich+Text+Editor">
+      <PreValues>
+        <PreValue Id="117" Value="{&#xD;&#xA;  &quot;toolbar&quot;: [&#xD;&#xA;    &quot;codemirror&quot;,&#xD;&#xA;    &quot;removeformat&quot;,&#xD;&#xA;    &quot;styleselect&quot;,&#xD;&#xA;    &quot;bold&quot;,&#xD;&#xA;    &quot;italic&quot;,&#xD;&#xA;    &quot;underline&quot;,&#xD;&#xA;    &quot;bullist&quot;,&#xD;&#xA;    &quot;numlist&quot;,&#xD;&#xA;    &quot;link&quot;,&#xD;&#xA;    &quot;unlink&quot;&#xD;&#xA;  ],&#xD;&#xA;  &quot;stylesheets&quot;: [&#xD;&#xA;    &quot;RTE&quot;&#xD;&#xA;  ],&#xD;&#xA;  &quot;dimensions&quot;: {&#xD;&#xA;    &quot;height&quot;: 200&#xD;&#xA;  },&#xD;&#xA;  &quot;maxImageSize&quot;: 500&#xD;&#xA;}" Alias="editor" SortOrder="0" />
+        <PreValue Id="118" Value="" Alias="hideLabel" SortOrder="1" />
+      </PreValues>
+    </DataType>
+    <DataType Name="Approved Color" Id="Umbraco.ColorPickerAlias" Definition="0225af17-b302-49cb-9176-b9f35cab9c17" DatabaseType="Nvarchar">
+      <PreValues />
+    </DataType>
+    <DataType Name="Numeric" Id="Umbraco.Integer" Definition="2e6d3631-066e-44b8-aec4-96f09099b2b5" DatabaseType="Integer">
+      <PreValues />
+    </DataType>
+    <DataType Name="Dropdown" Id="Umbraco.DropDown" Definition="0b6a45e7-44ba-430d-9da5-4e46060b9e03" DatabaseType="Integer">
+      <PreValues />
+    </DataType>
+    <DataType Name="Date Picker" Id="Umbraco.Date" Definition="5046194e-4237-453c-a547-15db3a07c4e1" DatabaseType="Date">
+      <PreValues />
+    </DataType>
+    <DataType Name="Multinode Treepicker - Featured Content - Blogs" Id="Umbraco.MultiNodeTreePicker" Definition="cde8a084-4a9e-4775-b170-4afa52c5a4df" DatabaseType="Nvarchar">
+      <PreValues>
+        <PreValue Id="194" Value="{&#xD;&#xA;  &quot;type&quot;: &quot;content&quot;,&#xD;&#xA;  &quot;id&quot;: 1177&#xD;&#xA;}" Alias="startNode" SortOrder="0" />
+        <PreValue Id="195" Value="" Alias="filter" SortOrder="1" />
+        <PreValue Id="196" Value="" Alias="minNumber" SortOrder="2" />
+        <PreValue Id="197" Value="" Alias="maxNumber" SortOrder="3" />
+        <PreValue Id="198" Value="0" Alias="showOpenButton" SortOrder="4" />
+        <PreValue Id="199" Value="0" Alias="showEditButton" SortOrder="5" />
+        <PreValue Id="200" Value="0" Alias="showPathOnHover" SortOrder="6" />
+      </PreValues>
+    </DataType>
+    <DataType Name="Date Picker with time" Id="Umbraco.DateTime" Definition="e4d66c0f-b935-4200-81f0-025f7256b89a" DatabaseType="Date">
+      <PreValues />
+    </DataType>
+    <DataType Name="Dropdown list - Aspect ratio" Id="Umbraco.DropDown" Definition="fdc18e34-b855-41d2-9faa-3192698c2c1c" DatabaseType="Nvarchar" Folders="Dropdown+list">
+      <PreValues>
+        <PreValue Id="145" Value="3:4" Alias="0" SortOrder="0" />
+        <PreValue Id="146" Value="1:1" Alias="1" SortOrder="1" />
+        <PreValue Id="147" Value="4:3" Alias="2" SortOrder="2" />
+        <PreValue Id="148" Value="3:2" Alias="3" SortOrder="3" />
+        <PreValue Id="149" Value="16:9" Alias="4" SortOrder="4" />
+        <PreValue Id="150" Value="21:9" Alias="5" SortOrder="5" />
+      </PreValues>
+    </DataType>
+    <DataType Name="Dropdown list - Alignment with full width" Id="Umbraco.DropDown" Definition="51242885-95a5-41c0-a6b0-11124261080f" DatabaseType="Nvarchar" Folders="Dropdown+list">
+      <PreValues>
+        <PreValue Id="190" Value="Left" Alias="0" SortOrder="0" />
+        <PreValue Id="191" Value="Right" Alias="1" SortOrder="1" />
+        <PreValue Id="192" Value="Full width" Alias="2" SortOrder="2" />
+      </PreValues>
+    </DataType>
+    <DataType Name="Media Picker - Single item, images only, disable folder" Id="Umbraco.MultipleMediaPicker" Definition="a78af6a5-2a4c-42a4-b6d5-8a9c4bd58662" DatabaseType="Nvarchar" Folders="Media+Picker">
+      <PreValues>
+        <PreValue Id="111" Value="" Alias="multiPicker" SortOrder="0" />
+        <PreValue Id="112" Value="1" Alias="onlyImages" SortOrder="1" />
+        <PreValue Id="113" Value="1" Alias="disableFolderSelect" SortOrder="2" />
+        <PreValue Id="114" Value="" Alias="startNodeId" SortOrder="3" />
+      </PreValues>
+    </DataType>
+    <DataType Name="Multinode Treepicker - Content, max 5" Id="Umbraco.MultiNodeTreePicker" Definition="73205e2a-cea5-439c-b6f7-405db9046868" DatabaseType="Nvarchar" Folders="Multinode+Treepicker">
+      <PreValues>
+        <PreValue Id="121" Value="{&#xD;&#xA;  &quot;type&quot;: &quot;content&quot;,&#xD;&#xA;  &quot;query&quot;: &quot;&quot;&#xD;&#xA;}" Alias="startNode" SortOrder="0" />
+        <PreValue Id="122" Value="" Alias="filter" SortOrder="1" />
+        <PreValue Id="123" Value="" Alias="minNumber" SortOrder="2" />
+        <PreValue Id="124" Value="5" Alias="maxNumber" SortOrder="3" />
+        <PreValue Id="125" Value="1" Alias="showOpenButton" SortOrder="4" />
+        <PreValue Id="126" Value="1" Alias="showEditButton" SortOrder="5" />
+        <PreValue Id="127" Value="1" Alias="showPathOnHover" SortOrder="6" />
+      </PreValues>
+    </DataType>
+    <DataType Name="RTE - 75px, remove format, triple emphasis, anchor" Id="Umbraco.TinyMCEv3" Definition="5709bfe4-afed-4a7a-98be-6edbd807bec5" DatabaseType="Ntext" Folders="Rich+Text+Editor">
+      <PreValues>
+        <PreValue Id="166" Value="{&#xD;&#xA;  &quot;toolbar&quot;: [&#xD;&#xA;    &quot;removeformat&quot;,&#xD;&#xA;    &quot;bold&quot;,&#xD;&#xA;    &quot;italic&quot;,&#xD;&#xA;    &quot;underline&quot;,&#xD;&#xA;    &quot;link&quot;,&#xD;&#xA;    &quot;unlink&quot;&#xD;&#xA;  ],&#xD;&#xA;  &quot;stylesheets&quot;: [&#xD;&#xA;    &quot;RTE&quot;&#xD;&#xA;  ],&#xD;&#xA;  &quot;dimensions&quot;: {&#xD;&#xA;    &quot;height&quot;: 75&#xD;&#xA;  },&#xD;&#xA;  &quot;maxImageSize&quot;: 500&#xD;&#xA;}" Alias="editor" SortOrder="0" />
+        <PreValue Id="167" Value="" Alias="hideLabel" SortOrder="1" />
+      </PreValues>
+    </DataType>
+    <DataType Name="SEO Checker" Id="SEOChecker" Definition="ee3b7251-b701-4643-86ce-02bf32f96d5c" DatabaseType="Ntext">
+      <PreValues />
+    </DataType>
+    <DataType Name="Input Char limit - 25 characters" Id="Input.CharLimitEditor" Definition="a7d4d525-ff03-403d-a7b2-1d6f4d860f4b" DatabaseType="Nvarchar" Folders="Input+Char+limit">
+      <PreValues>
+        <PreValue Id="119" Value="25" Alias="limit" SortOrder="0" />
+      </PreValues>
+    </DataType>
+    <DataType Name="Textarea" Id="Umbraco.TextboxMultiple" Definition="c6bac0dd-4ab9-45b1-8e30-e4b619ee5da3" DatabaseType="Ntext">
+      <PreValues />
+    </DataType>
+    <DataType Name="List View - Media" Id="Umbraco.ListView" Definition="3a0156c4-3b8c-4803-bdc1-6871faa83fff" DatabaseType="Nvarchar">
+      <PreValues>
+        <PreValue Id="-5" Value="100" Alias="pageSize" SortOrder="0" />
+        <PreValue Id="-6" Value="updateDate" Alias="orderBy" SortOrder="1" />
+        <PreValue Id="-7" Value="desc" Alias="orderDirection" SortOrder="2" />
+        <PreValue Id="-8" Value="[{&quot;name&quot;: &quot;Grid&quot;,&quot;path&quot;: &quot;views/propertyeditors/listview/layouts/grid/grid.html&quot;, &quot;icon&quot;: &quot;icon-thumbnails-small&quot;, &quot;isSystem&quot;: 1, &quot;selected&quot;: true},{&quot;name&quot;: &quot;List&quot;,&quot;path&quot;: &quot;views/propertyeditors/listview/layouts/list/list.html&quot;,&quot;icon&quot;: &quot;icon-list&quot;, &quot;isSystem&quot;: 1,&quot;selected&quot;: true}]" Alias="layouts" SortOrder="3" />
+        <PreValue Id="-9" Value="[{&quot;alias&quot;:&quot;updateDate&quot;,&quot;header&quot;:&quot;Last edited&quot;,&quot;isSystem&quot;:1},{&quot;alias&quot;:&quot;owner&quot;,&quot;header&quot;:&quot;Updated by&quot;,&quot;isSystem&quot;:1}]" Alias="includeProperties" SortOrder="4" />
+      </PreValues>
+    </DataType>
+    <DataType Name="Richtext editor" Id="Umbraco.TinyMCEv3" Definition="ca90c950-0aff-4e72-b976-a30b1ac57dad" DatabaseType="Ntext">
+      <PreValues>
+        <PreValue Id="3" Value=",code,undo,redo,cut,copy,mcepasteword,stylepicker,bold,italic,bullist,numlist,outdent,indent,mcelink,unlink,mceinsertanchor,mceimage,umbracomacro,mceinserttable,umbracoembed,mcecharmap,|1|1,2,3,|0|500,400|1049,|true|" Alias="0" SortOrder="0" />
+      </PreValues>
+    </DataType>
+    <DataType Name="Label" Id="Umbraco.NoEdit" Definition="f0bc4bfb-b499-40d6-ba86-058885a5178c" DatabaseType="Nvarchar">
+      <PreValues />
+    </DataType>
+    <DataType Name="Upload" Id="Umbraco.UploadField" Definition="84c6b441-31df-4ffe-b67e-67d5bc3ae65a" DatabaseType="Nvarchar">
+      <PreValues />
+    </DataType>
+    <DataType Name="NC - Title with text, multiple" Id="Our.Umbraco.NestedContent" Definition="2bead533-2b3f-4866-9a66-5c4abf1e2f97" DatabaseType="Ntext" Folders="Nested+Content">
+      <PreValues>
+        <PreValue Id="170" Value="[&#xD;&#xA;  {&#xD;&#xA;    &quot;ncAlias&quot;: &quot;titleWithText&quot;,&#xD;&#xA;    &quot;ncTabAlias&quot;: &quot;Content&quot;,&#xD;&#xA;    &quot;nameTemplate&quot;: &quot;{{ title }}&quot;&#xD;&#xA;  }&#xD;&#xA;]" Alias="contentTypes" SortOrder="0" />
+        <PreValue Id="171" Value="0" Alias="minItems" SortOrder="1" />
+        <PreValue Id="172" Value="0" Alias="maxItems" SortOrder="2" />
+        <PreValue Id="173" Value="0" Alias="confirmDeletes" SortOrder="3" />
+        <PreValue Id="174" Value="1" Alias="showIcons" SortOrder="4" />
+        <PreValue Id="175" Value="1" Alias="hideLabel" SortOrder="5" />
+      </PreValues>
+    </DataType>
+    <DataType Name="Member Picker" Id="Umbraco.MemberPicker" Definition="2b24165f-9782-4aa3-b459-1de4a4d21f60" DatabaseType="Integer">
+      <PreValues />
+    </DataType>
+    <DataType Name="Image Cropper" Id="Umbraco.ImageCropper" Definition="1df9f033-e6d4-451f-b8d2-e0cbc50a836f" DatabaseType="Ntext">
+      <PreValues />
+    </DataType>
+    <DataType Name="Content Picker" Id="Umbraco.ContentPickerAlias" Definition="a6857c73-d6e9-480c-b6e6-f15f6ad11125" DatabaseType="Integer">
+      <PreValues />
+    </DataType>
+    <DataType Name="Multiple Media Picker" Id="Umbraco.MultipleMediaPicker" Definition="7e3962cc-ce20-4ffc-b661-5897a894ba7e" DatabaseType="Nvarchar">
+      <PreValues>
+        <PreValue Id="5" Value="1" Alias="multiPicker" SortOrder="0" />
+      </PreValues>
+    </DataType>
+    <DataType Name="Dropdown list - Alignment" Id="Umbraco.DropDown" Definition="ceb59c88-f237-4939-9d5d-5f0a34b02def" DatabaseType="Nvarchar" Folders="Dropdown+list">
+      <PreValues>
+        <PreValue Id="157" Value="Left" Alias="0" SortOrder="0" />
+        <PreValue Id="158" Value="Right" Alias="1" SortOrder="1" />
+      </PreValues>
+    </DataType>
+    <DataType Name="Tags" Id="Umbraco.Tags" Definition="b6b73142-b9c1-4bf8-a16d-e1c23320b549" DatabaseType="Ntext">
+      <PreValues>
+        <PreValue Id="4" Value="default" Alias="group" SortOrder="0" />
+      </PreValues>
+    </DataType>
+    <DataType Name="NC - Contact details, Max 5" Id="Our.Umbraco.NestedContent" Definition="248362f5-a894-4fa2-a288-660ea1c06694" DatabaseType="Ntext" Folders="Nested+Content">
+      <PreValues>
+        <PreValue Id="135" Value="[&#xD;&#xA;  {&#xD;&#xA;    &quot;ncAlias&quot;: &quot;contactDetail&quot;,&#xD;&#xA;    &quot;ncTabAlias&quot;: &quot;Content&quot;,&#xD;&#xA;    &quot;nameTemplate&quot;: &quot;{{ title }}&quot;&#xD;&#xA;  }&#xD;&#xA;]" Alias="contentTypes" SortOrder="0" />
+        <PreValue Id="136" Value="0" Alias="minItems" SortOrder="1" />
+        <PreValue Id="137" Value="5" Alias="maxItems" SortOrder="2" />
+        <PreValue Id="138" Value="0" Alias="confirmDeletes" SortOrder="3" />
+        <PreValue Id="139" Value="1" Alias="showIcons" SortOrder="4" />
+        <PreValue Id="140" Value="" Alias="hideLabel" SortOrder="5" />
+      </PreValues>
+    </DataType>
+    <DataType Name="Multinode Treepicker - Author" Id="Umbraco.MultiNodeTreePicker" Definition="6fe47baf-1059-48e7-a505-0ac866a9fca0" DatabaseType="Nvarchar" Folders="Multinode+Treepicker">
+      <PreValues>
+        <PreValue Id="176" Value="{&#xD;&#xA;  &quot;type&quot;: &quot;content&quot;,&#xD;&#xA;  &quot;query&quot;: &quot;$site/descendant-or-self::authors&quot;&#xD;&#xA;}" Alias="startNode" SortOrder="0" />
+        <PreValue Id="177" Value="author" Alias="filter" SortOrder="1" />
+        <PreValue Id="178" Value="" Alias="minNumber" SortOrder="2" />
+        <PreValue Id="179" Value="1" Alias="maxNumber" SortOrder="3" />
+        <PreValue Id="180" Value="0" Alias="showOpenButton" SortOrder="4" />
+        <PreValue Id="181" Value="1" Alias="showEditButton" SortOrder="5" />
+        <PreValue Id="182" Value="0" Alias="showPathOnHover" SortOrder="6" />
+      </PreValues>
+    </DataType>
+    <DataType Name="True/false" Id="Umbraco.TrueFalse" Definition="92897bc6-a5f3-4ffe-ae27-f2e7e33dda49" DatabaseType="Integer">
+      <PreValues />
+    </DataType>
+    <DataType Name="Input Char limit - 160 characters" Id="Input.CharLimitEditor" Definition="7444db9b-02c5-41f4-b666-3cc17664d3d4" DatabaseType="Nvarchar" Folders="Input+Char+limit">
+      <PreValues>
+        <PreValue Id="116" Value="160" Alias="limit" SortOrder="0" />
+      </PreValues>
+    </DataType>
+    <DataType Name="Checkbox list" Id="Umbraco.CheckBoxList" Definition="fbaf13a8-4036-41f2-93a3-974f678c312a" DatabaseType="Nvarchar">
+      <PreValues />
+    </DataType>
+  </DataTypes>
+</umbPackage>

@@ -1,0 +1,18 @@
+﻿@using TMP.Core.Data
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "MasterNews.cshtml";
+
+    var allNewsArticles = NewsRepository.AllNewsArticles(Umbraco).ToList();
+}
+
+<main class="o-page__inner" role="main">
+    @Html.Partial("~/Views/Partials/Page/Headline.cshtml")
+    @Html.Partial("~/Views/Partials/Page/Components.cshtml")
+</main>
+
+<aside class="o-page__aside">
+    @Html.Partial("~/Views/Partials/Pods/DateArchive.cshtml", allNewsArticles)
+
+    @Html.Partial("~/Views/Partials/Pods/NewsFilter.cshtml")
+</aside>

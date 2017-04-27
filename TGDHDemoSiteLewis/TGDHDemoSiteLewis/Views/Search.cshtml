@@ -1,0 +1,26 @@
+﻿@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "Layout.cshtml";
+
+    var homePage = Model.Site();
+}
+<div class="c-page__wrapper">
+	<main class="o-page__inner" role="main">
+	    @Html.Partial("~/Views/Partials/Page/Headline.cshtml")
+	    <div class="o-section s-free-content o-wrap o-wrap--medium">
+	        @Html.Partial("~/Views/Partials/Components/SearchForm.cshtml")
+	        @Umbraco.RenderMacro("ezSearch", new
+	            {
+	                rootContentNodeId = homePage.Id,
+	                rootMediaNodeId = "",
+	                indexType = "CONTENT",
+	                searchFields = "nodeName,headline,pageContent,content,seoDescription,seoTitle,onSiteSearchKeywords",
+	                previewFields = "",
+	                previewLength = "155",
+	                pageSize = "10",
+	                hideFromSearchField = "hideFromSearch",
+	                searchFormLocation = "None"
+	            })
+	    </div>
+	</main>
+</div>

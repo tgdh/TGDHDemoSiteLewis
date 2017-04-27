@@ -1,0 +1,86 @@
+﻿@using TMP.Core.Utility
+@using TMP.Core.Data
+@using TMP.Core.Models.Components
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "MasterNews.cshtml";
+
+    var allNewsArticles = NewsRepository.AllNewsArticles(Umbraco).ToList();
+    var filteredNewsArticle = NewsRepository.FilterSelection(allNewsArticles, Request.QueryString["category"], Request.QueryString["year"], Request.QueryString["month"]).ToList();
+    var paging = Paging.GetPages(filteredNewsArticle.Count);
+    var selectedArticles = filteredNewsArticle.Skip(paging.Skip).Take(paging.Take).ToList();
+}
+
+<main class="o-page__inner" role="main">
+    @Html.Partial("~/Views/Partials/Page/Headline.cshtml")
+    <section>
+        @if (selectedArticles.Any())
+        {
+            foreach (var article in selectedArticles)
+            {
+                var articleModel = new ArticleViewModel
+                {
+                    Id = article.Id,
+                    Name = article.HasValue("headline") ? article.GetPropertyValue<string>("headline") : article.Name,
+                    Thumbnail = Umbraco.TypedMedia(article.GetPropertyValue<int>("coverImage")),
+                    Excerpt = article.GetPropertyValue<string>("excerpt"),
+                    Url = article.Url,
+                    Category = GetArticleCategory(article.DocumentTypeAlias),
+                    CreateDate = article.GetPropertyValue<DateTime>("releaseDate")
+                };
+
+                if (article.DocumentTypeAlias == TMP.Core.Constants.InTheMedia)
+                {
+                    articleModel.Url = article.HasValue("source") ? article.GetPropertyValue<string>("source") : "#";
+                    articleModel.LinkTarget = "_blank";
+                    articleModel.ExtraClasses = "is-external";
+                }
+
+                @Html.Partial("~/Views/Partials/Cards/ArticleCard.cshtml", articleModel)
+            }
+
+            if (paging.TotalPages > 1)
+            {
+                <nav>
+                    @PagingTemplate.RenderPaging(paging, Model.Id)
+                </nav>
+            }
+        }
+        else
+        {
+            var noResultsMessage = Model.GetPropertyValue<IHtmlString>("noResultsMessage");
+
+            @noResultsMessage
+        }
+    </section>
+</main>
+
+<aside class="o-page__aside">
+    @Html.Partial("~/Views/Partials/Pods/DateArchive.cshtml", allNewsArticles)
+    @Html.Partial("~/Views/Partials/Pods/NewsFilter.cshtml")
+</aside>
+
+@functions
+{
+
+    public string GetArticleCategory(string docType)
+    {
+        var category = string.Empty;
+
+        switch (docType)
+        {
+            case "inTheMedia":
+                category = "In the media";
+                break;
+            case "pressRelease":
+                category = "Press release";
+                break;
+            case "generalNews":
+                category = "General news";
+                break;
+        }
+
+        return category;
+    }
+
+}
