@@ -5,21 +5,138 @@
 =========================================================== */
 
 .c-footer {
-	background-color: $light-1;
-}
+	background-color: $black;
+	padding: 10rem 0 5rem 0;
+	position: relative;
 
-@include respond-min( $mq-large ) {
-
-	.c-footer__inner {
-		@include clearfix;
+	*{
+		color: white;
 	}
 
-	.c-footer__col {
-		@include column( 1/2 );
+	.c-footer__title{
+		margin-bottom: 2rem;
 	}
 
+	.c-footer__text{
+		br{
+			display: block;
+			line-height: 3rem;
+		}
+	}
+
+	.c-footer__item{
+		padding: 1rem;
+		box-sizing: border-box;
+		float: left;
+		display: block;
+		margin-bottom: 15rem;
+	}
+
+	.c-footer__contacts{
+		width: 30%;
+	}
+
+	.c-footer__links{
+		width: 50%;
+	}
+
+	.c-footer__social{
+		width: 20%;
+	}
+
+	.c-footer__bottom{
+		float: left;
+		width: 100%;
+		.c-footer__item{
+			margin-bottom: 0;
+		}
+	}
+
+	.c-footer__scroll-top{
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 100px;
+		height: 100px;
+		background-color: white;
+		display: block;
+		&:hover,
+		&:focus{
+			.icon-arrow{
+				top: -5px;
+			}
+		}
+		.icon-arrow{
+			position: relative;
+			color: black;
+			font-size: 4.5rem;
+			transform: rotate(-90deg);
+			display: block;
+			top: 0;
+			transition: $ease $speed top;
+		}
+	}
+
+	.c-footer__home{
+		font-size: 5rem;
+	}
 }
 
+.flexbox{
+	.c-footer__bottom{
+		.c-footer__links{
+			height: 72px;
+			display: flex;
+			align-items: flex-end;
+		}
+	}
+}
 
+@include respond-max($mq-large){
+	.c-footer {
+		padding: 4rem 0 1rem 0;
 
+		.c-footer__title{
+			margin-bottom: 1rem;
+		}
 
+		.c-footer__item{
+			padding-left: 0;
+			padding-right: 0;
+			margin-bottom: 2.5rem;
+		}
+
+		.c-footer__contacts{
+			width: 100%;
+		}
+
+		.c-footer__links{
+			width: 100%;
+		}
+
+		.c-footer__social{
+			width: 100%;
+		}
+
+		.c-footer__bottom{
+			float: left;
+			width: 100%;
+			.c-footer__item{
+				margin-bottom: 0;
+			}
+			.c-footer__links{
+				height: auto;
+				margin-top: 1rem;
+				padding-right: 10rem;
+			}
+		}
+
+		.c-footer__scroll-top{
+			width: 75px;
+			height: 75px;
+			.icon-arrow{
+				font-size: 3rem;
+			}
+		}
+	}
+}
