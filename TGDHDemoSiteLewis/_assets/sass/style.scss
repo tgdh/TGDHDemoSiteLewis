@@ -41,12 +41,13 @@
 
 @import 'components/header',
 		'components/nav',
+		'components/nav-footer',
 		'components/buttons',
 		'components/meta-data',
 		'components/quote',
 		'components/footer',
 		'components/caption',
-//		'components/carousel',
+		'components/cover',
 //		'components/breadcrumb',
 //		'components/map',
 //		'components/social',
@@ -54,7 +55,9 @@
 //		'components/pagination',
 		'components/alert',
 		'components/tabs',
-		'components/sitemap';
+		'components/sitemap',
+		'components/icons',
+		'components/text';
 
 @import 'trumps/overrides',
 		'trumps/free-content';
