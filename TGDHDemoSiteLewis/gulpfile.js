@@ -3,8 +3,8 @@
 var paths = {
     assetsFolder: '_assets',
     templates: '_templates',
-    siteFolder: 'testSite',
-    assetsBuildFolder: 'testSite/assets'
+    siteFolder: 'TGDHDemoSiteLewis',
+    assetsBuildFolder: 'TGDHDemoSiteLewis/assets'
 }
 
 /* ===========================================================
@@ -22,7 +22,8 @@ var headScripts = [
 
 var mainScripts = [
     paths.assetsFolder + '/js/components/jquery.tabs.js',
-    paths.assetsFolder + '/js/main.js'
+	paths.assetsFolder + '/js/components/*.js',
+    paths.assetsFolder + '/js/main.js',
 ];
 
 /* ===========================================================
