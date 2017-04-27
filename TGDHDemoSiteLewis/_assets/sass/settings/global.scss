@@ -8,6 +8,7 @@ $old-ie: 					false!default;
 $base-dir: 					'/assets';
 $fonts: 					'#{$base-dir}/fonts';
 $images: 					'#{$base-dir}/img';
+$icons:						'#{$base-dir}/fonts/fonts';
 
 
 /* ===========================================================
@@ -46,8 +47,8 @@ $flcikr: 					#0063dc;
 
 =========================================================== */
 
-$font-family:				"proxima-nova", Helvetica, Arial, Geneva, sans-serif;
-$font-family-sec:			'';
+$font-family:				'Lato', sans-serif;
+$font-family-sec:			'Playfair Display', serif;
 $font-size-small:			1.6rem;
 $font-size-large:			1.6rem;
 $line-height:				1.4em;
@@ -59,8 +60,8 @@ $heading-colour:			$black;
 $text-colour:				$black;
 $background-colour:			$white;
 $border-colour:				#ccc;
-$link-colour:				$pri;
-$link-colour-hover:			$sec;
+$link-colour:				$black;
+$link-colour-hover:			$white;
 $form-placeholder-colour:	#ccc;
 $placeholder-colour:		$light-1;
 $highlight-colour:			lighten( $pri, 50 );
@@ -85,7 +86,7 @@ $bold:						700;
 
 $wrap-small:				75rem;
 $wrap-medium:				92rem;
-$wrap-large:				108rem;
+$wrap-large:				110rem;
 $wrap-x-large:				140rem;
 
 
