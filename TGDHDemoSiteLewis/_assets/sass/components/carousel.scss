@@ -96,19 +96,21 @@
 /* dots */
 
 .c-carousel__dots {
-    position: relative;
+    position: absolute;
     list-style: none;
     display: block;
     text-align: center;
     padding: 0;
     margin: 0;
     width: 100%;
-
+	z-index: 500;
+	left: 0;
+	bottom: 3rem;
     li {
         position: relative;
         display: inline-block;
-        width: 2.1rem;
-		height: 2.1rem;
+        width: 1.8rem;
+		height: 1.8rem;
         margin: 0 .5rem;
         padding: 0;
         cursor: pointer;
@@ -122,7 +124,7 @@
 		&.slick-active {
 
 			button:before {
-				background-color: $pri;
+				background-color: $white;
 			}
 
 		}
@@ -130,11 +132,11 @@
 	}
 
     button {
-        border: .2rem solid $pri;
+        border: .2rem solid $white;
         background: transparent;
         display: block;
-        height: 2.1rem;
-        width: 2.1rem;
+        height: 1.8rem;
+        width: 1.8rem;
         outline: none;
         line-height: 0;
         font-size: 0;
@@ -151,7 +153,7 @@
 
 	.slick-active {
 		button {
-			background-color: $pri;
+			background-color: $white;
 		}
 	}
 
@@ -183,6 +185,29 @@
 	}
 }
 
+.c-carousel__nav{
+	position: absolute;
+	top: calc(50% - 15px);
+	z-index: 501;
+	width: 50px;
+	height: 50px;
+	background-color: white;
+	border-radius: 50%;
+	.icon-arrow{
+		font-size: 3rem;
+	}
+	&.c-carousel__nav--prev{
+		left: 3rem;
+		.icon-arrow{
+			transform: rotate(180deg);
+			display: block;
+		}
+	}
+	&.c-carousel__nav--next{
+		right: 3rem;
+	}
+}
+
 @include respond-min( $mq-medium ) {
 
 	.c-carousel--prev,
@@ -198,5 +223,26 @@
 		right: -2.4rem;
 	}
 
+}
 
+@include respond-max($mq-large){
+	.c-carousel__dots{
+		display: none !important;
+	}
+
+	.c-carousel__nav{
+		position: absolute;
+		top: calc(50% - 10px);
+		width: 40px;
+		height: 40px;
+		.icon-arrow{
+			font-size: 2rem;
+		}
+		&.c-carousel__nav--prev{
+			left: 1.5rem;
+		}
+		&.c-carousel__nav--next{
+			right: 1.5rem;
+		}
+	}
 }
