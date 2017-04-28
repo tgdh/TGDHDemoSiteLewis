@@ -14,6 +14,7 @@
 	transition: background $speed $ease,
 				border-color $speed $ease;
 	&.js-sticky{
+		box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
 		.c-header__logo-link{
 			margin-top: 1.5rem;
 			margin-bottom: 1.5rem;
@@ -22,26 +23,11 @@
 			width: 4.75rem;
 		}
 		.c-nav--main{
-			padding: 1.25rem 0;
-			height: 7.75rem;
+			padding: 0.8rem 0;
 		}
 		.c-header__search{
 			height: 7.75rem;
 		}
-	}
-	.c-header__logo-link{
-		transition: $ease $speed margin-top,
-					$ease $speed margin-bottom;
-	}
-	.c-header__logo-image{
-		transition: $ease $speed width;
-	}
-	.c-nav--main{
-		transition: $ease $speed padding,
-					$ease $speed height;
-	}
-	.c-header__search{
-		transition: $ease $speed height;
 	}
 }
 
@@ -62,44 +48,8 @@
 
 @include respond-max( $mq-large ) {
 
-	.enhance {
-
-		.c-header__toggle-menu-button {
-			color: $pri;
-			font-size: 2.4rem;
-			display: block;
-			float: right;
-			padding: .9rem 1.3rem .8rem;
-			transition: color $speed $ease,
-						background $speed ease;
-
-			i {
-				vertical-align: middle;
-			}
-
-			&:hover,
-			&:focus {
-				color: $sec;
-			}
-		}
-
-		.c-header__logo-link {
-			position: relative;
-		}
-
-		&.nav-main-open {
-
-			.c-header__toggle-menu-button {
-				color: $white;
-
-				&:hover,
-				&:focus {
-					color: $pri;
-				}
-			}
-
-		}
-
+	.c-header__margin-top{
+		margin-top: 65px;
 	}
 
 	.c-header__menu-button{
@@ -111,6 +61,27 @@
 		top: 0;
 		right: 0;
 		cursor: pointer;
+		&.js-active{
+			.c-header__burger-text{
+				&::before,&::after{
+					top: -22px;
+				}
+			}
+			.c-header__burger{
+				left: -3px;
+				.c-header__lines{
+					width: 0;
+					&::before{
+						top: 1px;
+						transform: rotate(45deg);
+					}
+					&::after{
+						top: -2px;
+						transform: rotate(-45deg);
+					}
+				}
+			}
+		}
 		.c-header__burger-text{
 			float: left;
 			height: 22px;
@@ -121,7 +92,9 @@
 				display: block;
 				color: white;
 				font-size: 1.75rem;
-
+				position: relative;
+				transition: $ease $speed top;
+				top: 0;
 			}
 			&::before{
 				content: "Menu";
@@ -135,6 +108,10 @@
 			height: 35px;
 			margin: 1.5rem 1.5rem 1.5rem 0;
 			float: right;
+			transform: rotate(180deg);
+			position: relative;
+			left: 0;
+			transition: $ease $speed left;
 			.c-header__lines,.c-header__lines::before,.c-header__lines::after{
 				content: "";
 				display: block;
@@ -142,6 +119,9 @@
 				background-color: white;
 				width: 35px;
 				height: 3px;
+				transition: $ease $speed width,
+							$ease $speed top,
+							$ease $speed transform;
 			}
 			.c-header__lines{
 				top: calc(50% - 1px);
@@ -156,19 +136,46 @@
 	}
 
 	.c-header__logo-link{
-		margin-top: 1.25rem;
-		margin-bottom: 1.25rem;
+		margin-top: 1.25rem !important; /* Overrides the sticky nav js */
+		margin-bottom: 1.25rem !important; /* Overrides the sticky nav js */
 	}
+
 	.c-header__logo-image{
-		width: 4rem;
+		width: 4rem !important; /* Overrides the sticky nav js */
 	}
 
 	.c-header__search{
 		display: none;
 	}
+
+	.c-header{
+		.c-nav--main{
+			transition: $ease $speed opacity,
+						$ease $speed visbility;
+		}
+	}
 }
 
 @include respond-min( $mq-large ) {
+
+	.c-header{
+		.c-header__logo-link{
+			transition: $ease $speed margin;
+		}
+		.c-header__logo-image{
+			transition: $ease $speed width;
+		}
+		.c-nav--main{
+			transition: $ease $speed padding;
+		}
+		.c-header__search{
+			transition: $ease $speed height;
+		}
+	}
+
+	.c-header__margin-top{
+		margin-top: 110px;
+	}
 
 	.c-header{
 		&::before{
@@ -198,7 +205,6 @@
 	.c-nav--main {
 		float: left;
 		padding: 2.5rem 0;
-		height: 11rem;
 		background-color: white;
 	}
 
@@ -210,11 +216,57 @@
 		height: 11rem;
 		background-color: black;
 		z-index: 2;
+		cursor: pointer;
+		&.js-active{
+			.c-header__search-button{
+				transform: scale(0);
+			}
+			.c-header__search-button-close{
+				transform: scale(1);
+			}
+		}
 		.c-header__search-button{
 			display: block;
-			width: 3rem;
-			height: 3rem;
-			background-color: red;
+			width: 2.6rem;
+			height: 2.6rem;
+			border: 3px solid white;
+			border-radius: 50%;
+			transform: scale(1);
+			transition: $ease $speed transform;
+			&::after{
+				content: "";
+				display: block;
+				background-color: white;
+				width: 1.2rem;
+				height: .3rem;
+				position: relative;
+				transform: rotate(45deg);
+				top: 21px;
+				left: 18px;
+			}
+		}
+		.c-header__search-button-close{
+			position: absolute;
+			top: calc(50% - 2px);
+			left: calc(50% - 15px);
+			transition: $ease $speed transform;
+			transform: scale(0);
+			&::before,&::after{
+				content: "";
+				display: block;
+				position: relative;
+				width: 3rem;
+				height: .3rem;
+				background-color: white;
+			}
+			&::before{
+				transform: rotate(45deg);
+				top: 1px;
+			}
+			&::after{
+				transform: rotate(-45deg);
+				top: -2px;
+			}
 		}
 	}
 
