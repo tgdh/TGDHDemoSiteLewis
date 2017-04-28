@@ -1,0 +1,30 @@
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+	var heading = Model.GetPropertyValue<string>("featuredTextHeading");
+	var subHeading = Model.GetPropertyValue<string>("featuredTextSubHeading");
+	var content = Model.GetPropertyValue<string>("featuredTextContent");
+	if(string.IsNullOrWhiteSpace(content))
+	{
+		return;
+	}
+}
+<section class="c-text o-section">
+	<div class="o-wrap o-wrap--medium c-cover__flex">
+		<div>
+			@if(!string.IsNullOrWhiteSpace(heading))
+			{
+				<h3 class="c-intro__heading u-mega c-centered">@heading</h3>
+			}
+			@if(!string.IsNullOrWhiteSpace(heading))
+			{
+				<p class="c-intro__sub-heading o-section__line line--black o-section__fancy c-centered">@heading</p>
+			}
+			@if(!string.IsNullOrWhiteSpace(content))
+			{
+				<div class="c-cover-about__content">
+					@Html.Raw(content.Replace("\n","<br>"))
+				</div>
+			}
+		</div>
+	</div>
+</section>
