@@ -1,0 +1,16 @@
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+	var items = Model.GetPropertyValue<string>("galleryImages");
+	var galleryList = !string.IsNullOrWhiteSpace(items) ? items.Split(',').Select(mediaId => Umbraco.TypedMedia(mediaId)).ToList() : null;
+
+    if (galleryList == null)
+    {
+        return;
+    }
+}
+<section class="c-gallery js-carousel" data-fade="true" data-nav="true" data-dots="true" data-loop="true">
+	@foreach(var slide in galleryList)
+	{
+		<img src="@Url.GetCropUrl(slide, "Gallery")" alt="@slide.Name" class="c-gallery__image">
+	}
+</section>
