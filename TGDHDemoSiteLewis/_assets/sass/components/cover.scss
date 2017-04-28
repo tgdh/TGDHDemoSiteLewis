@@ -99,11 +99,13 @@
 }
 
 .c-cover-about{
-	height: calc(100vh - 75px);
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
 	position: relative;
+	&.o-section{
+		padding: 35rem 0;
+	}
 	&::after{
 		content: "";
 		display: block;
@@ -122,6 +124,14 @@
 
 	.c-cover-about__content{
 		margin: 1rem 0 4rem 0;
+	}
+}
+
+@include respond-max($mq-large){
+	.c-cover-about{
+		&.o-section{
+			padding: 15rem 0;
+		}
 	}
 }
 
