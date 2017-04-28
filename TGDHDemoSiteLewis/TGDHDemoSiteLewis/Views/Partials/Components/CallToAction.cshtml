@@ -6,7 +6,13 @@
 	var heading = settings.GetPropertyValue<string>("ctaTitle");
 	var link = settings.GetPropertyValue<string>("ctaLink");
 	var decode = Json.Decode(link);
+
+	var onOff = Model.GetPropertyValue<bool>("showCallToAction");
 	if(string.IsNullOrWhiteSpace(heading) && link != null)
+	{
+		return;
+	}
+	if(onOff == false)
 	{
 		return;
 	}
