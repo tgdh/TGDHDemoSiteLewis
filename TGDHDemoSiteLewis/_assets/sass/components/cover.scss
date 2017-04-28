@@ -119,3 +119,13 @@
 		margin: 1rem 0 4rem 0;
 	}
 }
+
+.c-centered{
+	text-align: center;
+	&.o-section__line{
+		&::after{
+			left: calc(50% - 15px);
+			position: relative;
+		}
+	}
+}
