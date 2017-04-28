@@ -1,0 +1,67 @@
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+	var items = Model.GetPropertyValue<IEnumerable<IPublishedContent>>("featuredItems");
+	var count = 0;
+	if(items == null)
+	{
+		return;
+	}
+	foreach(var item in items)
+	{
+		count++;
+	}
+	var total = count;
+
+	var featuresAreaTitle = Model.GetPropertyValue<string>("featuresAreaTitle");
+	var nullCheck = !string.IsNullOrWhiteSpace(featuresAreaTitle) ? featuresAreaTitle : "Features";
+}
+<section class="c-features o-section">
+	<div class="o-wrap o-wrap--large">
+		<h2 class="c-features__heading u-mega c-centered">@nullCheck</h2>
+		<div class="o-wrap o-wrap--large c-features__flex u-clearfix">
+			@foreach(var item in items)
+			{
+				count++;
+				var title = item.GetPropertyValue<string>("featureTitle");
+				var desc = item.GetPropertyValue<string>("featureDescription");
+
+				var link = item.GetPropertyValue<string>("featureLink");
+				var decode = Json.Decode(link);
+
+				var bottom = item.GetPropertyValue<string>("fancyText");
+
+				var icon = item.GetPropertyValue<int>("featureIcon");
+				var imageUrl = icon != 0 || icon != null ? Umbraco.Media(icon).Url : "";
+
+				<div class="c-features__item num-items-@total">
+					<div class="c-features__icon">
+						@if(icon != 0)
+						{
+							<img src="@imageUrl?width=75&height=75" alt="@item.Name" class="c-features-icon-image">
+						}
+					</div>
+					<div class="c-features__content">
+						@if(!string.IsNullOrWhiteSpace(title))
+						{
+							<h3 class="u-delta c-features__title">@title</h3>
+						}
+						@if(!string.IsNullOrWhiteSpace(desc))
+						{
+							<p class="c-features__desc">@desc</p>
+						}
+						@if(decode != null)
+						{
+							<a href="@decode.url" class="o-section__link border--black c-features__link">
+								<span>@decode.name</span>
+							</a>
+						}
+						@if(!string.IsNullOrWhiteSpace(bottom))
+						{
+							<p class="o-section__fancy c-features__fancy">@bottom</p>
+						}
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+</section>
