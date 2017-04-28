@@ -11,7 +11,6 @@
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
-	margin-top: 110px;
 	&::after{
 		content: "";
 		display: block;
@@ -63,12 +62,6 @@
 
 	.c-cover__inner{
 		width: 54%;
-	}
-}
-
-@include respond-max($mq-large){
-	.c-cover{
-		margin-top: 65px;
 	}
 }
 
