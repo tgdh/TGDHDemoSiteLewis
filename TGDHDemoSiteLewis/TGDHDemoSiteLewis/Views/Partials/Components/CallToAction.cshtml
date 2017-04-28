@@ -1,0 +1,27 @@
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+	var homePage = Model.Site();
+    var settings = homePage.Descendants("globalSettings").FirstOrDefault();
+
+	var heading = settings.GetPropertyValue<string>("ctaTitle");
+	var link = settings.GetPropertyValue<string>("ctaLink");
+	var decode = Json.Decode(link);
+	if(string.IsNullOrWhiteSpace(heading) && link != null)
+	{
+		return;
+	}
+}
+<section class="c-cta">
+	<div class="o-wrap o-wrap--large u-clearfix o-relative">
+		@if(!string.IsNullOrWhiteSpace(heading))
+		{
+			<h2 class="c-cta__heading u-beta o-section__fancy">@heading</h2>
+		}
+		@if(decode != null)
+		{
+			<a href="@decode.url" class="o-section__link border--black c-cta__link">
+				<span>@decode.name</span>
+			</a>
+		}
+	</div>
+</section>
