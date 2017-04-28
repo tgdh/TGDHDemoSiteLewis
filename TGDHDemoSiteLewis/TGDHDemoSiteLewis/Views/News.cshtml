@@ -11,7 +11,7 @@
     var selectedArticles = filteredNewsArticle.Skip(paging.Skip).Take(paging.Take).ToList();
 }
 
-<main class="o-page__inner" role="main">
+<main class="o-page__inner u-clearfix c-header__margin-top" role="main">
     @Html.Partial("~/Views/Partials/Page/Headline.cshtml")
     <section>
         @if (selectedArticles.Any())
@@ -59,7 +59,7 @@
     @Html.Partial("~/Views/Partials/Pods/DateArchive.cshtml", allNewsArticles)
     @Html.Partial("~/Views/Partials/Pods/NewsFilter.cshtml")
 </aside>
-
+@Html.Partial("~/Views/Partials/Components/CallToAction.cshtml")
 @functions
 {
 

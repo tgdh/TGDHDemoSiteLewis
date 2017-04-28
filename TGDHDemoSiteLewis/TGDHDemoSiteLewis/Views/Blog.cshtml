@@ -12,7 +12,7 @@
     var selectedBlogPosts = filteredBlogPosts.Skip(paging.Skip).Take(paging.Take).ToList();
 }
 
-<main class="o-page__inner" role="main">
+<main class="o-page__inner u-clearfix c-header__margin-top" role="main">
 	<div class="c-page__wrapper">
 	    @Html.Partial("~/Views/Partials/Page/Headline.cshtml")
 		<div class="c-grid o-wrap o-wrap--large u-clearfix o-section">
@@ -66,6 +66,7 @@
 		    </section>
 		</div>
 	</div>
+	@Html.Partial("~/Views/Partials/Components/CallToAction.cshtml")
 </main>
 
 @functions

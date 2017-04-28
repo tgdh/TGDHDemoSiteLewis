@@ -3,13 +3,9 @@
     Layout = "Layout.cshtml";
 }
 
-<main class="o-page__inner" role="main">
+<main class="o-page__inner u-clearfix c-header__margin-top" role="main">
 	<div class="c-page__wrapper">
 	    @Html.Partial("~/Views/Partials/Page/Headline.cshtml")
-	    <div class="o-section">
-			<div class="c-grid o-wrap o-wrap--large">
-
-			</div>
-	    </div>
+	    @Html.Partial("~/Views/Partials/Components/CallToAction.cshtml")
 	</div>
 </main>
