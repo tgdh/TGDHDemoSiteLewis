@@ -20,11 +20,12 @@
 	if( $window.IsModern ){
 
 		enhanceEdgeCaseBrowsers();
+		$('.js-tabs').tabs();
 		$window.Header.init();
 		$window.SmoothScroll.init();
 		$window.Search.init();
 		$window.Menu.init();
-		$('.js-tabs').tabs();
+		$window.Carousel.init($('.js-carousel'));
 
 		//MQ.init(breakpoints);
 	}
