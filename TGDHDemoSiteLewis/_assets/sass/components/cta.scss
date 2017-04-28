@@ -7,7 +7,7 @@
 @include respond-min($mq-large){
 	.c-cta{
 		padding: 6rem 0;
-		background-color: $light-1;
+		background-color: $light-2;
 		.c-cta__heading{
 			float: left;
 			max-width: 675px;
@@ -25,6 +25,7 @@
 	.c-cta{
 		padding: 5rem 0;
 		text-align: center;
+		background-color: $light-2;
 		.c-cta__heading{
 			padding-bottom: 4rem;
 		}
