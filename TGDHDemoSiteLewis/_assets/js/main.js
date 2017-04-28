@@ -21,6 +21,9 @@
 
 		enhanceEdgeCaseBrowsers();
 		$window.Header.init();
+		$window.SmoothScroll.init();
+		$window.Search.init();
+		$window.Menu.init();
 		$('.js-tabs').tabs();
 
 		//MQ.init(breakpoints);
