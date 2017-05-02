@@ -8,7 +8,7 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "a09f3797d8de9b5a")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "11ac61850f50f32c")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
@@ -3109,26 +3109,32 @@ namespace Umbraco.Web.PublishedContentModels
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
 
-		/*
-		 * THIS PROPERTY CANNOT BE IMPLEMENTED, BECAUSE:
-		 *
-		 * CSharp does not support naming the property with alias
-		 * "quote" with the same name as content type with alias
-		 * "quote". Consider using an attribute to assign a different
-		 * name to the property.
-		 *
+		///<summary>
+		/// Alignment
+		///</summary>
+		[ImplementPropertyType("alignment")]
+		public object Alignment
+		{
+			get { return this.GetPropertyValue("alignment"); }
+		}
+
+		///<summary>
+		/// Highlighted: Checking this box will increase the font size and set the background colour to black.
+		///</summary>
+		[ImplementPropertyType("highlighted")]
+		public bool Highlighted
+		{
+			get { return this.GetPropertyValue<bool>("highlighted"); }
+		}
 
 		///<summary>
 		/// Quote
 		///</summary>
-		[ImplementPropertyType("quote")]
-		public object Quote
+		[ImplementPropertyType("quoteMessage")]
+		public object QuoteMessage
 		{
-			get { return this.GetPropertyValue("quote"); }
+			get { return this.GetPropertyValue("quoteMessage"); }
 		}
-
-		 *
-		 */
 
 		///<summary>
 		/// Source
@@ -4026,6 +4032,391 @@ namespace Umbraco.Web.PublishedContentModels
 		public string FeatureTitle
 		{
 			get { return this.GetPropertyValue<string>("featureTitle"); }
+		}
+	}
+
+	/// <summary>About</summary>
+	[PublishedContentModel("about")]
+	public partial class About : PublishedContentModel, ICAdmin, ICMeta, ICSeo
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "about";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public About(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<About, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Content
+		///</summary>
+		[ImplementPropertyType("featuredTextContent")]
+		public IHtmlString FeaturedTextContent
+		{
+			get { return this.GetPropertyValue<IHtmlString>("featuredTextContent"); }
+		}
+
+		///<summary>
+		/// Link
+		///</summary>
+		[ImplementPropertyType("featuredTextLink")]
+		public Newtonsoft.Json.Linq.JToken FeaturedTextLink
+		{
+			get { return this.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("featuredTextLink"); }
+		}
+
+		///<summary>
+		/// Content
+		///</summary>
+		[ImplementPropertyType("ourTeamContent")]
+		public string OurTeamContent
+		{
+			get { return this.GetPropertyValue<string>("ourTeamContent"); }
+		}
+
+		///<summary>
+		/// List of points
+		///</summary>
+		[ImplementPropertyType("ourTeamPoints")]
+		public IHtmlString OurTeamPoints
+		{
+			get { return this.GetPropertyValue<IHtmlString>("ourTeamPoints"); }
+		}
+
+		///<summary>
+		/// Heading
+		///</summary>
+		[ImplementPropertyType("ourTeamTitle")]
+		public string OurTeamTitle
+		{
+			get { return this.GetPropertyValue<string>("ourTeamTitle"); }
+		}
+
+		///<summary>
+		/// Don't follow: When checked the page has a "noindex, nofollow" meta tag
+		///</summary>
+		[ImplementPropertyType("dontFollow")]
+		public bool DontFollow
+		{
+			get { return Umbraco.Web.PublishedContentModels.CAdmin.GetDontFollow(this); }
+		}
+
+		///<summary>
+		/// Hide from search: Checking this will hide the age from the site search results
+		///</summary>
+		[ImplementPropertyType("hideFromSearch")]
+		public bool HideFromSearch
+		{
+			get { return Umbraco.Web.PublishedContentModels.CAdmin.GetHideFromSearch(this); }
+		}
+
+		///<summary>
+		/// Invisible redirect: Redirect to the selected page with NO URL redirection
+		///</summary>
+		[ImplementPropertyType("umbracoInternalRedirectId")]
+		public object UmbracoInternalRedirectId
+		{
+			get { return Umbraco.Web.PublishedContentModels.CAdmin.GetUmbracoInternalRedirectId(this); }
+		}
+
+		///<summary>
+		/// Hide from navigation: Checking this will hide the page from the navigation
+		///</summary>
+		[ImplementPropertyType("umbracoNaviHide")]
+		public bool UmbracoNaviHide
+		{
+			get { return Umbraco.Web.PublishedContentModels.CAdmin.GetUmbracoNaviHide(this); }
+		}
+
+		///<summary>
+		/// URL alias: Optionally create multiple URLs for the same page. Use wisely, too many can damage SEO ranking
+		///</summary>
+		[ImplementPropertyType("umbracoUrlAlias")]
+		public string UmbracoUrlAlias
+		{
+			get { return Umbraco.Web.PublishedContentModels.CAdmin.GetUmbracoUrlAlias(this); }
+		}
+
+		///<summary>
+		/// URL slug: Optionally change the URL of the page
+		///</summary>
+		[ImplementPropertyType("umbracoUrlName")]
+		public string UmbracoUrlName
+		{
+			get { return Umbraco.Web.PublishedContentModels.CAdmin.GetUmbracoUrlName(this); }
+		}
+
+		///<summary>
+		/// Page description: Description of the page (only used on the website)
+		///</summary>
+		[ImplementPropertyType("pageDescription")]
+		public object PageDescription
+		{
+			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageDescription(this); }
+		}
+
+		///<summary>
+		/// Page image
+		///</summary>
+		[ImplementPropertyType("pageImage")]
+		public string PageImage
+		{
+			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageImage(this); }
+		}
+
+		///<summary>
+		/// Page title
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Show Call To Action: The call to action is found at the bottom of the page. The content for this can be found in the settings section under 'Call To Action'
+		///</summary>
+		[ImplementPropertyType("showCallToAction")]
+		public bool ShowCallToAction
+		{
+			get { return Umbraco.Web.PublishedContentModels.CMeta.GetShowCallToAction(this); }
+		}
+
+		///<summary>
+		/// SEO description: Description shown when sharing the page on social platforms and search engine results
+		///</summary>
+		[ImplementPropertyType("seoDescription")]
+		public object SeoDescription
+		{
+			get { return Umbraco.Web.PublishedContentModels.CSeo.GetSeoDescription(this); }
+		}
+
+		///<summary>
+		/// SEO title: When left empty the 'page name + website name' will be used
+		///</summary>
+		[ImplementPropertyType("seoTitle")]
+		public object SeoTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CSeo.GetSeoTitle(this); }
+		}
+
+		///<summary>
+		/// Social media image: Image used when sharing on social media
+		///</summary>
+		[ImplementPropertyType("socialMediaImage")]
+		public string SocialMediaImage
+		{
+			get { return Umbraco.Web.PublishedContentModels.CSeo.GetSocialMediaImage(this); }
+		}
+	}
+
+	/// <summary>Team Member</summary>
+	[PublishedContentModel("teamMember")]
+	public partial class TeamMember : PublishedContentModel, ICAdmin, ICMeta, ICPageComponents, ICSeo
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "teamMember";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public TeamMember(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<TeamMember, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Email
+		///</summary>
+		[ImplementPropertyType("memberEmail")]
+		public string MemberEmail
+		{
+			get { return this.GetPropertyValue<string>("memberEmail"); }
+		}
+
+		///<summary>
+		/// Image
+		///</summary>
+		[ImplementPropertyType("memberImage")]
+		public string MemberImage
+		{
+			get { return this.GetPropertyValue<string>("memberImage"); }
+		}
+
+		///<summary>
+		/// Job title
+		///</summary>
+		[ImplementPropertyType("memberJobTitle")]
+		public string MemberJobTitle
+		{
+			get { return this.GetPropertyValue<string>("memberJobTitle"); }
+		}
+
+		///<summary>
+		/// Name
+		///</summary>
+		[ImplementPropertyType("memberName")]
+		public string MemberName
+		{
+			get { return this.GetPropertyValue<string>("memberName"); }
+		}
+
+		///<summary>
+		/// Phone extension
+		///</summary>
+		[ImplementPropertyType("memberPhoneExt")]
+		public string MemberPhoneExt
+		{
+			get { return this.GetPropertyValue<string>("memberPhoneExt"); }
+		}
+
+		///<summary>
+		/// Don't follow: When checked the page has a "noindex, nofollow" meta tag
+		///</summary>
+		[ImplementPropertyType("dontFollow")]
+		public bool DontFollow
+		{
+			get { return Umbraco.Web.PublishedContentModels.CAdmin.GetDontFollow(this); }
+		}
+
+		///<summary>
+		/// Hide from search: Checking this will hide the age from the site search results
+		///</summary>
+		[ImplementPropertyType("hideFromSearch")]
+		public bool HideFromSearch
+		{
+			get { return Umbraco.Web.PublishedContentModels.CAdmin.GetHideFromSearch(this); }
+		}
+
+		///<summary>
+		/// Invisible redirect: Redirect to the selected page with NO URL redirection
+		///</summary>
+		[ImplementPropertyType("umbracoInternalRedirectId")]
+		public object UmbracoInternalRedirectId
+		{
+			get { return Umbraco.Web.PublishedContentModels.CAdmin.GetUmbracoInternalRedirectId(this); }
+		}
+
+		///<summary>
+		/// Hide from navigation: Checking this will hide the page from the navigation
+		///</summary>
+		[ImplementPropertyType("umbracoNaviHide")]
+		public bool UmbracoNaviHide
+		{
+			get { return Umbraco.Web.PublishedContentModels.CAdmin.GetUmbracoNaviHide(this); }
+		}
+
+		///<summary>
+		/// URL alias: Optionally create multiple URLs for the same page. Use wisely, too many can damage SEO ranking
+		///</summary>
+		[ImplementPropertyType("umbracoUrlAlias")]
+		public string UmbracoUrlAlias
+		{
+			get { return Umbraco.Web.PublishedContentModels.CAdmin.GetUmbracoUrlAlias(this); }
+		}
+
+		///<summary>
+		/// URL slug: Optionally change the URL of the page
+		///</summary>
+		[ImplementPropertyType("umbracoUrlName")]
+		public string UmbracoUrlName
+		{
+			get { return Umbraco.Web.PublishedContentModels.CAdmin.GetUmbracoUrlName(this); }
+		}
+
+		///<summary>
+		/// Page description: Description of the page (only used on the website)
+		///</summary>
+		[ImplementPropertyType("pageDescription")]
+		public object PageDescription
+		{
+			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageDescription(this); }
+		}
+
+		///<summary>
+		/// Page image
+		///</summary>
+		[ImplementPropertyType("pageImage")]
+		public string PageImage
+		{
+			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageImage(this); }
+		}
+
+		///<summary>
+		/// Page title
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Show Call To Action: The call to action is found at the bottom of the page. The content for this can be found in the settings section under 'Call To Action'
+		///</summary>
+		[ImplementPropertyType("showCallToAction")]
+		public bool ShowCallToAction
+		{
+			get { return Umbraco.Web.PublishedContentModels.CMeta.GetShowCallToAction(this); }
+		}
+
+		///<summary>
+		/// Page content: Main content of the page
+		///</summary>
+		[ImplementPropertyType("pageContent")]
+		public IEnumerable<IPublishedContent> PageContent
+		{
+			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageContent(this); }
+		}
+
+		///<summary>
+		/// SEO description: Description shown when sharing the page on social platforms and search engine results
+		///</summary>
+		[ImplementPropertyType("seoDescription")]
+		public object SeoDescription
+		{
+			get { return Umbraco.Web.PublishedContentModels.CSeo.GetSeoDescription(this); }
+		}
+
+		///<summary>
+		/// SEO title: When left empty the 'page name + website name' will be used
+		///</summary>
+		[ImplementPropertyType("seoTitle")]
+		public object SeoTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CSeo.GetSeoTitle(this); }
+		}
+
+		///<summary>
+		/// Social media image: Image used when sharing on social media
+		///</summary>
+		[ImplementPropertyType("socialMediaImage")]
+		public string SocialMediaImage
+		{
+			get { return Umbraco.Web.PublishedContentModels.CSeo.GetSocialMediaImage(this); }
 		}
 	}
 
