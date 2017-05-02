@@ -1,0 +1,93 @@
+@using Umbraco.Web
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+	var featuredPages = Model.GetPropertyValue<string>("gatewayFeaturedPages");
+    if (featuredPages == null)
+    {
+        return;
+    }
+	var splitIds = !string.IsNullOrWhiteSpace(featuredPages) ? featuredPages.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries): new string[] { };
+	var featuredListIds = Umbraco.TypedContent(splitIds);
+	int first = 0;
+	int second = 0;
+	foreach(var featured in featuredListIds)
+	{
+		if(featuredListIds.First() == featured)
+		{
+			first = featured.Id;
+		}
+		else{
+			second = featured.Id;
+		}
+	}
+}
+<section class="c-gateway">
+	<div class="c-gateway__featured">
+		@foreach(var feat in featuredListIds)
+		{
+			var desc = feat.GetPropertyValue<string>("pageDescription");
+			var pageTitle = feat.GetPropertyValue<string>("pageTitle");
+			var pageTitleCheck = !string.IsNullOrWhiteSpace(pageTitle) ? pageTitle: feat.Name;
+			var image = feat.GetPropertyValue<int>("pageImage");
+			<div class="c-featured__item">
+				<div class="o-wrap o-wrap--large o-section u-clearfix">
+					<div class="c-featured__item__content">
+						<h2 class="u-mega o-section__line line--black">@pageTitleCheck</h2>
+						@if(!string.IsNullOrWhiteSpace(desc))
+						{
+							<p>@desc</p>
+						}
+						<a href="@feat.Url" class="o-section__link border--black c-feat__button">
+						  <span>Learn More</span>
+						</a>
+					</div>
+					@if(image != 0)
+					{
+						<div class="c-featured_image" style="background-image: url(@Umbraco.TypedMedia(image).GetCropUrl("Gateway"))"></div>
+					}
+				</div>
+			</div>
+		}
+	</div>
+	<div class="c-gateway__non-featured">
+		<div class="o-wrap o-wrap--large u-clearfix c-non-featured__flex">
+			@foreach(var item in Model.Children)
+			{
+				if(item.Id != first && item.Id != second)
+				{
+					var desc = item.GetPropertyValue<string>("pageDescription");
+					var pageTitle = item.GetPropertyValue<string>("pageTitle");
+					var pageTitleCheck = !string.IsNullOrWhiteSpace(pageTitle) ? pageTitle: item.Name;
+					var image = item.GetPropertyValue<int>("pageImage");
+
+					if(image != 0)
+					{
+						<a class="c-non-featured__item has-image" href="@item.Url">
+							<h2 class="u-mega c-non-featured__title">@pageTitleCheck</h2>
+							@if(!string.IsNullOrWhiteSpace(desc))
+							{
+								<p class="c-non-featured__desc">@desc</p>
+							}
+							<span class="c-non-featured__arrow">
+								<i class="icon-arrow"></i>
+							</span>
+							<div class="c-non-featured__image" style="background-image: url(@Umbraco.TypedMedia(image).GetCropUrl("Gateway"))"></div>
+						</a>
+					}
+					else{
+						<div class="c-non-featured__item">
+							<h2 class="u-mega c-non-featured__title">@pageTitleCheck</h2>
+							@if(!string.IsNullOrWhiteSpace(desc))
+							{
+								<p class="c-non-featured__desc">@desc</p>
+							}
+							<a href="@item.Url" class="o-section__link border--black c-feat__button">
+							  <span>Learn More</span>
+							</a>
+						</div>
+					}
+				}
+			}
+		</div>
+	</div>
+</section>
