@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "f0149ad2cfbdfbf0")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "a09f3797d8de9b5a")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -3365,7 +3365,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Text Page</summary>
 	[PublishedContentModel("textPage")]
-	public partial class TextPage : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICIntroduction, ICMeta, ICPageComponents, ICSeo
+	public partial class TextPage : PublishedContentModel, ICAdmin, ICMeta, ICPageComponents, ICSeo
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "textPage";
@@ -3440,24 +3440,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public string UmbracoUrlName
 		{
 			get { return Umbraco.Web.PublishedContentModels.CAdmin.GetUmbracoUrlName(this); }
-		}
-
-		///<summary>
-		/// Headline: If left blank, the page name will be used
-		///</summary>
-		[ImplementPropertyType("headline")]
-		public string Headline
-		{
-			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetHeadline(this); }
-		}
-
-		///<summary>
-		/// Introduction: Short introduction to the page and subpages
-		///</summary>
-		[ImplementPropertyType("introduction")]
-		public IHtmlString Introduction
-		{
-			get { return Umbraco.Web.PublishedContentModels.CIntroduction.GetIntroduction(this); }
 		}
 
 		///<summary>
@@ -3644,6 +3626,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Gateway, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Featured Pages: Choose the two featured pages. If no pages are shown the pages will list out in order.
+		///</summary>
+		[ImplementPropertyType("gatewayFeaturedPages")]
+		public string GatewayFeaturedPages
+		{
+			get { return this.GetPropertyValue<string>("gatewayFeaturedPages"); }
 		}
 
 		///<summary>
