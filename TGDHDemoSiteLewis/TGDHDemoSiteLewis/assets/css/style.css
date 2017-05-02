@@ -833,6 +833,14 @@ html {
     border-radius: 0 0 0.3rem 0.3rem; } }
 
 /* ===========================================================
+
+	# Page components
+
+=========================================================== */
+.o-page-component + .o-page-component {
+  margin-top: 1.75em; }
+
+/* ===========================================================
 	
 	# Form
 
@@ -1790,6 +1798,9 @@ img {
       .c-footer .c-footer__scroll-top .icon-arrow {
         font-size: 3rem; } }
 
+.c-component p {
+  line-height: 2.9rem; }
+
 /* ===========================================================
 
 	# Caption
@@ -2584,7 +2595,9 @@ img {
   top: 0;
   right: 0;
   width: 50%;
-  height: 100%; }
+  height: 100%;
+  background-position: center;
+  background-size: cover; }
 
 @font-face {
   font-family: 'icomoon';
