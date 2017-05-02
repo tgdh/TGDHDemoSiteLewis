@@ -63,11 +63,7 @@
 					if(image != 0)
 					{
 						<a class="c-non-featured__item has-image" href="@item.Url">
-							<h2 class="u-mega c-non-featured__title">@pageTitleCheck</h2>
-							@if(!string.IsNullOrWhiteSpace(desc))
-							{
-								<p class="c-non-featured__desc">@desc</p>
-							}
+							@nonFeatured(pageTitleCheck, desc)
 							<span class="c-non-featured__arrow">
 								<i class="icon-arrow"></i>
 							</span>
@@ -76,11 +72,7 @@
 					}
 					else{
 						<div class="c-non-featured__item">
-							<h2 class="u-mega c-non-featured__title">@pageTitleCheck</h2>
-							@if(!string.IsNullOrWhiteSpace(desc))
-							{
-								<p class="c-non-featured__desc">@desc</p>
-							}
+							@nonFeatured(pageTitleCheck, desc)
 							<a href="@item.Url" class="o-section__link border--black c-feat__button">
 							  <span>Learn More</span>
 							</a>
@@ -91,3 +83,12 @@
 		</div>
 	</div>
 </section>
+
+@helper nonFeatured(string title, string text)
+{
+	<h2 class="u-mega c-non-featured__title">@title</h2>
+	if(!string.IsNullOrWhiteSpace(text))
+	{
+		<p class="c-non-featured__desc">@text</p>
+	}
+}
