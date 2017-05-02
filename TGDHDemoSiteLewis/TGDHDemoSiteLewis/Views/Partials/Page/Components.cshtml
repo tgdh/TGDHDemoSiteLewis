@@ -9,25 +9,21 @@
         return;
     }
 
-    const string wrapSize = "large";
-    var pageComponentClass = "";
-    var wrapClasses = "o-wrap o-wrap--" + wrapSize;
+    const string wrapSize = "medium";
+    var pageComponentClass = "o-page-component";
 
-    foreach (var item in components.ToContentSet())
+    foreach (var item in components)
     {
-        var alignment = item.HasValue("alignment") ? item.GetPropertyValue<string>("alignment") : "";
-        var wrapInExtraDiv =  !alignment.Equals("Full width");
+        var alignment = item.GetPropertyValue<string>("alignment");
         var aspectRatio = item.GetPropertyValue<string>("aspectRatio");
 
-        if (wrapInExtraDiv)
+        if (alignment != "Full width")
         {
-            var wrapMarkup = "<div class='o-page-component o-wrap o-wrap--" + wrapSize + item.IsFirst(" is-first", "") + "'>";
+            var wrapMarkup = "<div class='o-page-component o-wrap o-wrap--" + wrapSize +"'>";
 
             @Html.Raw(wrapMarkup)
-        }
-        else
-        {
-            pageComponentClass = "o-page-component";
+
+            pageComponentClass = null;
         }
 
         switch (item.DocumentTypeAlias)
@@ -46,11 +42,10 @@
             case "singleImage":
                 var image = new ImageViewModel
                 {
-                    ImageId = item.GetPropertyValue<int>("imageId"),
+                    ImageId = item.GetPropertyValue<string>("imageId"),
                     Alignment = alignment,
                     AspectRatio = aspectRatio,
-                    AdditionalClass = pageComponentClass,
-                    ImageWidth = 2000
+                    AdditionalClass = pageComponentClass
                 };
 
                 @Html.Partial("~/Views/Partials/PageComponents/Image.cshtml", image)
@@ -64,6 +59,18 @@
                 };
 
                 @Html.Partial("~/Views/Partials/PageComponents/Downloads.cshtml", downloads)
+                break;
+            case "quote":
+                var quote = new QuoteViewModel
+                {
+                    Quote = item.GetPropertyValue<IHtmlString>("quoteMessage"),
+                    Source = item.GetPropertyValue<string>("source"),
+                    Alignment = alignment,
+                    AdditionalClass = pageComponentClass,
+					Highlighted = item.GetPropertyValue<bool>("highlighted")
+                };
+
+                @Html.Partial("~/Views/Partials/PageComponents/Quote.cshtml", quote)
                 break;
             case "embed":
                 var embed = new EmbedViewModel
@@ -79,8 +86,7 @@
                 var text = new TextareaViewModel
                 {
                     Text = item.GetPropertyValue<IHtmlString>("text"),
-                    AdditionalClass = pageComponentClass,
-                    WrapClasses = wrapClasses
+                    AdditionalClass = pageComponentClass
                 };
 
                 @Html.Partial("~/Views/Partials/PageComponents/Textarea.cshtml", text)
@@ -111,31 +117,12 @@
                 @Html.Partial("~/Views/Partials/PageComponents/" + item.DocumentTypeAlias + ".cshtml", tabList)
 
                 break;
-            case "video":
-                var video = new VideoViewModel
-                {
-                    Title = item.GetPropertyValue<string>("videoTitle"),
-                    VideoUrl = item.GetPropertyValue<string>("videoURL"),
-                    Image = item.GetPropertyValue<string>("videoImage")
-                };
-
-                @Html.Partial("~/Views/Partials/PageComponents/Video.cshtml", video)
-                break;
-            case "quote":
-                var quote = new QuoteViewModel
-                {
-                    Quote = item.GetPropertyValue<string>("quote"),
-                    Source = item.GetPropertyValue<string>("source")
-                };
-
-                @Html.Partial("~/Views/Partials/PageComponents/Quote.cshtml", quote)
-                break;
-			      default:
+            default:
                 @NoResult(item)
                 break;
         }
 
-        if (wrapInExtraDiv)
+		if (alignment != "Full width")
         {
             @Html.Raw("</div>")
         }
