@@ -2,9 +2,21 @@
 @{
 	var metaTitle = Model.GetPropertyValue<string>("pageTitle");
 	var pageTitle = !string.IsNullOrWhiteSpace(metaTitle) ? metaTitle : Model.Name;
+	var desc = Model.GetPropertyValue<string>("pageDescription");
+	var image = Model.GetPropertyValue<int>("pageImage");
 }
 <section class="c-page-title o-section">
 	<div class="o-wrap o-wrap--large">
-		<h3 class="c-intro__heading u-mega js-underline">@pageTitle</h3>
+		<div class="c-page-title__content">
+			<h3 class="c-intro__heading u-mega js-underline">@pageTitle</h3>
+			@if(!string.IsNullOrWhiteSpace(desc))
+			{
+				<p>@desc</p>
+			}
+		</div>
+		@if(image != 0)
+		{
+			<div class="c-page-title__image" style="background-image: url(@Umbraco.TypedMedia(image).GetCropUrl("Gateway"))"></div>
+		}
 	</div>
 </section>
