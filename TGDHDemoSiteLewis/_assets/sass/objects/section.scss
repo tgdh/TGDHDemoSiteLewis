@@ -42,6 +42,7 @@
 		position: relative;
 		z-index: 2;
 		transition: $ease $speed color;
+		text-decoration: none;
 	}
 	&::before{
 		content: "";
@@ -65,6 +66,7 @@
 	}
 	&.border--black{
 		border-color: $black;
+		text-decoration: none;
 		span{
 			color: $black;
 		}
@@ -80,6 +82,7 @@
 	}
 	&.border--white{
 		border-color: $white;
+		text-decoration: none;
 		span{
 			color: $white;
 		}

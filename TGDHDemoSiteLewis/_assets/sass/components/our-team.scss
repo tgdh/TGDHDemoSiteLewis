@@ -1,0 +1,150 @@
+.c-our-team__grey{
+	background-color: $light-1;
+}
+
+.c-our-team__title{
+	float: left;
+	width: 50%;
+	font-weight: 600;
+	margin-bottom: 3rem;
+}
+
+.c-our-team__left{
+	clear: left;
+}
+
+.c-our-team__contact{
+	float: right;
+	text-decoration: none !important;
+}
+
+.flexbox{
+	.c-our-team__wrapper{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+}
+
+.c-our-team__item{
+	margin-top: 3rem;
+	margin-bottom: 1rem;
+}
+
+.c-our-team__image{
+	opacity: 1;
+	transition: $ease $speed opacity;
+	&:hover,
+	&:focus{
+		opacity: .75;
+		.c-our-team__hover-state{
+			top: calc(50% - 37.5px);
+			opacity: 1;
+			transform: rotate(0);
+			&::before{
+				content: "";
+				display: block;
+				width: 3rem;
+				height: .3rem;
+				background-color: black;
+				position: relative;
+				transform: rotate(90deg);
+				top: 35px;
+				left: 22px;
+				border-radius: 1px;
+			}
+			&::after{
+				content: "";
+				display: block;
+				width: 3rem;
+				height: .3rem;
+				background-color: black;
+				position: relative;
+				top: 32px;
+				left: 22px;
+				border-radius: 1px;
+			}
+		}
+	}
+}
+
+.c-our-team__image{
+	position: relative;
+	display: block;
+	.c-our-team__hover-state{
+		transition: $ease $speed top,
+					$ease $speed opacity,
+					$ease $speed transform;
+		width: 75px;
+		height: 75px;
+		background-color: white;
+		display: block;
+		position: absolute;
+		top: calc(50% - 27.5px);
+		left: calc(50% - 37.5px);
+		overflow: hidden;
+		border-radius: 50%;
+		box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+		opacity: 0;
+		transform: rotate(5deg);
+	}
+}
+
+.c-our-team__info{
+	margin-top: 1.5rem;
+	.c-our-team__info__name{
+		float: left;
+		width: calc(100% - 10rem);
+		padding-bottom: .5rem;
+	}
+	.c-our-team__info__ext,.c-our-team__email{
+		float: right;
+		font-size: 1.7rem;
+		color: #999999;
+		padding-top: .3rem;
+		font-weight: 400;
+		&:hover,
+		&:focus{
+			text-decoration: none;
+		}
+	}
+	.c-our-team__job{
+		float: left;
+		width: calc(100% - 10rem);
+	}
+	.c-our-team__email{
+		padding-top: 0;
+	}
+}
+
+@include respond-min($mq-large){
+	.c-our-team__left{
+		float: left;
+		width: 50%;
+		box-sizing: border-box;
+		padding-right: 4rem;
+	}
+	.c-our-team__right{
+		float: left;
+		width: 50%;
+		padding-left: 4rem;
+		ul{
+			li{
+				margin-bottom: 1rem;
+			}
+		}
+	}
+	.c-our-team__item{
+		@include column(1/3, $gutter: 4, $cycle: 3);
+	}
+}
+
+@include respond-max($mq-large){
+	.c-our-team__left{
+		margin-bottom: 3rem;
+	}
+	.c-our-team__item{
+		@include column(1/2, $gutter: 4, $cycle: 2);
+	}
+}

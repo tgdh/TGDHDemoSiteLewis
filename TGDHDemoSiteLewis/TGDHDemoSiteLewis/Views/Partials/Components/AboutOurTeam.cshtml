@@ -1,0 +1,35 @@
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+	var title = Model.GetPropertyValue<string>("ourTeamTitle");
+	var content = Model.GetPropertyValue<string>("ourTeamContent");
+	var points = Model.GetPropertyValue<string>("ourTeamPoints");
+	if(string.IsNullOrWhiteSpace(title) && string.IsNullOrWhiteSpace(content) && !string.IsNullOrWhiteSpace(points))
+	{
+		return;
+	}
+}
+<div class="c-our-team__grey o-section c-rte">
+	<div class="o-wrap o-wrap--large u-clearfix">
+		@if(!string.IsNullOrWhiteSpace(title))
+		{
+			<h2 class="c-our-team__title u-beta o-section__line line--black">@title</h2>
+		}
+		@if(!string.IsNullOrWhiteSpace(content) && !string.IsNullOrWhiteSpace(points))
+		{
+			<div class="c-our-team__left">
+				@Html.Raw(content)
+			</div>
+			<div class="c-our-team__right">
+				@Html.Raw(points)
+			</div>
+		}
+		else if(!string.IsNullOrWhiteSpace(content))
+		{
+			@Html.Raw(content)
+		}
+		else if(!string.IsNullOrWhiteSpace(points))
+		{
+			@Html.Raw(points)
+		}
+	</div>
+</div>
