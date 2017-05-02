@@ -4,6 +4,18 @@
 	opacity: .8;
 }
 
+.c-rte{
+	a{
+		color: black;
+		text-decoration: underline;
+		font-weight: bold;
+		&:hover,
+		&:focus{
+			text-decoration: none;
+		}
+	}
+}
+
 @include respond-min($mq-large){
 	.c-cta{
 		padding: 6rem 0;
