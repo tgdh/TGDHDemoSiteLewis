@@ -4,6 +4,7 @@
 		box-sizing: border-box;
 		text-align: center;
 		position: relative;
+		float: left;
 		.c-features__icon{
 			background-color: black;
 			border-radius: 50%;
@@ -32,11 +33,6 @@
 }
 
 .flexbox{
-	.c-features__flex{
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-	}
 	.c-features__icon{
 		display: flex;
 		align-items: center;
@@ -45,9 +41,6 @@
 }
 
 .no-flexbox{
-	.c-features__item{
-		float: left;
-	}
 	.c-features-icon-image{
 		position: relative;
 		top: 25%;
