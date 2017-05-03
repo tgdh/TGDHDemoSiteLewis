@@ -7,3 +7,21 @@
 .o-page-component + .o-page-component {
 	margin-top: $line-height * 1.25;
 }
+
+.o-page-component{
+	a{
+		text-decoration: underline;
+		font-weight: bold;
+		&:hover,
+		&:focus{
+			text-decoration: none;
+			color: black;
+		}
+	}
+}
+
+@include respond-max($mq-small){
+	.o-page-component--textarea{
+		overflow-x: scroll;
+	}
+}
