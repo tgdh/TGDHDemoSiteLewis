@@ -29,3 +29,79 @@ html {
 	}
 
 }
+
+.o-page__aside{
+	.c-pod{
+		background-color: $light-1;
+		padding-bottom: 2rem;
+		margin-top: 3rem;
+		&:first-child{
+			margin-top: 0;
+		}
+		&:last-child{
+			margin-bottom: 0;
+			padding-bottom: 2rem;
+		}
+		.c-pod__title{
+			margin-bottom: 2rem;
+			background-color: black;
+			color: white;
+			font-weight: 400;
+			padding: 2rem;
+		}
+		.c-link-list__link {
+			&:hover,
+			&:focus{
+				color: black;
+				text-decoration: underline;
+			}
+		}
+	}
+	select {
+	    background: #f8f8f8;
+	    color: black;
+	    outline: none;
+	    cursor: pointer;
+		border-radius: 0;
+		border: 2px solid black;
+	    appearance: none;
+	    padding: 5px;
+		margin: 1rem 2rem 0 2rem;
+		width: calc(100% - 4rem);
+	}
+
+	label {
+		position: relative;
+		&::after{
+			content: '<>';
+		    font: 11px "Consolas", monospace;
+		    color: white;
+		    transform: rotate(90deg);
+		    right: 30px;
+			top: 21px;
+		    padding: 0 0 2px;
+		    position: absolute;
+		    pointer-events: none;
+		}
+		&::before{
+			content: '';
+			right: 22px;
+			top: 12px;
+			width: 30px;
+			height: 32px;
+			background: black;
+			position: absolute;
+			pointer-events: none;
+			display: block;
+		}
+	}
+}
+
+@include respond-min($mq-large){
+	.o-page__aside{
+		@include column(6/20, $gutter: 5, $cycle: 2);
+	}
+	.o-page__content{
+		@include column(14/20, $gutter: 5, $cycle: 2);
+	}
+}
