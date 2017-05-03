@@ -1,0 +1,41 @@
+.c-contact__heading{
+	margin-bottom: 1rem;
+	padding-top: 5rem;
+	&:first-child{
+		padding-top: 0;
+	}
+}
+
+.c-contact__address{
+	br{
+		display: block;
+		line-height: 2.75rem;
+	}
+}
+
+.c-contact__link{
+	text-decoration: underline;
+	display: table;
+	margin-bottom: 1rem;
+	font-weight: bold;
+	&:hover,
+	&:focus{
+		text-decoration: none;
+		color: black;
+	}
+}
+
+.c-contact__item{
+	.c-nav__social-icon{
+		&:hover,
+		&:focus{
+			color: black;
+		}
+	}
+}
+
+@include respond-min($mq-medium){
+	.c-contact__item{
+		@include column(1/2, $gutter: 3, $cycle:2);
+	}
+}

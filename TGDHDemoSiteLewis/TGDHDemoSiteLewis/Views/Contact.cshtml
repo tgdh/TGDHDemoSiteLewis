@@ -6,6 +6,10 @@
 <div class="c-page__wrapper">
 	<main class="o-page__inner u-clearfix c-header__margin-top" role="main">
 		@Html.Partial("~/Views/Partials/Page/HeadlineContact.cshtml")
+		<div class="c-contact__wrapper o-wrap o-wrap--large o-section u-clearfix">
+			@Html.Partial("~/Views/Partials/Components/Contacts.cshtml")
+			@Html.Partial("~/Views/Partials/Components/ContactForm.cshtml")
+		</div>
 		@Html.Partial("~/Views/Partials/Components/CallToAction.cshtml")
 	</main>
 </div>

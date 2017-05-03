@@ -1,0 +1,45 @@
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+	var homePage = Model.Site();
+    var settings = homePage.Descendants("globalSettings").FirstOrDefault();
+	var address = settings.GetPropertyValue<string>("address");
+
+	/* Nested Content */
+	var contactNumbers = settings.GetPropertyValue<IEnumerable<IPublishedContent>>("contactNumbers");
+	var emailAddresses = settings.GetPropertyValue<IEnumerable<IPublishedContent>>("emailAddresses");
+	var socialIcons = settings.GetPropertyValue<IEnumerable<IPublishedContent>>("socialIcons");
+}
+<div class="c-contact__item">
+	@if(!string.IsNullOrWhiteSpace(address))
+	{
+		<h2 class="u-beta c-contact__heading">Address</h2>
+		<p class="c-contact__address">@Html.Raw(address.Replace("\n", "</br>"))</p>
+	}
+	@if(contactNumbers.Count() != 0)
+	{
+		<h2 class="u-beta c-contact__heading">Phone</h2>
+		foreach(var number in contactNumbers)
+		{
+			<a href="tel:@number.Name.Replace(" ","")" class="c-contact__link">@number.Name</a>
+		}
+	}
+	@if(emailAddresses.Count() != 0)
+	{
+		<h2 class="u-beta c-contact__heading">Email</h2>
+		foreach(var email in emailAddresses)
+		{
+			<a href="mailto:@email.Name" class="c-contact__link">@email.Name</a>
+		}
+	}
+	@if(socialIcons.Count() != 0)
+	{
+		<h2 class="u-beta c-contact__heading">Follow us on</h2>
+		foreach(var icon in socialIcons)
+		{
+			var title = icon.GetPropertyValue<string>("iconTitle");
+			<a href="#" class="c-nav__social-icon">
+			  <i class="icon-@title.ToLower()"></i>
+			</a>
+		}
+	}
+</div>
