@@ -2871,6 +2871,48 @@ img {
     width: 50%;
     padding-right: 5rem; } }
 
+.c-contact__heading {
+  margin-bottom: 1rem;
+  padding-top: 5rem; }
+  .c-contact__heading:first-child {
+    padding-top: 0; }
+
+.c-contact__address br {
+  display: block;
+  line-height: 2.75rem; }
+
+.c-contact__link {
+  text-decoration: underline;
+  display: table;
+  margin-bottom: 1rem;
+  font-weight: bold; }
+  .c-contact__link:hover, .c-contact__link:focus {
+    text-decoration: none;
+    color: black; }
+
+.c-contact__item .c-nav__social-icon:hover, .c-contact__item .c-nav__social-icon:focus {
+  color: black; }
+
+@media only screen and (min-width: 800px) {
+  .c-contact__item {
+    *zoom: 1;
+    float: left;
+    clear: none;
+    text-align: inherit;
+    width: 48.5%;
+    margin-left: 0%;
+    margin-right: 3%; }
+    .c-contact__item:before, .c-contact__item:after {
+      content: '';
+      display: table; }
+    .c-contact__item:after {
+      clear: both; }
+    .c-contact__item:nth-child(2n) {
+      margin-right: 0%;
+      float: right; }
+    .c-contact__item:nth-child(2n + 1) {
+      clear: both; } }
+
 @font-face {
   font-family: 'icomoon';
   src: url("/assets/fonts/fonts/icomoon.eot?a78kxm");
