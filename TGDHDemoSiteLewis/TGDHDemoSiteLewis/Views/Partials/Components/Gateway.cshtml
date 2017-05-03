@@ -32,7 +32,7 @@
 			<div class="c-featured__item">
 				<div class="o-wrap o-wrap--large o-section u-clearfix">
 					<div class="c-featured__item__content">
-						<h2 class="u-mega o-section__line line--black">@pageTitleCheck</h2>
+						<h2 class="u-tera o-section__line line--black">@pageTitleCheck</h2>
 						@if(!string.IsNullOrWhiteSpace(desc))
 						{
 							<p>@desc</p>
@@ -86,7 +86,7 @@
 
 @helper nonFeatured(string title, string text)
 {
-	<h2 class="u-mega c-non-featured__title">@title</h2>
+	<h2 class="u-tera c-non-featured__title">@title</h2>
 	if(!string.IsNullOrWhiteSpace(text))
 	{
 		<p class="c-non-featured__desc">@text</p>
