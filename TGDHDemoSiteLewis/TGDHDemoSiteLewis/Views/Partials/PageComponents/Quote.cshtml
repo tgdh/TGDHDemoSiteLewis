@@ -4,10 +4,12 @@
 	if(Model.Quote == null){
 		return;
 	}
+	var align = Model.Alignment != null ? "o-align--" + Model.Alignment.ToLower() : "";
+	var highlighted = Model.Highlighted == true ? "c-quote__highlight" : "";
 }
 
-<blockquote class="c-quote">
-	<h2 class="c-quote__heading u-uppercase u-alpha c-block__heading c-section o-heading">@Model.Quote</h2>
+<blockquote class="c-quote @align @highlighted">
+	<h4 class="c-quote__heading u-uppercase u-zeta c-block__heading c-section o-heading">@Model.Quote</h4>
 	@if(!string.IsNullOrWhiteSpace(Model.Source))
 	{
 		<footer>
