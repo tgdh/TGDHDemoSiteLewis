@@ -1,3 +1,4 @@
+@using System.Web.Mvc.Html
 ﻿@using UmbracoStarterKit.Core.Utility
 @using UmbracoStarterKit.Core.Data
 @using UmbracoStarterKit.Core.Models.Components
@@ -12,54 +13,57 @@
 }
 
 <main class="o-page__inner u-clearfix c-header__margin-top" role="main">
-    @Html.Partial("~/Views/Partials/Page/Headline.cshtml")
-    <section>
-        @if (selectedArticles.Any())
-        {
-            foreach (var article in selectedArticles)
-            {
-                var articleModel = new ArticleViewModel
-                {
-                    Id = article.Id,
-                    Name = article.HasValue("headline") ? article.GetPropertyValue<string>("headline") : article.Name,
-                    Thumbnail = Umbraco.TypedMedia(article.GetPropertyValue<int>("coverImage")),
-                    Excerpt = article.GetPropertyValue<string>("excerpt"),
-                    Url = article.Url,
-                    Category = GetArticleCategory(article.DocumentTypeAlias),
-                    CreateDate = article.GetPropertyValue<DateTime>("releaseDate")
-                };
+	<div class="c-page__wrapper">
+		@Html.Partial("~/Views/Partials/Page/Headline.cshtml")
+		<div class="o-wrap o-wrap--large o-section u-clearfix">
+			<section class="o-page__content u-clearfix">
+		        @if (selectedArticles.Any())
+		        {
+		            foreach (var article in selectedArticles)
+		            {
+		                var articleModel = new ArticleViewModel
+		                {
+		                    Id = article.Id,
+		                    Name = article.HasValue("headline") ? article.GetPropertyValue<string>("headline") : article.Name,
+		                    Thumbnail = Umbraco.TypedMedia(article.GetPropertyValue<int>("pageImage")),
+		                    Excerpt = article.GetPropertyValue<string>("excerpt"),
+		                    Url = article.Url,
+		                    Category = GetArticleCategory(article.DocumentTypeAlias),
+		                    CreateDate = article.GetPropertyValue<DateTime>("releaseDate"),
+		                };
 
-                if (article.DocumentTypeAlias == UmbracoStarterKit.Core.Constants.InTheMedia)
-                {
-                    articleModel.Url = article.HasValue("source") ? article.GetPropertyValue<string>("source") : "#";
-                    articleModel.LinkTarget = "_blank";
-                    articleModel.ExtraClasses = "is-external";
-                }
+		                if (article.DocumentTypeAlias == UmbracoStarterKit.Core.Constants.InTheMedia)
+		                {
+		                    articleModel.Url = article.HasValue("source") ? article.GetPropertyValue<string>("source") : "#";
+		                    articleModel.LinkTarget = "_blank";
+		                    articleModel.ExtraClasses = "is-external";
+		                }
 
-                @Html.Partial("~/Views/Partials/Cards/ArticleCard.cshtml", articleModel)
-            }
+		                @Html.Partial("~/Views/Partials/Cards/ArticleCard.cshtml", articleModel)
+		            }
 
-            if (paging.TotalPages > 1)
-            {
-                @*<nav>
-                    @PagingTemplate.RenderPaging(paging, Model.Id)
-                </nav>*@
-            }
-        }
-        else
-        {
-            var noResultsMessage = Model.GetPropertyValue<IHtmlString>("noResultsMessage");
+		            if (paging.TotalPages > 1)
+		            {
+		                @*<nav>
+		                    @PagingTemplate.RenderPaging(paging, Model.Id)
+		                </nav>*@
+		            }
+		        }
+		        else
+		        {
+		            var noResultsMessage = Model.GetPropertyValue<IHtmlString>("noResultsMessage");
 
-            @noResultsMessage
-        }
-    </section>
+		            @noResultsMessage
+		        }
+		    </section>
+			<aside class="o-page__aside">
+			    @Html.Partial("~/Views/Partials/Pods/DateArchive.cshtml", allNewsArticles)
+			    @Html.Partial("~/Views/Partials/Pods/NewsFilter.cshtml")
+			</aside>
+		</div>
+		@Html.Partial("~/Views/Partials/Components/CallToAction.cshtml")
+	</div>
 </main>
-
-<aside class="o-page__aside">
-    @Html.Partial("~/Views/Partials/Pods/DateArchive.cshtml", allNewsArticles)
-    @Html.Partial("~/Views/Partials/Pods/NewsFilter.cshtml")
-</aside>
-@Html.Partial("~/Views/Partials/Components/CallToAction.cshtml")
 @functions
 {
 
