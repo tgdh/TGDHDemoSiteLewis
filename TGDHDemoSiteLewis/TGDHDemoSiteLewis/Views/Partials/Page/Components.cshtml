@@ -19,7 +19,7 @@
 
         if (alignment != "Full width")
         {
-            var wrapMarkup = "<div class='o-page-component o-wrap o-wrap--" + wrapSize +"'>";
+            var wrapMarkup = "<div class='o-page-component o-wrap o-wrap--" + wrapSize +" o-page-component--" + item.DocumentTypeAlias + "'>";
 
             @Html.Raw(wrapMarkup)
 
@@ -63,7 +63,7 @@
             case "quote":
                 var quote = new QuoteViewModel
                 {
-                    Quote = item.GetPropertyValue<IHtmlString>("quoteMessage"),
+                    Quote = item.GetPropertyValue<string>("quoteMessage"),
                     Source = item.GetPropertyValue<string>("source"),
                     Alignment = alignment,
                     AdditionalClass = pageComponentClass,
