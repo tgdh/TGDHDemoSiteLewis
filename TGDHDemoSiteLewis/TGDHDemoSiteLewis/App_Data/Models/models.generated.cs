@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "11ac61850f50f32c")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.4")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "fab736e715952dc4")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -1763,12 +1763,12 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Contact Number
+		/// Contact Numbers
 		///</summary>
-		[ImplementPropertyType("contactNumber")]
-		public string ContactNumber
+		[ImplementPropertyType("contactNumbers")]
+		public IEnumerable<IPublishedContent> ContactNumbers
 		{
-			get { return this.GetPropertyValue<string>("contactNumber"); }
+			get { return this.GetPropertyValue<IEnumerable<IPublishedContent>>("contactNumbers"); }
 		}
 
 		///<summary>
@@ -1814,6 +1814,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string DefaultSocialMediaImage
 		{
 			get { return this.GetPropertyValue<string>("defaultSocialMediaImage"); }
+		}
+
+		///<summary>
+		/// Email Addresses
+		///</summary>
+		[ImplementPropertyType("emailAddresses")]
+		public IEnumerable<IPublishedContent> EmailAddresses
+		{
+			get { return this.GetPropertyValue<IEnumerable<IPublishedContent>>("emailAddresses"); }
 		}
 
 		///<summary>
@@ -4401,6 +4410,76 @@ namespace Umbraco.Web.PublishedContentModels
 		public string SocialMediaImage
 		{
 			get { return Umbraco.Web.PublishedContentModels.CSeo.GetSocialMediaImage(this); }
+		}
+	}
+
+	/// <summary>Email Address</summary>
+	[PublishedContentModel("emailAddress")]
+	public partial class EmailAddress : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "emailAddress";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public EmailAddress(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<EmailAddress, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Email Address
+		///</summary>
+		[ImplementPropertyType("email")]
+		public string Email
+		{
+			get { return this.GetPropertyValue<string>("email"); }
+		}
+	}
+
+	/// <summary>Contact Number</summary>
+	[PublishedContentModel("contactNumber")]
+	public partial class ContactNumber : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "contactNumber";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public ContactNumber(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<ContactNumber, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Number
+		///</summary>
+		[ImplementPropertyType("number")]
+		public string Number
+		{
+			get { return this.GetPropertyValue<string>("number"); }
 		}
 	}
 
