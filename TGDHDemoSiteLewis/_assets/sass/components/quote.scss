@@ -7,9 +7,49 @@
 .c-quote {
 	position: relative;
 	line-height: 1.3;
-	padding-left: $padding-medium;
-	padding-right: $padding-medium;
 	quotes: "\201C""\201D""\2018""\2019";
+	padding: 0;
+	margin-bottom: 2.8rem;
+	&.c-quote__highlight{
+		background-color: black;
+		padding: 4rem 5rem;
+		*{
+			color: white;
+			opacity: 1;
+		}
+		.c-quote__heading{
+			font-size: 2.75rem;
+			line-height: 4rem;
+			font-family: $font-family-sec;
+			font-weight: 600;
+			margin-bottom: 3rem;
+		}
+		.c-quote__source{
+			font-weight: 400;
+		}
+		&::before,&::after{
+			color: white;
+			position: absolute;
+			top: 3.75rem;
+			font-family: serif;
+			font-size: 4.5rem;
+		}
+		&::before{
+			content: open-quote;
+			left: 2rem;
+		}
+		&::after{
+			content: close-quote;
+			right: 2rem;
+		}
+	}
+}
+
+.c-quote__heading{
+	opacity: .6;
+	font-style: italic;
+	line-height: 2.5rem;
+	font-weight: 400;
 }
 
 .c-quote__copy {
@@ -17,23 +57,14 @@
 	font-size: 2rem;
 }
 
-.c-quote__src {
-	text-align: right;
-	font-weight: $bold;
-	margin-top: $line-height;
-}
-
-.c-quote:before{
-	color: $pri;
-	font-size: 6.4rem;
-	font-weight: 700;
-	font-family: serif;
-	line-height: 0.6em;
-	position: absolute;
-	top: .7rem;
-}
-
-.c-quote:before {
-	content: "\201C";
-	left: 0;
+.c-quote__source{
+	margin-top: 1rem;
+	font-weight: bold;
+	font-size: 1.45rem;
+	&::before{
+		content: "-";
+		display: block;
+		float: left;
+		margin-right: 1rem;
+	}
 }
