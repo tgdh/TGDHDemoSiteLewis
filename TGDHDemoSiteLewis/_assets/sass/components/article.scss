@@ -4,6 +4,50 @@
 
 =========================================================== */
 
-.c-article__header {
-	margin-bottom: $line-height;
+.c-listing--article{
+	margin-bottom: 3rem;
+	.c-listing__link{
+		display: block;
+		position: relative;
+		overflow: hidden;
+		&:hover,
+		&:focus{
+			.c-meta-data__item__item{
+				color: black;
+			}
+			.c-listing__image{
+				transform: scale(1.02);
+			}
+		}
+	}
+	.c-listing__image{
+		transition: $ease $speed transform;
+	}
+	.c-listing__headline {
+	    position: absolute;
+	    top: 2rem;
+	    left: 2rem;
+	    background-color: white;
+	    padding: 1.25rem;
+	    font-size: 2.25rem;
+	}
+	.c-meta-data__item {
+	    position: absolute;
+	    bottom: 2rem;
+	    left: 2rem;
+	}
+	.c-meta-data__item__item {
+    	margin: 0;
+	    background-color: white;
+	    margin-top: 1rem;
+	    padding: 1rem;
+	    font-weight: bold;
+	}
+}
+
+
+@include respond-min($mq-small){
+	.c-listing--article{
+		@include column(1/2, $gutter: 4, $cycle: 2);
+	}
 }
