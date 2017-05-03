@@ -37,7 +37,8 @@
 		foreach(var icon in socialIcons)
 		{
 			var title = icon.GetPropertyValue<string>("iconTitle");
-			<a href="#" class="c-nav__social-icon">
+			var url = icon.GetPropertyValue<string>("iconURL");
+			<a href="@url" target="_blank" class="c-nav__social-icon">
 			  <i class="icon-@title.ToLower()"></i>
 			</a>
 		}
