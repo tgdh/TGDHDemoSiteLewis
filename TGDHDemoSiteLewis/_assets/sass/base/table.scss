@@ -5,14 +5,22 @@
 =========================================================== */
 
 table {
-	border: $border-width solid $border-colour;
 	border-collapse: collapse;
 	width: 100%;
+	tr{
+		padding: 2rem 0;
+		&:first-child{
+			td{
+				font-size: 2rem;
+				font-weight: bold;
+			}
+		}
+	}
 }
 
 th,
 td {
-	border-bottom: $border-width solid $border-colour;
-	padding: 1rem 2rem;
+	border-bottom: .2rem solid black;
+	padding: 3rem;
 	text-align: left;
 }
