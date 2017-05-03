@@ -16,13 +16,15 @@
 @* This can be improved by having a Model, Controller and processing the form on submit (server side) and jQuery way on enhanced browsers *@
 <div class="c-pod">
     <h3 class="c-pod__title">Archive</h3>
-    <select id="dateDropdown" onchange="location = this.options[this.selectedIndex].value;" class="js-select">
-        <option value="">Choose a date</option>
-        @foreach (var date in dateList)
-        {
-            var itemLink = baseLink + "?year=" + date.Year + "&month=" + date.ToString("MMMM").ToLower();
+	<label>
+	    <select id="dateDropdown" onchange="location = this.options[this.selectedIndex].value;" class="js-select">
+	        <option value="">Choose a date</option>
+	        @foreach (var date in dateList)
+	        {
+	            var itemLink = baseLink + "?year=" + date.Year + "&month=" + date.ToString("MMMM").ToLower();
 
-            <option value="@itemLink">@date.ToString("yyyy MMMM")</option>
-        }
-    </select>
+	            <option value="@itemLink">@date.ToString("yyyy MMMM")</option>
+	        }
+	    </select>
+	</label>
 </div>
