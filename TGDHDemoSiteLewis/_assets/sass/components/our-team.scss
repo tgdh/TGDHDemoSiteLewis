@@ -141,10 +141,26 @@
 }
 
 @include respond-max($mq-large){
-	.c-our-team__left{
-		margin-bottom: 3rem;
-	}
+
 	.c-our-team__item{
 		@include column(1/2, $gutter: 4, $cycle: 2);
+	}
+
+	.c-our-team__info__name{
+		width: 100%;
+	}
+}
+
+@include respond-max($mq-small){
+	.c-our-team__info{
+		.c-our-team__info__name,.c-our-team__info__ext, .c-our-team__job{
+			width: 100%;
+			padding: 0;
+			margin: 0 0 .5rem 0;
+		}
+		.c-our-team__email{
+			float: left;
+			width: 100%;
+		}
 	}
 }
