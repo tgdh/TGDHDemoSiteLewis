@@ -14,7 +14,7 @@
 
 	.o-align--left,
 	.o-align--right {
-		width: 40%;
+		width: calc(50% - 2rem);
 	}
 
 	.o-align--left {
