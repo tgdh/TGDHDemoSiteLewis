@@ -16,12 +16,7 @@
 	<div class="c-page__wrapper">
 	    @Html.Partial("~/Views/Partials/Page/Headline.cshtml")
 		<div class="c-grid o-wrap o-wrap--large u-clearfix o-section">
-			<aside class="c-grid__sidebar">
-			    @Html.Partial("~/Views/Partials/Pods/TagPrevalues.cshtml", Model, new ViewDataDictionary { { "title", "Authors" }, { "docType", "author" }, { "baseUrl", Model.Url } })
-			    @Html.Partial("~/Views/Partials/Pods/TagPrevalues.cshtml", Model, new ViewDataDictionary { { "title", "Categories" }, { "docType", "category" }, { "baseUrl", Model.Url } })
-			    @Html.Partial("~/Views/Partials/Pods/DateArchive.cshtml", allBlogPosts)
-			</aside>
-			<section class="c-grid__main-content">
+			<section class="o-page__content u-clearfix">
 		        @if (selectedBlogPosts.Any())
 		        {
 		            foreach (var post in selectedBlogPosts)
@@ -30,7 +25,7 @@
 		                {
 		                    Id = post.Id,
 		                    Name = post.HasValue("headline") ? post.GetPropertyValue<string>("headline") : post.Name,
-		                    Thumbnail = Umbraco.TypedMedia(post.GetPropertyValue<int>("coverImage")),
+		                    Thumbnail = Umbraco.TypedMedia(post.GetPropertyValue<int>("pageImage")),
 		                    Excerpt = post.GetPropertyValue<string>("excerpt"),
 		                    Url = post.Url,
 		                    Category = GetMetaById(post.GetPropertyValue<int>("category")),
@@ -64,6 +59,11 @@
 					}
 		        }
 		    </section>
+			<aside class="o-page__aside">
+			    @Html.Partial("~/Views/Partials/Pods/TagPrevalues.cshtml", Model, new ViewDataDictionary { { "title", "Authors" }, { "docType", "author" }, { "baseUrl", Model.Url } })
+			    @Html.Partial("~/Views/Partials/Pods/TagPrevalues.cshtml", Model, new ViewDataDictionary { { "title", "Categories" }, { "docType", "category" }, { "baseUrl", Model.Url } })
+			    @Html.Partial("~/Views/Partials/Pods/DateArchive.cshtml", allBlogPosts)
+			</aside>
 		</div>
 	</div>
 	@Html.Partial("~/Views/Partials/Components/CallToAction.cshtml")

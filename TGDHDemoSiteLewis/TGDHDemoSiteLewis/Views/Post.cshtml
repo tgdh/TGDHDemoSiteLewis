@@ -1,4 +1,4 @@
-﻿@using TMP.Core.Data
+﻿@using UmbracoStarterKit.Core.Data
 @inherits UmbracoViewPage<IPublishedContent>
 @{
     Layout = "MasterBlog.cshtml";
@@ -10,12 +10,7 @@
 	<div class="c-page__wrapper">
 	    @Html.Partial("~/Views/Partials/Page/Headline.cshtml")
 		<div class="c-section_wrapper c-grid o-wrap o-wrap--large u-clearfix o-section">
-			<aside class="c-grid__sidebar c-service__page-list">
-			    @Html.Partial("~/Views/Partials/Pods/TagPrevalues.cshtml", Model, new ViewDataDictionary { { "title", "Authors" }, { "docType", "author" }, { "baseUrl", Model.Url } })
-			    @Html.Partial("~/Views/Partials/Pods/TagPrevalues.cshtml", Model, new ViewDataDictionary { { "title", "Categories" }, { "docType", "category" }, { "baseUrl", Model.Url } })
-			    @Html.Partial("~/Views/Partials/Pods/DateArchive.cshtml", allBlogPosts)
-			</aside>
-			<div class="c-grid__main-content c-blogs__blog-post">
+			<div class="c-blogs__blog-post">
 	    		@Html.Partial("~/Views/Partials/Page/Components.cshtml")
 			</div>
 		</div>
