@@ -2,38 +2,38 @@
 	# Map
 =========================================================== */
 
-.c-map {
-
-	& > div {
-		top: 0;
-	}
-
+.c-page-title__map {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
 }
-
-.enhance {
-
-	.c-map {
-		position: relative;
-		background-color: $placeholder-colour;
-
-		&:after {
-			content: "";
-			display: block;
-			@include pad-top( 210, 90 );
-		}
-
-	}
-
+#c-section__googleMap {
+    width: 100%;
+    height: 100%;
 }
-
-@include respond-min( $mq-medium ) {
-
-	.enhance {
-
-		.c-map:after {
-			padding-top: 50rem;
-		}
-
+@include respond-min-max($mq-medium,$mq-large){
+	.c-page-title__map{
+		width: 100%;
+		bottom: 0;
+		height: 30rem;
+		top: initial;
 	}
-
+}
+@include respond-min-max($mq-small,$mq-medium){
+	.c-page-title__map{
+		width: 100%;
+		bottom: 0;
+		height: 25rem;
+		top: initial;
+	}
+}
+@include respond-max($mq-small){
+	.c-page-title__map{
+		width: 100%;
+		bottom: 0;
+		height: 20rem;
+		top: initial;
+	}
 }

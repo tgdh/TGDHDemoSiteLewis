@@ -3,8 +3,10 @@
 	var metaTitle = Model.GetPropertyValue<string>("pageTitle");
 	var pageTitle = !string.IsNullOrWhiteSpace(metaTitle) ? metaTitle : Model.Name;
 	var desc = Model.GetPropertyValue<string>("pageDescription");
+	var lng = "51.5033640";
+	var lat = "-0.1276250";
 }
-<section class="c-page-title o-section">
+<section class="c-page-title c-page-title__contact o-section">
 	<div class="o-wrap o-wrap--large">
 		<div class="c-page-title__content">
 			<h3 class="c-intro__heading u-tera js-underline">@pageTitle</h3>
@@ -14,7 +16,38 @@
 			}
 		</div>
 		<div class="c-page-title__map">
-			<div id="map"></div>
+			<div id="c-section__googleMap"></div>
 		</div>
 	</div>
 </section>
+
+<script type="text/javascript">
+  function myMap() {
+    var co             = {lat: @lat,lng: @lng}
+    var map            = new google.maps.Map(document.getElementById('c-section__googleMap'), {
+      center:co,
+      zoom:16,
+      scrollwheel: false,
+      disableDefaultUI: true,
+      styles: [	{		"featureType":"landscape",		"stylers":[			{				"hue":"#FFBB00"			},			{				"saturation":43.400000000000006			},			{				"lightness":37.599999999999994			},			{				"gamma":1			}		]	},	{		"featureType":"road.highway",		"stylers":[			{				"hue":"#FFC200"			},			{				"saturation":-61.8			},			{				"lightness":45.599999999999994			},			{				"gamma":1			}		]	},	{		"featureType":"road.arterial",		"stylers":[			{				"hue":"#FF0300"			},			{				"saturation":-100			},			{				"lightness":51.19999999999999			},			{				"gamma":1			}		]	},	{		"featureType":"road.local",		"stylers":[			{				"hue":"#FF0300"			},			{				"saturation":-100			},			{				"lightness":52			},			{				"gamma":1			}		]	},	{		"featureType":"water",		"stylers":[			{				"hue":"#0078FF"			},			{				"saturation":-13.200000000000003			},			{				"lightness":2.4000000000000057			},			{				"gamma":1			}		]	},	{		"featureType":"poi",		"stylers":[			{				"hue":"#00FF6A"			},			{				"saturation":-1.0989010989011234			},			{				"lightness":11.200000000000017			},			{				"gamma":1			}		]	}]
+
+    });
+    var icon           = "https://maps.google.com/mapfiles/kml/shapes/icon.png";
+    var marker         = new google.maps.Marker({
+      position: co,
+      map: map,
+      icon: icon
+    });
+  }
+  function myMap() {
+		var co  = {lat: 50.836833,lng: -1.045772}
+		var map = new google.maps.Map(document.getElementById('c-section__googleMap'), {
+			center:co,
+			zoom:16,
+			scrollwheel: false,
+			disableDefaultUI: true,
+			styles: [	{		"featureType":"landscape",		"stylers":[			{				"hue":"#FFBB00"			},			{				"saturation":43.400000000000006			},			{				"lightness":37.599999999999994			},			{				"gamma":1			}		]	},	{		"featureType":"road.highway",		"stylers":[			{				"hue":"#FFC200"			},			{				"saturation":-61.8			},			{				"lightness":45.599999999999994			},			{				"gamma":1			}		]	},	{		"featureType":"road.arterial",		"stylers":[			{				"hue":"#FF0300"			},			{				"saturation":-100			},			{				"lightness":51.19999999999999			},			{				"gamma":1			}		]	},	{		"featureType":"road.local",		"stylers":[			{				"hue":"#FF0300"			},			{				"saturation":-100			},			{				"lightness":52			},			{				"gamma":1			}		]	},	{		"featureType":"water",		"stylers":[			{				"hue":"#0078FF"			},			{				"saturation":-13.200000000000003			},			{				"lightness":2.4000000000000057			},			{				"gamma":1			}		]	},	{		"featureType":"poi",		"stylers":[			{				"hue":"#00FF6A"			},			{				"saturation":-1.0989010989011234			},			{				"lightness":11.200000000000017			},			{				"gamma":1			}		]	}]
+		});
+      }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLxXLHhmzeNUpt2mVlpRi4PXqjAkork-I&callback=myMap" async defer></script>

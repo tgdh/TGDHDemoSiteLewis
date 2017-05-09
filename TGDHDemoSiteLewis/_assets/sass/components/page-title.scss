@@ -2,11 +2,9 @@
   position: relative;
   background-color: $light-1;
 }
-
 .c-page-title__image{
  	display: none;
 }
-
 @include respond-min($mq-large){
 	.c-page-title__image{
 	  position: absolute;
@@ -22,5 +20,20 @@
 	.c-page-title__content{
 	  width: 50%;
 	  padding-right: 5rem;
+	}
+}
+@include respond-min-max($mq-medium,$mq-large){
+	.c-page-title__contact{
+		padding-bottom: 42.5rem;
+	}
+}
+@include respond-min-max($mq-small,$mq-medium){
+	.c-page-title__contact{
+		padding-bottom: 32.5rem;
+	}
+}
+@include respond-max($mq-small){
+	.c-page-title__contact{
+		padding-bottom: 23.5rem;
 	}
 }

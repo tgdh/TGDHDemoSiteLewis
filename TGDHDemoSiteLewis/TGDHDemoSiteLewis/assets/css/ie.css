@@ -1941,6 +1941,41 @@ img {
       .c-footer .c-footer__scroll-top .icon-arrow {
         font-size: 3rem; } }
 
+/* ===========================================================
+	# Map
+=========================================================== */
+.c-page-title__map {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%; }
+
+#c-section__googleMap {
+  width: 100%;
+  height: 100%; }
+
+@media only screen and (min-width: 800px) and (max-width: 999px) {
+  .c-page-title__map {
+    width: 100%;
+    bottom: 0;
+    height: 30rem;
+    top: initial; } }
+
+@media only screen and (min-width: 600px) and (max-width: 799px) {
+  .c-page-title__map {
+    width: 100%;
+    bottom: 0;
+    height: 25rem;
+    top: initial; } }
+
+@media only screen and (max-width: 599px) {
+  .c-page-title__map {
+    width: 100%;
+    bottom: 0;
+    height: 20rem;
+    top: initial; } }
+
 .c-component p {
   line-height: 3rem; }
 
@@ -2870,6 +2905,18 @@ img {
   .c-page-title__content {
     width: 50%;
     padding-right: 5rem; } }
+
+@media only screen and (min-width: 800px) and (max-width: 999px) {
+  .c-page-title__contact {
+    padding-bottom: 42.5rem; } }
+
+@media only screen and (min-width: 600px) and (max-width: 799px) {
+  .c-page-title__contact {
+    padding-bottom: 32.5rem; } }
+
+@media only screen and (max-width: 599px) {
+  .c-page-title__contact {
+    padding-bottom: 23.5rem; } }
 
 .c-contact__heading {
   margin-bottom: 1rem;
