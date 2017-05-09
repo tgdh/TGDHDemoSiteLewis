@@ -3,3 +3,11 @@
     Layout = "Master.cshtml";
 }
 @RenderBody()
+<div class="c-search js-searchbar">
+    <div class="o-wrap o-wrap--medium c-search__flexbox">
+        <form action="/search" method="GET" class="c-search__form">
+            <input type="text" value="@Request["q"]" class="c-search__text" placeholder="Search here..." name="q" id="search">
+            <input type="submit" name="" value="Search" class="c-search__submit">
+        </form>
+    </div>
+</div>

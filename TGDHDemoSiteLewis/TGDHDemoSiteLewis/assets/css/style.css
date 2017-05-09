@@ -1498,8 +1498,8 @@ img {
         opacity: 1;
         top: 0; }
     .c-nav--main .c-nav__link {
-      font-size: 3rem;
-      margin: 1rem 0;
+      font-size: 5rem;
+      margin: 3.5rem 0;
       padding: 1.5rem 0;
       display: inline-block;
       position: relative; }
@@ -1507,10 +1507,10 @@ img {
         content: "";
         display: block;
         width: 100%;
-        height: 3px;
+        height: 5px;
         background-color: black;
         position: absolute;
-        top: 30px;
+        top: 32px;
         left: 0; }
   .flexbox .c-nav--main {
     display: -webkit-box;
@@ -3026,6 +3026,70 @@ img {
     background-color: #f7f7f7; }
     .c-cta .c-cta__heading {
       padding-bottom: 4rem; } }
+
+.c-search {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 112px);
+  background-color: #FFFFFF;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 900;
+  transition: ease 0.3s height, ease 0.3s opacity, ease 0.3s visibility; }
+  .c-search.js-active {
+    opacity: 1;
+    visibility: visible; }
+  .c-search.js-small {
+    height: calc(100vh - 78px); }
+  .c-search .c-search__text {
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.015);
+    border: none;
+    border-radius: 0;
+    padding: 2rem;
+    border-bottom: 2px solid black;
+    font-size: 2.75rem;
+    float: left;
+    width: calc(100% - 150px); }
+    .c-search .c-search__text:hover, .c-search .c-search__text:focus {
+      border-bottom-color: black; }
+  .c-search .c-search__submit {
+    box-sizing: border-box;
+    border-color: black;
+    background-color: black;
+    color: white;
+    border-radius: 0;
+    cursor: pointer;
+    float: left;
+    width: 150px;
+    padding: 2.2rem;
+    font-size: 2.3rem; }
+  .c-search .c-search__form {
+    width: 100%; }
+
+.flexbox .c-search__flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%; }
+
+.flexbox .c-search__form {
+  display: table; }
+
+@media only screen and (max-width: 999px) {
+  .c-search {
+    display: none; } }
 
 .c-text .c-intro__heading {
   font-weight: 900; }

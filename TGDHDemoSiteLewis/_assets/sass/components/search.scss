@@ -1,0 +1,71 @@
+.c-search{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 112px);
+    background-color: $white;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 900;
+    transition: $ease $speed height,
+                $ease $speed opacity,
+                $ease $speed visibility;
+    &.js-active{
+        opacity: 1;
+        visibility: visible;
+    }
+    &.js-small{
+        height: calc(100vh - 78px);
+    }
+
+    .c-search__text {
+        box-sizing: border-box;
+        background-color: rgba(0,0,0,0.015);
+        border: none;
+        border-radius: 0;
+        padding: 2rem;
+        border-bottom: 2px solid black;
+        font-size: 2.75rem;
+        float: left;
+        width: calc(100% - 150px);
+        &:hover,
+        &:focus{
+            border-bottom-color: black;
+        }
+    }
+
+    .c-search__submit {
+        box-sizing: border-box;
+        border-color: black;
+        background-color: black;
+        color: white;
+        border-radius: 0;
+        cursor: pointer;
+        float: left;
+        width: 150px;
+        padding: 2.2rem;
+        font-size: 2.3rem;
+    }
+    .c-search__form{
+        width: 100%;
+    }
+}
+
+.flexbox{
+    .c-search__flexbox{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    .c-search__form{
+        display: table;
+    }
+}
+
+@include respond-max($mq-large){
+    .c-search{
+        display: none;
+    }
+}
