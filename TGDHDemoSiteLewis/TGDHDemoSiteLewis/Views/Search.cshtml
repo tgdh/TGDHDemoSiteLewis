@@ -4,23 +4,31 @@
 
     var homePage = Model.Site();
 }
-<div class="c-page__wrapper">
-	<main class="o-page__inner" role="main">
-	    @Html.Partial("~/Views/Partials/Page/Headline.cshtml")
-	    <div class="o-section s-free-content o-wrap o-wrap--medium">
-	        @Html.Partial("~/Views/Partials/Components/SearchForm.cshtml")
-	        @Umbraco.RenderMacro("ezSearch", new
-	            {
-	                rootContentNodeId = homePage.Id,
-	                rootMediaNodeId = "",
-	                indexType = "CONTENT",
-	                searchFields = "nodeName,headline,pageContent,content,seoDescription,seoTitle,onSiteSearchKeywords",
-	                previewFields = "",
-	                previewLength = "155",
-	                pageSize = "10",
-	                hideFromSearchField = "hideFromSearch",
-	                searchFormLocation = "None"
-	            })
-	    </div>
-	</main>
-</div>
+<main class="o-page__inner u-clearfix c-header__margin-top" role="main">
+	<section class="c-page-title o-section">
+		<div class="o-wrap o-wrap--large">
+			<div class="c-page-title__content">
+				<h3 class="c-intro__heading u-tera js-underline">Search</h3>
+			</div>
+		</div>
+	</section>
+	<div class="o-section s-free-content o-wrap o-wrap--medium">
+		<form action="/search" method="GET" class="c-search__form__inline u-clearfix">
+            <input type="text" value="@Request["q"]" class="c-search__text" placeholder="Search here..." name="q" id="search">
+            <input type="submit" name="" value="Search" class="c-search__submit">
+        </form>
+		@Umbraco.RenderMacro("ezSearch", new
+			{
+				rootContentNodeId = homePage.Id,
+				rootMediaNodeId = "",
+				indexType = "CONTENT",
+				searchFields = "nodeName,headline,pageContent,content,seoDescription,seoTitle,onSiteSearchKeywords",
+				previewFields = "",
+				previewLength = "155",
+				pageSize = "10",
+				hideFromSearchField = "hideFromSearch",
+				searchFormLocation = "None"
+			})
+	</div>
+</main>
+@Html.Partial("~/Views/Partials/Components/Search.cshtml")

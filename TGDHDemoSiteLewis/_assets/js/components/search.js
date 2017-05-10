@@ -5,6 +5,7 @@ var Search = (function ($) {
 		$(document).ready(function(){
 			$('.js-search').click(function(){
 				$(this).toggleClass('js-active');
+				$('.c-search').toggleClass('js-active');
 			});
 		});
 	};

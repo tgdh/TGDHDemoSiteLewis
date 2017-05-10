@@ -1,0 +1,143 @@
+.c-search{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: $white;
+    z-index: 900;
+    height: calc(100% - 112px);
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.99);
+    transition: $ease $speed opacity,
+                $ease $speed visibility,
+                $ease $speed transform,
+                $ease $speed height;
+    &.js-active{
+        transform: scale(1);
+        opacity: 1;
+        visibility: visible;
+    }
+    &.js-small{
+        height: calc(100% - 78px);
+    }
+    .c-search__flex{
+        height: 100%;
+    }
+    .c-search__form{
+        width: 100%;
+        position: relative;
+        &::after{
+            content: "";
+            display: block;
+            background-color: black;
+            width: 0;
+            height: 2px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transition: $ease $speed width;
+        }
+        &::before{
+            content: "";
+            display: block;
+            background-color: black;
+            width: 0;
+            height: 2px;
+            position: absolute;
+            top: 0;
+            right: 75px;
+            transition: $ease $speed width;
+        }
+        &:hover{
+            &::after{
+                width: calc(100% - 75px);
+            }
+            &::before{
+                width: calc(100% - 75px);
+            }
+        }
+    }
+    .c-search__text{
+        width: calc(100% - 15rem);
+        float: left;
+        border: none;
+        background-color: rgba(0,0,0,.025);
+        font-size: 2.5rem;
+        padding: 3rem;
+        position: relative;
+    }
+    .c-search__submit{
+        float: left;
+        width: 150px;
+        background-color: $black;
+        color: white;
+        font-size: 2.25rem;
+        border: 2px solid black;
+        border-radius: 0;
+        height: 95px;
+        cursor: pointer;
+        &:hover,
+        &:focus{
+            background-color: white;
+            color: black;
+        }
+    }
+}
+.flexbox{
+    .c-search__flex{
+        display: flex;
+        align-items: center;
+    }
+}
+.c-search__form__inline{
+    margin-bottom: 5rem;
+    .c-search__text{
+        width: calc(100% - 150px);
+        font-size: 2.5rem;
+        background-color: rgba(0,0,0,0.025);
+        border: none;
+        border-radius: 0;
+        padding: 2.8rem;
+        float: left;
+    }
+    .c-search__submit{
+        width: 150px;
+        float: left;
+        background-color: black;
+        border: 2px solid black;
+        border-radius: 0;
+        height: 92px;
+        color: white;
+        font-size: 2.25rem;
+        cursor: pointer;
+        transition: $ease $speed background-color,
+                    $ease $speed color;
+        &:hover,
+        &:focus{
+            background-color: white;
+            color: black;
+        }
+    }
+}
+.ezsearch-result-count{
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+.ezsearch-result{
+    width: 100%;
+    background-color: rgba(0,0,0,0.025);
+    padding: 3rem;
+    margin-top: 4rem;
+    h2{
+        padding-block-end: 0;
+    }
+    p{
+        padding: 1rem 0;
+    }
+}
+@include respond-max($mq-large){
+    .c-search{
+        display: none;
+    }
+}

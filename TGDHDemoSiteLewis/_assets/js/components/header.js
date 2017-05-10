@@ -6,8 +6,10 @@ var Header = (function ($) {
 			var wScroll = $(this).scrollTop();
 			if(wScroll > 500){
 				$('.c-header').addClass('js-sticky');
+				$('.c-search').addClass('js-small');
 			}else{
 				$('.c-header').removeClass('js-sticky');
+				$('.c-search').removeClass('js-small');
 			}
 		});
 		$(document).ready(function(){
