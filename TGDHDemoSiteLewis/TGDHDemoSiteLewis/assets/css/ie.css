@@ -2993,6 +2993,8 @@ img {
 .c-sitemap__link {
   text-decoration: none;
   display: inline-block; }
+  .c-sitemap__link:hover, .c-sitemap__link:focus {
+    color: black; }
 
 .c-sitemap__list {
   margin-top: 0;

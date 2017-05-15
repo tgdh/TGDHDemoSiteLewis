@@ -23,6 +23,10 @@
 .c-sitemap__link {
 	text-decoration: none;
 	display: inline-block;
+	&:hover,
+	&:focus{
+		color: black;
+	}
 }
 
 .c-sitemap__list {
