@@ -8,7 +8,7 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "fab736e715952dc4")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "3252117ed41ece26")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
@@ -283,17 +283,9 @@ namespace Umbraco.Web.PublishedContentModels
 		public static string GetUmbracoUrlName(ICAdmin that) { return that.GetPropertyValue<string>("umbracoUrlName"); }
 	}
 
-	// Mixin content Type 1107 with alias "cHeadlineOnly"
-	/// <summary>C - Headline only</summary>
-	public partial interface ICHeadlineOnly : IPublishedContent
-	{
-		/// <summary>Headline</summary>
-		string Headline { get; }
-	}
-
 	/// <summary>C - Headline only</summary>
 	[PublishedContentModel("cHeadlineOnly")]
-	public partial class CHeadlineOnly : PublishedContentModel, ICHeadlineOnly
+	public partial class CHeadlineOnly : PublishedContentModel
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "cHeadlineOnly";
@@ -322,11 +314,8 @@ namespace Umbraco.Web.PublishedContentModels
 		[ImplementPropertyType("headline")]
 		public string Headline
 		{
-			get { return GetHeadline(this); }
+			get { return this.GetPropertyValue<string>("headline"); }
 		}
-
-		/// <summary>Static getter for Headline</summary>
-		public static string GetHeadline(ICHeadlineOnly that) { return that.GetPropertyValue<string>("headline"); }
 	}
 
 	// Mixin content Type 1108 with alias "cHeadlineWithExcerpt"
@@ -1253,7 +1242,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Error page</summary>
 	[PublishedContentModel("errorPage")]
-	public partial class ErrorPage : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICPageComponents
+	public partial class ErrorPage : PublishedContentModel, ICAdmin, ICMeta, ICPageComponents
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "errorPage";
@@ -1331,12 +1320,39 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Headline: If left blank, the page name will be used
+		/// Page description: Description of the page (only used on the website)
 		///</summary>
-		[ImplementPropertyType("headline")]
-		public string Headline
+		[ImplementPropertyType("pageDescription")]
+		public object PageDescription
 		{
-			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetHeadline(this); }
+			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageDescription(this); }
+		}
+
+		///<summary>
+		/// Page image
+		///</summary>
+		[ImplementPropertyType("pageImage")]
+		public string PageImage
+		{
+			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageImage(this); }
+		}
+
+		///<summary>
+		/// Page title
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Show Call To Action: The call to action is found at the bottom of the page. The content for this can be found in the settings section under 'Call To Action'
+		///</summary>
+		[ImplementPropertyType("showCallToAction")]
+		public bool ShowCallToAction
+		{
+			get { return Umbraco.Web.PublishedContentModels.CMeta.GetShowCallToAction(this); }
 		}
 
 		///<summary>
@@ -1848,6 +1864,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string FooterNavigation
 		{
 			get { return this.GetPropertyValue<string>("footerNavigation"); }
+		}
+
+		///<summary>
+		/// Google Map
+		///</summary>
+		[ImplementPropertyType("googleMap")]
+		public AngularGoogleMaps.Model GoogleMap
+		{
+			get { return this.GetPropertyValue<AngularGoogleMaps.Model>("googleMap"); }
 		}
 
 		///<summary>
@@ -2621,7 +2646,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Not found</summary>
 	[PublishedContentModel("notFound")]
-	public partial class NotFound : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICPageComponents
+	public partial class NotFound : PublishedContentModel, ICAdmin, ICMeta, ICPageComponents
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "notFound";
@@ -2699,12 +2724,39 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Headline: If left blank, the page name will be used
+		/// Page description: Description of the page (only used on the website)
 		///</summary>
-		[ImplementPropertyType("headline")]
-		public string Headline
+		[ImplementPropertyType("pageDescription")]
+		public object PageDescription
 		{
-			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetHeadline(this); }
+			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageDescription(this); }
+		}
+
+		///<summary>
+		/// Page image
+		///</summary>
+		[ImplementPropertyType("pageImage")]
+		public string PageImage
+		{
+			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageImage(this); }
+		}
+
+		///<summary>
+		/// Page title
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Show Call To Action: The call to action is found at the bottom of the page. The content for this can be found in the settings section under 'Call To Action'
+		///</summary>
+		[ImplementPropertyType("showCallToAction")]
+		public bool ShowCallToAction
+		{
+			get { return Umbraco.Web.PublishedContentModels.CMeta.GetShowCallToAction(this); }
 		}
 
 		///<summary>
@@ -3157,7 +3209,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Sitemap</summary>
 	[PublishedContentModel("sitemap")]
-	public partial class Sitemap : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICIntroduction, ICSeo
+	public partial class Sitemap : PublishedContentModel, ICAdmin, ICIntroduction, ICMeta, ICSeo
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "sitemap";
@@ -3235,21 +3287,48 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Headline: If left blank, the page name will be used
-		///</summary>
-		[ImplementPropertyType("headline")]
-		public string Headline
-		{
-			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetHeadline(this); }
-		}
-
-		///<summary>
 		/// Introduction: Short introduction to the page and subpages
 		///</summary>
 		[ImplementPropertyType("introduction")]
 		public IHtmlString Introduction
 		{
 			get { return Umbraco.Web.PublishedContentModels.CIntroduction.GetIntroduction(this); }
+		}
+
+		///<summary>
+		/// Page description: Description of the page (only used on the website)
+		///</summary>
+		[ImplementPropertyType("pageDescription")]
+		public object PageDescription
+		{
+			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageDescription(this); }
+		}
+
+		///<summary>
+		/// Page image
+		///</summary>
+		[ImplementPropertyType("pageImage")]
+		public string PageImage
+		{
+			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageImage(this); }
+		}
+
+		///<summary>
+		/// Page title
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Show Call To Action: The call to action is found at the bottom of the page. The content for this can be found in the settings section under 'Call To Action'
+		///</summary>
+		[ImplementPropertyType("showCallToAction")]
+		public bool ShowCallToAction
+		{
+			get { return Umbraco.Web.PublishedContentModels.CMeta.GetShowCallToAction(this); }
 		}
 
 		///<summary>
