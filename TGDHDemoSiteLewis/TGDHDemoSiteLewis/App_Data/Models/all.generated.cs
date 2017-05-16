@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "3252117ed41ece26")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "433ea99985b44706")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 
 // FILE: models.generated.cs
@@ -283,9 +283,17 @@ namespace Umbraco.Web.PublishedContentModels
 		public static string GetUmbracoUrlName(ICAdmin that) { return that.GetPropertyValue<string>("umbracoUrlName"); }
 	}
 
+	// Mixin content Type 1107 with alias "cHeadlineOnly"
+	/// <summary>C - Headline only</summary>
+	public partial interface ICHeadlineOnly : IPublishedContent
+	{
+		/// <summary>Headline</summary>
+		string PageTitle { get; }
+	}
+
 	/// <summary>C - Headline only</summary>
 	[PublishedContentModel("cHeadlineOnly")]
-	public partial class CHeadlineOnly : PublishedContentModel
+	public partial class CHeadlineOnly : PublishedContentModel, ICHeadlineOnly
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "cHeadlineOnly";
@@ -311,27 +319,19 @@ namespace Umbraco.Web.PublishedContentModels
 		///<summary>
 		/// Headline: If left blank, the page name will be used
 		///</summary>
-		[ImplementPropertyType("headline")]
-		public string Headline
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
 		{
-			get { return this.GetPropertyValue<string>("headline"); }
+			get { return GetPageTitle(this); }
 		}
-	}
 
-	// Mixin content Type 1108 with alias "cHeadlineWithExcerpt"
-	/// <summary>C - Headline with excerpt</summary>
-	public partial interface ICHeadlineWithExcerpt : IPublishedContent
-	{
-		/// <summary>Excerpt</summary>
-		object Excerpt { get; }
-
-		/// <summary>Headline</summary>
-		string Headline { get; }
+		/// <summary>Static getter for Headline</summary>
+		public static string GetPageTitle(ICHeadlineOnly that) { return that.GetPropertyValue<string>("pageTitle"); }
 	}
 
 	/// <summary>C - Headline with excerpt</summary>
 	[PublishedContentModel("cHeadlineWithExcerpt")]
-	public partial class CHeadlineWithExcerpt : PublishedContentModel, ICHeadlineWithExcerpt
+	public partial class CHeadlineWithExcerpt : PublishedContentModel
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "cHeadlineWithExcerpt";
@@ -360,11 +360,8 @@ namespace Umbraco.Web.PublishedContentModels
 		[ImplementPropertyType("excerpt")]
 		public object Excerpt
 		{
-			get { return GetExcerpt(this); }
+			get { return this.GetPropertyValue("excerpt"); }
 		}
-
-		/// <summary>Static getter for Excerpt</summary>
-		public static object GetExcerpt(ICHeadlineWithExcerpt that) { return that.GetPropertyValue("excerpt"); }
 
 		///<summary>
 		/// Headline: If left blank, the page name will be used
@@ -372,27 +369,13 @@ namespace Umbraco.Web.PublishedContentModels
 		[ImplementPropertyType("headline")]
 		public string Headline
 		{
-			get { return GetHeadline(this); }
+			get { return this.GetPropertyValue<string>("headline"); }
 		}
-
-		/// <summary>Static getter for Headline</summary>
-		public static string GetHeadline(ICHeadlineWithExcerpt that) { return that.GetPropertyValue<string>("headline"); }
-	}
-
-	// Mixin content Type 1109 with alias "cHeadlineWithSubtitle"
-	/// <summary>C - Headline with subtitle</summary>
-	public partial interface ICHeadlineWithSubtitle : IPublishedContent
-	{
-		/// <summary>Headline</summary>
-		string Headline { get; }
-
-		/// <summary>Subtitle</summary>
-		string Subtitle { get; }
 	}
 
 	/// <summary>C - Headline with subtitle</summary>
 	[PublishedContentModel("cHeadlineWithSubtitle")]
-	public partial class CHeadlineWithSubtitle : PublishedContentModel, ICHeadlineWithSubtitle
+	public partial class CHeadlineWithSubtitle : PublishedContentModel
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "cHeadlineWithSubtitle";
@@ -421,11 +404,8 @@ namespace Umbraco.Web.PublishedContentModels
 		[ImplementPropertyType("headline")]
 		public string Headline
 		{
-			get { return GetHeadline(this); }
+			get { return this.GetPropertyValue<string>("headline"); }
 		}
-
-		/// <summary>Static getter for Headline</summary>
-		public static string GetHeadline(ICHeadlineWithSubtitle that) { return that.GetPropertyValue<string>("headline"); }
 
 		///<summary>
 		/// Subtitle: Subtitle displayed below the page name
@@ -433,24 +413,13 @@ namespace Umbraco.Web.PublishedContentModels
 		[ImplementPropertyType("subtitle")]
 		public string Subtitle
 		{
-			get { return GetSubtitle(this); }
+			get { return this.GetPropertyValue<string>("subtitle"); }
 		}
-
-		/// <summary>Static getter for Subtitle</summary>
-		public static string GetSubtitle(ICHeadlineWithSubtitle that) { return that.GetPropertyValue<string>("subtitle"); }
-	}
-
-	// Mixin content Type 1110 with alias "cIntroduction"
-	/// <summary>C - Introduction</summary>
-	public partial interface ICIntroduction : IPublishedContent
-	{
-		/// <summary>Introduction</summary>
-		IHtmlString Introduction { get; }
 	}
 
 	/// <summary>C - Introduction</summary>
 	[PublishedContentModel("cIntroduction")]
-	public partial class CIntroduction : PublishedContentModel, ICIntroduction
+	public partial class CIntroduction : PublishedContentModel
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "cIntroduction";
@@ -479,11 +448,8 @@ namespace Umbraco.Web.PublishedContentModels
 		[ImplementPropertyType("introduction")]
 		public IHtmlString Introduction
 		{
-			get { return GetIntroduction(this); }
+			get { return this.GetPropertyValue<IHtmlString>("introduction"); }
 		}
-
-		/// <summary>Static getter for Introduction</summary>
-		public static IHtmlString GetIntroduction(ICIntroduction that) { return that.GetPropertyValue<IHtmlString>("introduction"); }
 	}
 
 	// Mixin content Type 1111 with alias "cMeta"
@@ -495,9 +461,6 @@ namespace Umbraco.Web.PublishedContentModels
 
 		/// <summary>Page image</summary>
 		string PageImage { get; }
-
-		/// <summary>Page title</summary>
-		string PageTitle { get; }
 
 		/// <summary>Show Call To Action</summary>
 		bool ShowCallToAction { get; }
@@ -553,18 +516,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public static string GetPageImage(ICMeta that) { return that.GetPropertyValue<string>("pageImage"); }
 
 		///<summary>
-		/// Page title
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return GetPageTitle(this); }
-		}
-
-		/// <summary>Static getter for Page title</summary>
-		public static string GetPageTitle(ICMeta that) { return that.GetPropertyValue<string>("pageTitle"); }
-
-		///<summary>
 		/// Show Call To Action: The call to action is found at the bottom of the page. The content for this can be found in the settings section under 'Call To Action'
 		///</summary>
 		[ImplementPropertyType("showCallToAction")]
@@ -618,6 +569,9 @@ namespace Umbraco.Web.PublishedContentModels
 	{
 		/// <summary>Page content</summary>
 		IEnumerable<IPublishedContent> PageContent { get; }
+
+		/// <summary>Headline</summary>
+		string PageTitle { get; }
 	}
 
 	/// <summary>C - Page Components</summary>
@@ -656,6 +610,18 @@ namespace Umbraco.Web.PublishedContentModels
 
 		/// <summary>Static getter for Page content</summary>
 		public static IEnumerable<IPublishedContent> GetPageContent(ICPageComponents that) { return that.GetPropertyValue<IEnumerable<IPublishedContent>>("pageContent"); }
+
+		///<summary>
+		/// Headline: If left blank, the page name will be used.
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return GetPageTitle(this); }
+		}
+
+		/// <summary>Static getter for Headline</summary>
+		public static string GetPageTitle(ICPageComponents that) { return that.GetPropertyValue<string>("pageTitle"); }
 	}
 
 	/// <summary>C - Page Content</summary>
@@ -817,7 +783,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Blog</summary>
 	[PublishedContentModel("blog")]
-	public partial class Blog : PublishedContentModel, ICAdmin, ICHeadlineWithSubtitle, ICIntroduction, ICMeta, ICSeo
+	public partial class Blog : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICMeta, ICSeo
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "blog";
@@ -906,28 +872,10 @@ namespace Umbraco.Web.PublishedContentModels
 		///<summary>
 		/// Headline: If left blank, the page name will be used
 		///</summary>
-		[ImplementPropertyType("headline")]
-		public string Headline
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
 		{
-			get { return Umbraco.Web.PublishedContentModels.CHeadlineWithSubtitle.GetHeadline(this); }
-		}
-
-		///<summary>
-		/// Subtitle: Subtitle displayed below the page name
-		///</summary>
-		[ImplementPropertyType("subtitle")]
-		public string Subtitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CHeadlineWithSubtitle.GetSubtitle(this); }
-		}
-
-		///<summary>
-		/// Introduction: Short introduction to the page and subpages
-		///</summary>
-		[ImplementPropertyType("introduction")]
-		public IHtmlString Introduction
-		{
-			get { return Umbraco.Web.PublishedContentModels.CIntroduction.GetIntroduction(this); }
+			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetPageTitle(this); }
 		}
 
 		///<summary>
@@ -946,15 +894,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public string PageImage
 		{
 			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageImage(this); }
-		}
-
-		///<summary>
-		/// Page title
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageTitle(this); }
 		}
 
 		///<summary>
@@ -1338,15 +1277,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Page title
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageTitle(this); }
-		}
-
-		///<summary>
 		/// Show Call To Action: The call to action is found at the bottom of the page. The content for this can be found in the settings section under 'Call To Action'
 		///</summary>
 		[ImplementPropertyType("showCallToAction")]
@@ -1362,6 +1292,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public IEnumerable<IPublishedContent> PageContent
 		{
 			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageContent(this); }
+		}
+
+		///<summary>
+		/// Headline: If left blank, the page name will be used.
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageTitle(this); }
 		}
 	}
 
@@ -1583,7 +1522,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>General news</summary>
 	[PublishedContentModel("generalNews")]
-	public partial class GeneralNews : PublishedContentModel, ICAdmin, ICHeadlineWithSubtitle, ICMeta, ICPageComponents, ICReleaseDate, ICSeo
+	public partial class GeneralNews : PublishedContentModel, ICAdmin, ICMeta, ICPageComponents, ICReleaseDate, ICSeo
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "generalNews";
@@ -1661,24 +1600,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Headline: If left blank, the page name will be used
-		///</summary>
-		[ImplementPropertyType("headline")]
-		public string Headline
-		{
-			get { return Umbraco.Web.PublishedContentModels.CHeadlineWithSubtitle.GetHeadline(this); }
-		}
-
-		///<summary>
-		/// Subtitle: Subtitle displayed below the page name
-		///</summary>
-		[ImplementPropertyType("subtitle")]
-		public string Subtitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CHeadlineWithSubtitle.GetSubtitle(this); }
-		}
-
-		///<summary>
 		/// Page description: Description of the page (only used on the website)
 		///</summary>
 		[ImplementPropertyType("pageDescription")]
@@ -1697,15 +1618,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Page title
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageTitle(this); }
-		}
-
-		///<summary>
 		/// Show Call To Action: The call to action is found at the bottom of the page. The content for this can be found in the settings section under 'Call To Action'
 		///</summary>
 		[ImplementPropertyType("showCallToAction")]
@@ -1721,6 +1633,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public IEnumerable<IPublishedContent> PageContent
 		{
 			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageContent(this); }
+		}
+
+		///<summary>
+		/// Headline: If left blank, the page name will be used.
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageTitle(this); }
 		}
 
 		///<summary>
@@ -1813,7 +1734,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Link
+		/// Call to action link
 		///</summary>
 		[ImplementPropertyType("ctaLink")]
 		public Newtonsoft.Json.Linq.JToken CtaLink
@@ -1822,7 +1743,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Title
+		/// Call to action title
 		///</summary>
 		[ImplementPropertyType("ctaTitle")]
 		public string CtaTitle
@@ -2163,15 +2084,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Page title
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageTitle(this); }
-		}
-
-		///<summary>
 		/// Show Call To Action: The call to action is found at the bottom of the page. The content for this can be found in the settings section under 'Call To Action'
 		///</summary>
 		[ImplementPropertyType("showCallToAction")]
@@ -2263,7 +2175,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>In the media</summary>
 	[PublishedContentModel("inTheMedia")]
-	public partial class InTheMedia : PublishedContentModel, ICHeadlineWithExcerpt, ICMeta, ICReleaseDate
+	public partial class InTheMedia : PublishedContentModel, ICHeadlineOnly, ICMeta, ICReleaseDate
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "inTheMedia";
@@ -2296,21 +2208,12 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Excerpt: A short description of the article
-		///</summary>
-		[ImplementPropertyType("excerpt")]
-		public object Excerpt
-		{
-			get { return Umbraco.Web.PublishedContentModels.CHeadlineWithExcerpt.GetExcerpt(this); }
-		}
-
-		///<summary>
 		/// Headline: If left blank, the page name will be used
 		///</summary>
-		[ImplementPropertyType("headline")]
-		public string Headline
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
 		{
-			get { return Umbraco.Web.PublishedContentModels.CHeadlineWithExcerpt.GetHeadline(this); }
+			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetPageTitle(this); }
 		}
 
 		///<summary>
@@ -2329,15 +2232,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public string PageImage
 		{
 			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageImage(this); }
-		}
-
-		///<summary>
-		/// Page title
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageTitle(this); }
 		}
 
 		///<summary>
@@ -2458,7 +2352,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>News</summary>
 	[PublishedContentModel("news")]
-	public partial class News : PublishedContentModel, ICAdmin, ICHeadlineWithSubtitle, ICIntroduction, ICMeta, ICSeo
+	public partial class News : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICMeta, ICSeo
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "news";
@@ -2556,28 +2450,10 @@ namespace Umbraco.Web.PublishedContentModels
 		///<summary>
 		/// Headline: If left blank, the page name will be used
 		///</summary>
-		[ImplementPropertyType("headline")]
-		public string Headline
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
 		{
-			get { return Umbraco.Web.PublishedContentModels.CHeadlineWithSubtitle.GetHeadline(this); }
-		}
-
-		///<summary>
-		/// Subtitle: Subtitle displayed below the page name
-		///</summary>
-		[ImplementPropertyType("subtitle")]
-		public string Subtitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CHeadlineWithSubtitle.GetSubtitle(this); }
-		}
-
-		///<summary>
-		/// Introduction: Short introduction to the page and subpages
-		///</summary>
-		[ImplementPropertyType("introduction")]
-		public IHtmlString Introduction
-		{
-			get { return Umbraco.Web.PublishedContentModels.CIntroduction.GetIntroduction(this); }
+			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetPageTitle(this); }
 		}
 
 		///<summary>
@@ -2596,15 +2472,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public string PageImage
 		{
 			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageImage(this); }
-		}
-
-		///<summary>
-		/// Page title
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageTitle(this); }
 		}
 
 		///<summary>
@@ -2742,15 +2609,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Page title
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageTitle(this); }
-		}
-
-		///<summary>
 		/// Show Call To Action: The call to action is found at the bottom of the page. The content for this can be found in the settings section under 'Call To Action'
 		///</summary>
 		[ImplementPropertyType("showCallToAction")]
@@ -2767,11 +2625,20 @@ namespace Umbraco.Web.PublishedContentModels
 		{
 			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageContent(this); }
 		}
+
+		///<summary>
+		/// Headline: If left blank, the page name will be used.
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageTitle(this); }
+		}
 	}
 
 	/// <summary>Post</summary>
 	[PublishedContentModel("post")]
-	public partial class Post : PublishedContentModel, ICAdmin, ICHeadlineWithSubtitle, ICMeta, ICPageComponents, ICReleaseDate, ICSeo
+	public partial class Post : PublishedContentModel, ICAdmin, ICMeta, ICPageComponents, ICReleaseDate, ICSeo
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "post";
@@ -2867,24 +2734,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Headline: If left blank, the page name will be used
-		///</summary>
-		[ImplementPropertyType("headline")]
-		public string Headline
-		{
-			get { return Umbraco.Web.PublishedContentModels.CHeadlineWithSubtitle.GetHeadline(this); }
-		}
-
-		///<summary>
-		/// Subtitle: Subtitle displayed below the page name
-		///</summary>
-		[ImplementPropertyType("subtitle")]
-		public string Subtitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CHeadlineWithSubtitle.GetSubtitle(this); }
-		}
-
-		///<summary>
 		/// Page description: Description of the page (only used on the website)
 		///</summary>
 		[ImplementPropertyType("pageDescription")]
@@ -2903,15 +2752,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Page title
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageTitle(this); }
-		}
-
-		///<summary>
 		/// Show Call To Action: The call to action is found at the bottom of the page. The content for this can be found in the settings section under 'Call To Action'
 		///</summary>
 		[ImplementPropertyType("showCallToAction")]
@@ -2927,6 +2767,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public IEnumerable<IPublishedContent> PageContent
 		{
 			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageContent(this); }
+		}
+
+		///<summary>
+		/// Headline: If left blank, the page name will be used.
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageTitle(this); }
 		}
 
 		///<summary>
@@ -2968,7 +2817,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Press release</summary>
 	[PublishedContentModel("pressRelease")]
-	public partial class PressRelease : PublishedContentModel, ICAdmin, ICHeadlineWithSubtitle, ICMeta, ICPageComponents, ICReleaseDate, ICSeo
+	public partial class PressRelease : PublishedContentModel, ICAdmin, ICMeta, ICPageComponents, ICReleaseDate, ICSeo
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "pressRelease";
@@ -3046,24 +2895,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Headline: If left blank, the page name will be used
-		///</summary>
-		[ImplementPropertyType("headline")]
-		public string Headline
-		{
-			get { return Umbraco.Web.PublishedContentModels.CHeadlineWithSubtitle.GetHeadline(this); }
-		}
-
-		///<summary>
-		/// Subtitle: Subtitle displayed below the page name
-		///</summary>
-		[ImplementPropertyType("subtitle")]
-		public string Subtitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CHeadlineWithSubtitle.GetSubtitle(this); }
-		}
-
-		///<summary>
 		/// Page description: Description of the page (only used on the website)
 		///</summary>
 		[ImplementPropertyType("pageDescription")]
@@ -3082,15 +2913,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Page title
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageTitle(this); }
-		}
-
-		///<summary>
 		/// Show Call To Action: The call to action is found at the bottom of the page. The content for this can be found in the settings section under 'Call To Action'
 		///</summary>
 		[ImplementPropertyType("showCallToAction")]
@@ -3106,6 +2928,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public IEnumerable<IPublishedContent> PageContent
 		{
 			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageContent(this); }
+		}
+
+		///<summary>
+		/// Headline: If left blank, the page name will be used.
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageTitle(this); }
 		}
 
 		///<summary>
@@ -3209,7 +3040,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Sitemap</summary>
 	[PublishedContentModel("sitemap")]
-	public partial class Sitemap : PublishedContentModel, ICAdmin, ICIntroduction, ICMeta, ICSeo
+	public partial class Sitemap : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICMeta, ICSeo
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "sitemap";
@@ -3287,12 +3118,12 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Introduction: Short introduction to the page and subpages
+		/// Headline: If left blank, the page name will be used
 		///</summary>
-		[ImplementPropertyType("introduction")]
-		public IHtmlString Introduction
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
 		{
-			get { return Umbraco.Web.PublishedContentModels.CIntroduction.GetIntroduction(this); }
+			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetPageTitle(this); }
 		}
 
 		///<summary>
@@ -3311,15 +3142,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public string PageImage
 		{
 			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageImage(this); }
-		}
-
-		///<summary>
-		/// Page title
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageTitle(this); }
 		}
 
 		///<summary>
@@ -3571,15 +3393,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Page title
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageTitle(this); }
-		}
-
-		///<summary>
 		/// Show Call To Action: The call to action is found at the bottom of the page. The content for this can be found in the settings section under 'Call To Action'
 		///</summary>
 		[ImplementPropertyType("showCallToAction")]
@@ -3595,6 +3408,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public IEnumerable<IPublishedContent> PageContent
 		{
 			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageContent(this); }
+		}
+
+		///<summary>
+		/// Headline: If left blank, the page name will be used.
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageTitle(this); }
 		}
 
 		///<summary>
@@ -3748,6 +3570,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Headline: If left blank, the page name will be used.
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return this.GetPropertyValue<string>("pageTitle"); }
+		}
+
+		///<summary>
 		/// Don't follow: When checked the page has a "noindex, nofollow" meta tag
 		///</summary>
 		[ImplementPropertyType("dontFollow")]
@@ -3820,15 +3651,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Page title
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageTitle(this); }
-		}
-
-		///<summary>
 		/// Show Call To Action: The call to action is found at the bottom of the page. The content for this can be found in the settings section under 'Call To Action'
 		///</summary>
 		[ImplementPropertyType("showCallToAction")]
@@ -3891,7 +3713,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Icon Title
+		/// Social Channel
 		///</summary>
 		[ImplementPropertyType("iconTitle")]
 		public object IconTitle
@@ -3900,7 +3722,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Icon URL
+		/// Link: This field should be a full URL: http://www.example.co.uk
 		///</summary>
 		[ImplementPropertyType("iconURL")]
 		public string IconUrl
@@ -3911,7 +3733,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Contact</summary>
 	[PublishedContentModel("contact")]
-	public partial class Contact : PublishedContentModel, ICAdmin, ICMeta, ICSeo
+	public partial class Contact : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICMeta, ICSeo
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "contact";
@@ -3989,6 +3811,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Headline: If left blank, the page name will be used
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetPageTitle(this); }
+		}
+
+		///<summary>
 		/// Page description: Description of the page (only used on the website)
 		///</summary>
 		[ImplementPropertyType("pageDescription")]
@@ -4004,15 +3835,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public string PageImage
 		{
 			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageImage(this); }
-		}
-
-		///<summary>
-		/// Page title
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageTitle(this); }
 		}
 
 		///<summary>
@@ -4099,9 +3921,9 @@ namespace Umbraco.Web.PublishedContentModels
 		/// Icon
 		///</summary>
 		[ImplementPropertyType("featureIcon")]
-		public string FeatureIcon
+		public object FeatureIcon
 		{
-			get { return this.GetPropertyValue<string>("featureIcon"); }
+			get { return this.GetPropertyValue("featureIcon"); }
 		}
 
 		///<summary>
@@ -4194,6 +4016,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Headline: If left blank, the page name will be used.
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return this.GetPropertyValue<string>("pageTitle"); }
+		}
+
+		///<summary>
 		/// Don't follow: When checked the page has a "noindex, nofollow" meta tag
 		///</summary>
 		[ImplementPropertyType("dontFollow")]
@@ -4263,15 +4094,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public string PageImage
 		{
 			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageImage(this); }
-		}
-
-		///<summary>
-		/// Page title
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageTitle(this); }
 		}
 
 		///<summary>
@@ -4454,15 +4276,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Page title
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CMeta.GetPageTitle(this); }
-		}
-
-		///<summary>
 		/// Show Call To Action: The call to action is found at the bottom of the page. The content for this can be found in the settings section under 'Call To Action'
 		///</summary>
 		[ImplementPropertyType("showCallToAction")]
@@ -4478,6 +4291,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public IEnumerable<IPublishedContent> PageContent
 		{
 			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageContent(this); }
+		}
+
+		///<summary>
+		/// Headline: If left blank, the page name will be used.
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageTitle(this); }
 		}
 
 		///<summary>
@@ -4575,6 +4397,67 @@ namespace Umbraco.Web.PublishedContentModels
 		public string Number
 		{
 			get { return this.GetPropertyValue<string>("number"); }
+		}
+	}
+
+	/// <summary>Icons</summary>
+	[PublishedContentModel("icons")]
+	public partial class Icons : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "icons";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Icons(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Icons, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>Icon</summary>
+	[PublishedContentModel("icon")]
+	public partial class Icon : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "icon";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Icon(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Icon, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Icon Name: This should not be changed.
+		///</summary>
+		[ImplementPropertyType("iconName")]
+		public string IconName
+		{
+			get { return this.GetPropertyValue<string>("iconName"); }
 		}
 	}
 
