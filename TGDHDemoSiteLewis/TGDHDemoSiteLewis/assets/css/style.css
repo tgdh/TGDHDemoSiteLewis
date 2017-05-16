@@ -469,7 +469,7 @@ a {
   color: #000000;
   transition: color 0.3s ease; }
   a:hover, a:focus {
-    color: #FFFFFF; }
+    color: #000000; }
 
 /* ===========================================================
 
