@@ -8,10 +8,6 @@
 		.c-features__icon{
 			background-color: black;
 			border-radius: 50%;
-			.c-features-icon-image{
-				width: 50%;
-				height: 50%;
-			}
 		}
 		.c-features__link{
 			padding: 2rem 3rem;
@@ -60,6 +56,9 @@
 				position: absolute;
 				top: -65px;
 				left: calc(50% - 65px);
+				i{
+					font-size: 5.5rem;
+				}
 			}
 			&.num-items-3{
 				width: calc(33.3333% - 3rem);
@@ -105,6 +104,9 @@
 				position: absolute;
 				top: -50px;
 				left: calc(50% - 50px);
+				i{
+					font-size: 4rem;
+				}
 			}
 			&.num-items-3{
 				float: left;
@@ -162,6 +164,9 @@
 				position: absolute;
 				top: -40px;
 				left: calc(50% - 40px);
+				i{
+					font-size: 3rem;
+				}
 			}
 			&:first-child{
 				margin-top: 4rem;

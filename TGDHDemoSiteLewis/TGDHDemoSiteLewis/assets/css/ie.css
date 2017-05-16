@@ -1997,9 +1997,6 @@ img {
   .c-features .c-features__item .c-features__icon {
     background-color: black;
     border-radius: 50%; }
-    .c-features .c-features__item .c-features__icon .c-features-icon-image {
-      width: 50%;
-      height: 50%; }
   .c-features .c-features__item .c-features__link {
     padding: 2rem 3rem;
     min-width: 170px; }
@@ -2042,6 +2039,8 @@ img {
       position: absolute;
       top: -65px;
       left: calc(50% - 65px); }
+      .c-features .c-features__item .c-features__icon i {
+        font-size: 5.5rem; }
     .c-features .c-features__item.num-items-3 {
       width: calc(33.3333% - 3rem);
       margin: 1.5rem; }
@@ -2073,6 +2072,8 @@ img {
       position: absolute;
       top: -50px;
       left: calc(50% - 50px); }
+      .c-features .c-features__item .c-features__icon i {
+        font-size: 4rem; }
     .c-features .c-features__item.num-items-3 {
       float: left; }
       .c-features .c-features__item.num-items-3:nth-child(1) {
@@ -2114,6 +2115,8 @@ img {
       position: absolute;
       top: -40px;
       left: calc(50% - 40px); }
+      .c-features .c-features__item .c-features__icon i {
+        font-size: 3rem; }
     .c-features .c-features__item:first-child {
       margin-top: 4rem; }
     .c-features .c-features__item .c-features__desc {
@@ -3089,10 +3092,19 @@ img {
     .c-contact__item:nth-child(2n + 1) {
       clear: both; } }
 
+.icon--white {
+  color: white; }
+
+.icon--grey {
+  color: rgba(0, 0, 0, 0.2); }
+
+.icon--black {
+  color: black; }
+
 @font-face {
   font-family: 'icomoon';
-  src: url("/assets/fonts/fonts/icomoon.eot?a78kxm");
-  src: url("/assets/fonts/fonts/icomoon.eot?a78kxm#iefix") format("embedded-opentype"), url("/assets/fonts/fonts/icomoon.ttf?a78kxm") format("truetype"), url("/assets/fonts/fonts/icomoon.woff?a78kxm") format("woff"), url("/assets/fonts/fonts/icomoon.svg?a78kxm#icomoon") format("svg");
+  src: url("/assets/fonts/fonts/icomoon.eot?v95gc0");
+  src: url("/assets/fonts/fonts/icomoon.eot?v95gc0#iefix") format("embedded-opentype"), url("/assets/fonts/fonts/icomoon.ttf?v95gc0") format("truetype"), url("/assets/fonts/fonts/icomoon.woff?v95gc0") format("woff"), url("/assets/fonts/fonts/icomoon.svg?v95gc0#icomoon") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -3108,6 +3120,15 @@ img {
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+.icon-flag:before {
+  content: "\e90f"; }
+
+.icon-cog:before {
+  content: "\e910"; }
+
+.icon-speedometer:before {
+  content: "\e911"; }
 
 .icon-arrow:before {
   content: "\e900"; }
