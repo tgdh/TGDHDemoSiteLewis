@@ -31,14 +31,12 @@
 				var bottom = item.GetPropertyValue<string>("fancyText");
 
 				var icon = item.GetPropertyValue<int>("featureIcon");
-				var imageUrl = icon != 0 || icon != null ? Umbraco.Media(icon).Url : "";
+				var iconName = Umbraco.TypedContent(icon);
+				var iconOutput = iconName.GetPropertyValue<string>("iconName");
 
 				<div class="c-features__item num-items-@total">
 					<div class="c-features__icon">
-						@if(icon != 0)
-						{
-							<img src="@imageUrl?width=75&height=75" alt="@item.Name" class="c-features-icon-image">
-						}
+						<i class="icon-@iconOutput.ToLower() icon--white"></i>
 					</div>
 					<div class="c-features__content">
 						@if(!string.IsNullOrWhiteSpace(title))
