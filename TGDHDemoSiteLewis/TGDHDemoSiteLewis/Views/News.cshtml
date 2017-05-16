@@ -1,5 +1,5 @@
 @using System.Web.Mvc.Html
-﻿@using UmbracoStarterKit.Core.Utility
+@using UmbracoStarterKit.Core.Utility
 @using UmbracoStarterKit.Core.Data
 @using UmbracoStarterKit.Core.Models.Components
 @inherits UmbracoViewPage<IPublishedContent>
@@ -44,9 +44,9 @@
 
 		            if (paging.TotalPages > 1)
 		            {
-		                @*<nav>
+		                <div class="c-pagination u-clearfix c-pagination__float">
 		                    @PagingTemplate.RenderPaging(paging, Model.Id)
-		                </nav>*@
+		                </div>
 		            }
 		        }
 		        else

@@ -43,9 +43,9 @@
 		                @Html.Partial("~/Views/Partials/Cards/ArticleCard.cshtml", articleModel)
 		            }
 
-		            @*<nav class="c-blogs__pagination">
-		                @PagingTemplate.RenderPaging(paging, Model.Id)
-		            </nav>*@
+		            <div class="c-pagination u-clearfix c-pagination__float">
+						@PagingTemplate.RenderPaging(paging, Model.Id)
+					</div>
 		        }
 		        else
 		        {
