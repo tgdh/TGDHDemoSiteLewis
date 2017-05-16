@@ -22,6 +22,7 @@
 	}
 	.c-listing__image{
 		transition: $ease $speed transform;
+		width: 100%;
 	}
 	.c-listing__headline {
 	    position: absolute;
@@ -30,6 +31,7 @@
 	    background-color: white;
 	    padding: 1.25rem;
 	    font-size: 2.25rem;
+		margin-right: 2rem;
 	}
 	.c-meta-data__item {
 	    position: absolute;
@@ -42,6 +44,8 @@
 	    margin-top: 1rem;
 	    padding: 1rem;
 	    font-weight: bold;
+		float: left;
+		clear: left;
 	}
 }
 
