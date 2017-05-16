@@ -4,6 +4,95 @@
     {
       "icon": {
         "paths": [
+          "M832 128v384h-512v384h-128v-768h640z"
+        ],
+        "width": 1024,
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "flag",
+          "target",
+          "mark",
+          "indicate",
+          "highlight"
+        ],
+        "grid": 16
+      },
+      "attrs": [],
+      "properties": {
+        "id": 66,
+        "order": 21,
+        "prevSize": 32,
+        "code": 59663,
+        "name": "flag"
+      },
+      "setIdx": 0,
+      "setId": 1,
+      "iconIdx": 65
+    },
+    {
+      "icon": {
+        "paths": [
+          "M864 512l-96 96 96 96-160 160-96-96-96 96-96-96-96 96-160-160 96-96-96-96 96-96-96-96 160-160 96 96 96-96 96 96 96-96 160 160-96 96 96 96z"
+        ],
+        "width": 1024,
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "stamp",
+          "imprint",
+          "label",
+          "mark",
+          "emboss",
+          "inscribe"
+        ],
+        "grid": 16
+      },
+      "attrs": [],
+      "properties": {
+        "id": 142,
+        "order": 23,
+        "prevSize": 32,
+        "code": 59664,
+        "name": "cog"
+      },
+      "setIdx": 0,
+      "setId": 1,
+      "iconIdx": 141
+    },
+    {
+      "icon": {
+        "paths": [
+          "M704 576h-256v-256h128v128h128v128zM960 64v896h-896v-896h896zM832 192h-640v640h640v-640z"
+        ],
+        "width": 1024,
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "time",
+          "schedule",
+          "wait"
+        ],
+        "grid": 16
+      },
+      "attrs": [],
+      "properties": {
+        "id": 151,
+        "order": 22,
+        "prevSize": 32,
+        "code": 59665,
+        "name": "speedometer"
+      },
+      "setIdx": 0,
+      "setId": 1,
+      "iconIdx": 150
+    },
+    {
+      "icon": {
+        "paths": [
           "M928 512l-272-272-22.4 22.4 233.6 233.6h-771.2v32h771.2l-233.6 233.6 22.4 22.4 272-272z"
         ],
         "attrs": [
@@ -26,7 +115,7 @@
         "prevSize": 32,
         "code": 59648
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 0,
       "iconIdx": 0
     },
@@ -55,7 +144,7 @@
         "prevSize": 32,
         "code": 59649
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 0,
       "iconIdx": 1
     },
@@ -84,7 +173,7 @@
         "prevSize": 32,
         "code": 59650
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 0,
       "iconIdx": 2
     },
@@ -113,7 +202,7 @@
         "prevSize": 32,
         "code": 59651
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 0,
       "iconIdx": 3
     },
@@ -142,7 +231,7 @@
         "prevSize": 32,
         "code": 59652
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 0,
       "iconIdx": 4
     },
@@ -171,7 +260,7 @@
         "prevSize": 32,
         "code": 59653
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 0,
       "iconIdx": 5
     },
@@ -200,7 +289,7 @@
         "prevSize": 32,
         "code": 59654
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 0,
       "iconIdx": 6
     },
@@ -229,7 +318,7 @@
         "prevSize": 32,
         "code": 59655
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 0,
       "iconIdx": 7
     },
@@ -264,7 +353,7 @@
         "prevSize": 32,
         "code": 59656
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 0,
       "iconIdx": 8
     },
@@ -293,7 +382,7 @@
         "prevSize": 32,
         "code": 59657
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 0,
       "iconIdx": 9
     },
@@ -322,7 +411,7 @@
         "prevSize": 32,
         "code": 59658
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 0,
       "iconIdx": 10
     },
@@ -351,7 +440,7 @@
         "prevSize": 32,
         "code": 59659
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 0,
       "iconIdx": 11
     },
@@ -380,7 +469,7 @@
         "prevSize": 32,
         "code": 59660
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 0,
       "iconIdx": 12
     },
@@ -409,7 +498,7 @@
         "prevSize": 32,
         "code": 59661
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 0,
       "iconIdx": 13
     },
@@ -438,7 +527,7 @@
         "prevSize": 32,
         "code": 59662
       },
-      "setIdx": 0,
+      "setIdx": 1,
       "setId": 0,
       "iconIdx": 14
     }
