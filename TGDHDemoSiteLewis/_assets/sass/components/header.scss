@@ -224,6 +224,12 @@
 			.c-header__search-button-close{
 				transform: scale(1);
 			}
+			&:hover,
+			&:focus{
+				.c-header__search-button{
+					transform: scale(0);
+				}
+			}
 		}
 		.c-header__search-button{
 			display: block;
@@ -266,6 +272,12 @@
 			&::after{
 				transform: rotate(-45deg);
 				top: -2px;
+			}
+		}
+		&:hover,
+		&:focus{
+			.c-header__search-button{
+				transform: scale(1.15);
 			}
 		}
 	}
