@@ -227,14 +227,33 @@
 
 @helper RenderContentResult(SearchViewModel model, IPublishedContent result)
 {
-    <div class="ezsearch-result">
-        <h2><a href="@result.Url">@result.Name</a></h2>
-        @foreach (var field in model.PreviewFields.Where(field => result.HasValue(field)))
+    var title = result.GetPropertyValue<string>("pageTitle");
+    var titleNull = !string.IsNullOrWhiteSpace(title) ? title : result.Name;
+    var url = result.Url;
+    var image = result.GetPropertyValue<int>("pageImage");
+    var hasImage = result.HasValue("pageImage") ? true : false;
+    var imageClass = image != null ? "has-image" : "no-image";
+    var desc = result.GetPropertyValue<HtmlString>("introduction");
+
+    <a class="c-search__result @imageClass " href="@url">
+        @if(hasImage)
         {
-            <p>@Highlight(Truncate(Umbraco.StripHtml(result.GetPropertyValue(field).ToString()), model.PreviewLength), model.SearchTerms)</p>
-            break;
+            var imageUrl = Umbraco.TypedMedia(image).GetCropUrl("21:9");
+            <div class="c-search__image-wrapper">
+                <img src="@imageUrl" alt="" class="c-search__image">
+            </div>
         }
-    </div>
+        <div class="c-search__result-content">
+            <h2>@titleNull</h2>
+            <div class="c-search__desc">
+                @desc
+            </div>
+            <span class="c-search__learn-more">
+                Learn more
+                <i class="icon-arrow"></i>
+            </span>
+        </div>
+    </a>
 }
 
 @helper RenderMediaResult(SearchViewModel model, IPublishedContent result)
@@ -251,8 +270,7 @@
 
 @helper RenderPager(SearchViewModel model)
 {
-    <div class="ezsearch-pager">
-        <p>
+    <div class="c-pagination">
             @if (model.CurrentPage > 1) {
                 <a class="prev" href="?q=@(model.SearchTerm)&p=@(model.CurrentPage-1)">@(GetDictionaryValue("[ezSearch] Previous", "Previous"))</a>
             } else {
@@ -273,7 +291,6 @@
             } else {
                 <span class="next">@(GetDictionaryValue("[ezSearch] Next", "Next"))</span>
             }
-        </p>
     </div>
 }
 
