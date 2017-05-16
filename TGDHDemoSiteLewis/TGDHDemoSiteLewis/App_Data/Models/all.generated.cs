@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "433ea99985b44706")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "7a5f968053572e3")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
 // FILE: models.generated.cs
@@ -401,10 +401,10 @@ namespace Umbraco.Web.PublishedContentModels
 		///<summary>
 		/// Headline: If left blank, the page name will be used
 		///</summary>
-		[ImplementPropertyType("headline")]
-		public string Headline
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
 		{
-			get { return this.GetPropertyValue<string>("headline"); }
+			get { return this.GetPropertyValue<string>("pageTitle"); }
 		}
 
 		///<summary>
@@ -417,9 +417,17 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 	}
 
+	// Mixin content Type 1110 with alias "cIntroduction"
+	/// <summary>C - Introduction</summary>
+	public partial interface ICIntroduction : IPublishedContent
+	{
+		/// <summary>Introduction</summary>
+		IHtmlString Introduction { get; }
+	}
+
 	/// <summary>C - Introduction</summary>
 	[PublishedContentModel("cIntroduction")]
-	public partial class CIntroduction : PublishedContentModel
+	public partial class CIntroduction : PublishedContentModel, ICIntroduction
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "cIntroduction";
@@ -448,8 +456,11 @@ namespace Umbraco.Web.PublishedContentModels
 		[ImplementPropertyType("introduction")]
 		public IHtmlString Introduction
 		{
-			get { return this.GetPropertyValue<IHtmlString>("introduction"); }
+			get { return GetIntroduction(this); }
 		}
+
+		/// <summary>Static getter for Introduction</summary>
+		public static IHtmlString GetIntroduction(ICIntroduction that) { return that.GetPropertyValue<IHtmlString>("introduction"); }
 	}
 
 	// Mixin content Type 1111 with alias "cMeta"
@@ -569,9 +580,6 @@ namespace Umbraco.Web.PublishedContentModels
 	{
 		/// <summary>Page content</summary>
 		IEnumerable<IPublishedContent> PageContent { get; }
-
-		/// <summary>Headline</summary>
-		string PageTitle { get; }
 	}
 
 	/// <summary>C - Page Components</summary>
@@ -610,18 +618,6 @@ namespace Umbraco.Web.PublishedContentModels
 
 		/// <summary>Static getter for Page content</summary>
 		public static IEnumerable<IPublishedContent> GetPageContent(ICPageComponents that) { return that.GetPropertyValue<IEnumerable<IPublishedContent>>("pageContent"); }
-
-		///<summary>
-		/// Headline: If left blank, the page name will be used.
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return GetPageTitle(this); }
-		}
-
-		/// <summary>Static getter for Headline</summary>
-		public static string GetPageTitle(ICPageComponents that) { return that.GetPropertyValue<string>("pageTitle"); }
 	}
 
 	/// <summary>C - Page Content</summary>
@@ -783,7 +779,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Blog</summary>
 	[PublishedContentModel("blog")]
-	public partial class Blog : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICMeta, ICSeo
+	public partial class Blog : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICIntroduction, ICMeta, ICSeo
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "blog";
@@ -876,6 +872,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string PageTitle
 		{
 			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Introduction: Short introduction to the page and subpages
+		///</summary>
+		[ImplementPropertyType("introduction")]
+		public IHtmlString Introduction
+		{
+			get { return Umbraco.Web.PublishedContentModels.CIntroduction.GetIntroduction(this); }
 		}
 
 		///<summary>
@@ -1181,7 +1186,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Error page</summary>
 	[PublishedContentModel("errorPage")]
-	public partial class ErrorPage : PublishedContentModel, ICAdmin, ICMeta, ICPageComponents
+	public partial class ErrorPage : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICIntroduction, ICMeta, ICPageComponents
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "errorPage";
@@ -1259,6 +1264,24 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Headline: If left blank, the page name will be used
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Introduction: Short introduction to the page and subpages
+		///</summary>
+		[ImplementPropertyType("introduction")]
+		public IHtmlString Introduction
+		{
+			get { return Umbraco.Web.PublishedContentModels.CIntroduction.GetIntroduction(this); }
+		}
+
+		///<summary>
 		/// Page description: Description of the page (only used on the website)
 		///</summary>
 		[ImplementPropertyType("pageDescription")]
@@ -1292,15 +1315,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public IEnumerable<IPublishedContent> PageContent
 		{
 			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageContent(this); }
-		}
-
-		///<summary>
-		/// Headline: If left blank, the page name will be used.
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageTitle(this); }
 		}
 	}
 
@@ -1522,7 +1536,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>General news</summary>
 	[PublishedContentModel("generalNews")]
-	public partial class GeneralNews : PublishedContentModel, ICAdmin, ICMeta, ICPageComponents, ICReleaseDate, ICSeo
+	public partial class GeneralNews : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICIntroduction, ICMeta, ICPageComponents, ICReleaseDate, ICSeo
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "generalNews";
@@ -1600,6 +1614,24 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Headline: If left blank, the page name will be used
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Introduction: Short introduction to the page and subpages
+		///</summary>
+		[ImplementPropertyType("introduction")]
+		public IHtmlString Introduction
+		{
+			get { return Umbraco.Web.PublishedContentModels.CIntroduction.GetIntroduction(this); }
+		}
+
+		///<summary>
 		/// Page description: Description of the page (only used on the website)
 		///</summary>
 		[ImplementPropertyType("pageDescription")]
@@ -1633,15 +1665,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public IEnumerable<IPublishedContent> PageContent
 		{
 			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageContent(this); }
-		}
-
-		///<summary>
-		/// Headline: If left blank, the page name will be used.
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageTitle(this); }
 		}
 
 		///<summary>
@@ -2175,7 +2198,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>In the media</summary>
 	[PublishedContentModel("inTheMedia")]
-	public partial class InTheMedia : PublishedContentModel, ICHeadlineOnly, ICMeta, ICReleaseDate
+	public partial class InTheMedia : PublishedContentModel, ICHeadlineOnly, ICIntroduction, ICMeta, ICReleaseDate
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "inTheMedia";
@@ -2214,6 +2237,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string PageTitle
 		{
 			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Introduction: Short introduction to the page and subpages
+		///</summary>
+		[ImplementPropertyType("introduction")]
+		public IHtmlString Introduction
+		{
+			get { return Umbraco.Web.PublishedContentModels.CIntroduction.GetIntroduction(this); }
 		}
 
 		///<summary>
@@ -2352,7 +2384,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>News</summary>
 	[PublishedContentModel("news")]
-	public partial class News : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICMeta, ICSeo
+	public partial class News : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICIntroduction, ICMeta, ICSeo
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "news";
@@ -2457,6 +2489,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Introduction: Short introduction to the page and subpages
+		///</summary>
+		[ImplementPropertyType("introduction")]
+		public IHtmlString Introduction
+		{
+			get { return Umbraco.Web.PublishedContentModels.CIntroduction.GetIntroduction(this); }
+		}
+
+		///<summary>
 		/// Page description: Description of the page (only used on the website)
 		///</summary>
 		[ImplementPropertyType("pageDescription")]
@@ -2513,7 +2554,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Not found</summary>
 	[PublishedContentModel("notFound")]
-	public partial class NotFound : PublishedContentModel, ICAdmin, ICMeta, ICPageComponents
+	public partial class NotFound : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICIntroduction, ICMeta, ICPageComponents
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "notFound";
@@ -2591,6 +2632,24 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Headline: If left blank, the page name will be used
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Introduction: Short introduction to the page and subpages
+		///</summary>
+		[ImplementPropertyType("introduction")]
+		public IHtmlString Introduction
+		{
+			get { return Umbraco.Web.PublishedContentModels.CIntroduction.GetIntroduction(this); }
+		}
+
+		///<summary>
 		/// Page description: Description of the page (only used on the website)
 		///</summary>
 		[ImplementPropertyType("pageDescription")]
@@ -2624,15 +2683,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public IEnumerable<IPublishedContent> PageContent
 		{
 			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageContent(this); }
-		}
-
-		///<summary>
-		/// Headline: If left blank, the page name will be used.
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageTitle(this); }
 		}
 	}
 
@@ -2770,15 +2820,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Headline: If left blank, the page name will be used.
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageTitle(this); }
-		}
-
-		///<summary>
 		/// Release date: Date and time (used for sorting)
 		///</summary>
 		[ImplementPropertyType("releaseDate")]
@@ -2817,7 +2858,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Press release</summary>
 	[PublishedContentModel("pressRelease")]
-	public partial class PressRelease : PublishedContentModel, ICAdmin, ICMeta, ICPageComponents, ICReleaseDate, ICSeo
+	public partial class PressRelease : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICIntroduction, ICMeta, ICPageComponents, ICReleaseDate, ICSeo
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "pressRelease";
@@ -2895,6 +2936,24 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Headline: If left blank, the page name will be used
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Introduction: Short introduction to the page and subpages
+		///</summary>
+		[ImplementPropertyType("introduction")]
+		public IHtmlString Introduction
+		{
+			get { return Umbraco.Web.PublishedContentModels.CIntroduction.GetIntroduction(this); }
+		}
+
+		///<summary>
 		/// Page description: Description of the page (only used on the website)
 		///</summary>
 		[ImplementPropertyType("pageDescription")]
@@ -2928,15 +2987,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public IEnumerable<IPublishedContent> PageContent
 		{
 			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageContent(this); }
-		}
-
-		///<summary>
-		/// Headline: If left blank, the page name will be used.
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageTitle(this); }
 		}
 
 		///<summary>
@@ -3040,7 +3090,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Sitemap</summary>
 	[PublishedContentModel("sitemap")]
-	public partial class Sitemap : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICMeta, ICSeo
+	public partial class Sitemap : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICIntroduction, ICMeta, ICSeo
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "sitemap";
@@ -3124,6 +3174,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string PageTitle
 		{
 			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Introduction: Short introduction to the page and subpages
+		///</summary>
+		[ImplementPropertyType("introduction")]
+		public IHtmlString Introduction
+		{
+			get { return Umbraco.Web.PublishedContentModels.CIntroduction.GetIntroduction(this); }
 		}
 
 		///<summary>
@@ -3297,7 +3356,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Text Page</summary>
 	[PublishedContentModel("textPage")]
-	public partial class TextPage : PublishedContentModel, ICAdmin, ICMeta, ICPageComponents, ICSeo
+	public partial class TextPage : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICIntroduction, ICMeta, ICPageComponents, ICSeo
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "textPage";
@@ -3375,6 +3434,24 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Headline: If left blank, the page name will be used
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Introduction: Short introduction to the page and subpages
+		///</summary>
+		[ImplementPropertyType("introduction")]
+		public IHtmlString Introduction
+		{
+			get { return Umbraco.Web.PublishedContentModels.CIntroduction.GetIntroduction(this); }
+		}
+
+		///<summary>
 		/// Page description: Description of the page (only used on the website)
 		///</summary>
 		[ImplementPropertyType("pageDescription")]
@@ -3408,15 +3485,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public IEnumerable<IPublishedContent> PageContent
 		{
 			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageContent(this); }
-		}
-
-		///<summary>
-		/// Headline: If left blank, the page name will be used.
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageTitle(this); }
 		}
 
 		///<summary>
@@ -3537,7 +3605,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Gateway</summary>
 	[PublishedContentModel("gateway")]
-	public partial class Gateway : PublishedContentModel, ICAdmin, ICMeta, ICSeo
+	public partial class Gateway : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICIntroduction, ICMeta, ICSeo
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "gateway";
@@ -3567,15 +3635,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public string GatewayFeaturedPages
 		{
 			get { return this.GetPropertyValue<string>("gatewayFeaturedPages"); }
-		}
-
-		///<summary>
-		/// Headline: If left blank, the page name will be used.
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return this.GetPropertyValue<string>("pageTitle"); }
 		}
 
 		///<summary>
@@ -3630,6 +3689,24 @@ namespace Umbraco.Web.PublishedContentModels
 		public string UmbracoUrlName
 		{
 			get { return Umbraco.Web.PublishedContentModels.CAdmin.GetUmbracoUrlName(this); }
+		}
+
+		///<summary>
+		/// Headline: If left blank, the page name will be used
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Introduction: Short introduction to the page and subpages
+		///</summary>
+		[ImplementPropertyType("introduction")]
+		public IHtmlString Introduction
+		{
+			get { return Umbraco.Web.PublishedContentModels.CIntroduction.GetIntroduction(this); }
 		}
 
 		///<summary>
@@ -3733,7 +3810,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Contact</summary>
 	[PublishedContentModel("contact")]
-	public partial class Contact : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICMeta, ICSeo
+	public partial class Contact : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICIntroduction, ICMeta, ICSeo
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "contact";
@@ -3817,6 +3894,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string PageTitle
 		{
 			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Introduction: Short introduction to the page and subpages
+		///</summary>
+		[ImplementPropertyType("introduction")]
+		public IHtmlString Introduction
+		{
+			get { return Umbraco.Web.PublishedContentModels.CIntroduction.GetIntroduction(this); }
 		}
 
 		///<summary>
@@ -3947,7 +4033,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>About</summary>
 	[PublishedContentModel("about")]
-	public partial class About : PublishedContentModel, ICAdmin, ICMeta, ICSeo
+	public partial class About : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICIntroduction, ICMeta, ICSeo
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "about";
@@ -4016,15 +4102,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Headline: If left blank, the page name will be used.
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return this.GetPropertyValue<string>("pageTitle"); }
-		}
-
-		///<summary>
 		/// Don't follow: When checked the page has a "noindex, nofollow" meta tag
 		///</summary>
 		[ImplementPropertyType("dontFollow")]
@@ -4076,6 +4153,24 @@ namespace Umbraco.Web.PublishedContentModels
 		public string UmbracoUrlName
 		{
 			get { return Umbraco.Web.PublishedContentModels.CAdmin.GetUmbracoUrlName(this); }
+		}
+
+		///<summary>
+		/// Headline: If left blank, the page name will be used
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Introduction: Short introduction to the page and subpages
+		///</summary>
+		[ImplementPropertyType("introduction")]
+		public IHtmlString Introduction
+		{
+			get { return Umbraco.Web.PublishedContentModels.CIntroduction.GetIntroduction(this); }
 		}
 
 		///<summary>
@@ -4135,7 +4230,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Team Member</summary>
 	[PublishedContentModel("teamMember")]
-	public partial class TeamMember : PublishedContentModel, ICAdmin, ICMeta, ICPageComponents, ICSeo
+	public partial class TeamMember : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICIntroduction, ICMeta, ICPageComponents, ICSeo
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "teamMember";
@@ -4258,6 +4353,24 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Headline: If left blank, the page name will be used
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Introduction: Short introduction to the page and subpages
+		///</summary>
+		[ImplementPropertyType("introduction")]
+		public IHtmlString Introduction
+		{
+			get { return Umbraco.Web.PublishedContentModels.CIntroduction.GetIntroduction(this); }
+		}
+
+		///<summary>
 		/// Page description: Description of the page (only used on the website)
 		///</summary>
 		[ImplementPropertyType("pageDescription")]
@@ -4291,15 +4404,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public IEnumerable<IPublishedContent> PageContent
 		{
 			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageContent(this); }
-		}
-
-		///<summary>
-		/// Headline: If left blank, the page name will be used.
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CPageComponents.GetPageTitle(this); }
 		}
 
 		///<summary>
