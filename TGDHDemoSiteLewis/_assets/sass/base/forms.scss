@@ -7,35 +7,50 @@
 input,
 select,
 textarea {
-	background: none;
-	border: $border-width solid $border-colour;
-	border-radius: $border-radius;
+	background-color: $light-2;
+	border: $border-width solid transparent;
 	padding: 1rem 1.5rem;
 	transition: border $speed $ease;
 	width: 100%;
 
 	&:focus {
-		border-color: $pri;
+		border-color: $border-colour;
 	}
 
-	.is-valid & {
+	&.valid {
 		border-color: $success;
 	}
 
-	.is-invalid & {
+	&.is-invalid {
 		border-color: $error;
 	}
 
-	.is-disabled & {
+	&.is-disabled {
 		background: $disabled;
 		cursor: not-allowed;
+	}
+}
+
+input[type="submit"]{
+	background-color: white;
+	border-color: $border-colour;
+	float: left;
+	width: calc(50% - 2rem);
+	height: 6rem;
+	cursor: pointer;
+	transition: $ease $speed color,
+				$ease $speed background-color;
+	&:hover,
+	&:focus{
+		background-color: black;
+		color: white;
 	}
 }
 
 textarea {
 	overflow: auto; // Hide scrollbar IE
 	resize: vertical;
-
+	min-height: 17.5rem;
 	.is-disabled & {
 		resize: none;
 	}
@@ -43,7 +58,7 @@ textarea {
 
 label {
 	display: block;
-	padding-bottom: 1rem;
+	padding-bottom: .75rem;
 
 	.is-disabled & {
 		cursor: not-allowed;

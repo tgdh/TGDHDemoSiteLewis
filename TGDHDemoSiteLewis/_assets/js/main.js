@@ -26,7 +26,6 @@
 		$window.Search.init();
 		$window.Menu.init();
 		$window.Carousel.init($('.js-carousel'));
-
 		//MQ.init(breakpoints);
 	}
 

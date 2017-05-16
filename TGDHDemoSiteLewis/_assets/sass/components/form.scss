@@ -1,0 +1,42 @@
+.c-form{
+    margin-top: 4.25rem;
+}
+
+.c-form-section{
+    margin-bottom: 2.5rem;
+    &.is-required{
+        label{
+            &::after{
+                content: "*";
+                display: inline-block;
+                margin-left: .5rem;
+            }
+        }
+    }
+    &.half-section{
+        float: left;
+        width: calc(50% - 1rem);
+        &:nth-child(odd){
+            margin-right: 2rem;
+        }
+    }
+    .c-form__required-text{
+        float: right;
+        padding-left: 1rem;
+        font-size: 1.4rem;
+        span{
+            font-size: 1.3rem;
+        }
+    }
+}
+@include respond-max($mq-small){
+    .c-form-section{
+        &.half-section{
+            float: left;
+            width: 100%;
+            &:nth-child(odd){
+                margin-right: 0;
+            }
+        }
+    }
+}
