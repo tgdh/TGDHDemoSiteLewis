@@ -1370,10 +1370,14 @@ img {
       -webkit-transform: scale(1);
           -ms-transform: scale(1);
               transform: scale(1); }
+    .c-header__search.js-active:hover .c-header__search-button, .c-header__search.js-active:focus .c-header__search-button {
+      -webkit-transform: scale(0);
+          -ms-transform: scale(0);
+              transform: scale(0); }
     .c-header__search .c-header__search-button {
       display: block;
-      width: 2.6rem;
-      height: 2.6rem;
+      width: 2.3rem;
+      height: 2.3rem;
       border: 3px solid white;
       border-radius: 50%;
       -webkit-transform: scale(1);
@@ -1390,8 +1394,8 @@ img {
         -webkit-transform: rotate(45deg);
             -ms-transform: rotate(45deg);
                 transform: rotate(45deg);
-        top: 21px;
-        left: 18px; }
+        top: 18px;
+        left: 15px; }
     .c-header__search .c-header__search-button-close {
       position: absolute;
       top: calc(50% - 2px);
@@ -1417,6 +1421,10 @@ img {
             -ms-transform: rotate(-45deg);
                 transform: rotate(-45deg);
         top: -2px; }
+    .c-header__search:hover .c-header__search-button, .c-header__search:focus .c-header__search-button {
+      -webkit-transform: scale(1.15);
+          -ms-transform: scale(1.15);
+              transform: scale(1.15); }
   .flexbox .c-header::before {
     height: 100%; }
   .flexbox .c-header__search {
