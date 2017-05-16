@@ -6,6 +6,9 @@ var Search = (function ($) {
 			$('.js-search').click(function(){
 				$(this).toggleClass('js-active');
 				$('.c-search').toggleClass('js-active');
+				setTimeout(function(){
+					$('.c-search__text').focus();
+				},200);
 			});
 		});
 	};
