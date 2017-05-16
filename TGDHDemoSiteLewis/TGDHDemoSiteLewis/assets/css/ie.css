@@ -1654,8 +1654,7 @@ img {
     .c-quote.c-quote__highlight .c-quote__heading {
       font-size: 2.75rem;
       line-height: 4rem;
-      font-family: "Playfair Display", serif;
-      font-weight: 600;
+      font-weight: 400;
       margin-bottom: 3rem; }
     .c-quote.c-quote__highlight .c-quote__source {
       font-weight: 400; }
@@ -1676,7 +1675,9 @@ img {
   opacity: .6;
   font-style: italic;
   line-height: 2.5rem;
-  font-weight: 400; }
+  font-weight: 400;
+  font-family: "Playfair Display", serif;
+  font-size: 2rem; }
 
 .c-quote__copy {
   display: block;
