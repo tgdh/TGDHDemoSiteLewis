@@ -6,10 +6,12 @@
 
 .c-listing--article{
 	margin-bottom: 3rem;
+	backface-visibility: hidden;
 	.c-listing__link{
 		display: block;
 		position: relative;
 		overflow: hidden;
+		backface-visibility: hidden;
 		&:hover,
 		&:focus{
 			.c-meta-data__item__item{
@@ -17,6 +19,7 @@
 			}
 			.c-listing__image{
 				transform: scale(1.02);
+				backface-visibility: hidden;
 			}
 		}
 	}
