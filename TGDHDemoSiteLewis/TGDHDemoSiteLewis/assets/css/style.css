@@ -525,7 +525,7 @@ input,
 select,
 textarea {
   background-color: #eaeaea;
-  border: 0.2rem solid transparent;
+  border: 1px solid transparent;
   padding: 1rem 1.5rem;
   transition: border 0.3s ease;
   width: 100%; }

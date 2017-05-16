@@ -8,7 +8,7 @@ input,
 select,
 textarea {
 	background-color: $light-2;
-	border: $border-width solid transparent;
+	border: 1px solid transparent;
 	padding: 1rem 1.5rem;
 	transition: border $speed $ease;
 	width: 100%;
