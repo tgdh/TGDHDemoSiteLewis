@@ -2,8 +2,25 @@
   position: relative;
   background-color: $light-1;
 }
+.c-intro__heading{
+	padding-bottom: 0;
+}
 .c-page-title__image{
  	display: none;
+}
+.c-intro__text {
+    margin-top: 3rem;
+		a{
+			color: black;
+			font-weight: bold;
+			text-decoration: underline;
+			display: inline-block;
+			&:focus,
+			&:hover{
+				text-decoration: none;
+				color: black;
+			}
+		}
 }
 @include respond-min($mq-large){
 	.c-page-title__image{

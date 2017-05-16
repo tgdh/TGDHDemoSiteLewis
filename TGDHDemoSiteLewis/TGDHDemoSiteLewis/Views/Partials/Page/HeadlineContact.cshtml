@@ -2,7 +2,7 @@
 @{
 	var metaTitle = Model.GetPropertyValue<string>("pageTitle");
 	var pageTitle = !string.IsNullOrWhiteSpace(metaTitle) ? metaTitle : Model.Name;
-	var desc = Model.GetPropertyValue<string>("pageDescription");
+	var desc = Model.GetPropertyValue<HtmlString>("introduction");
 
 	var homePage = Model.Site();
 	var settings = homePage.Descendants("globalSettings").FirstOrDefault();
@@ -15,9 +15,12 @@
 	<div class="o-wrap o-wrap--large">
 		<div class="c-page-title__content">
 			<h3 class="c-intro__heading u-tera js-underline">@pageTitle</h3>
-			@if(!string.IsNullOrWhiteSpace(desc))
+			@if(desc != null)
 			{
-				<p>@desc</p>
+				<p class="o-section__line line--black o-section__fancy"></p>
+				<div class="c-intro__text o-section__fancy">
+					@desc
+				</div>
 			}
 		</div>
 		<div class="c-page-title__map">

@@ -2,16 +2,19 @@
 @{
 	var metaTitle = Model.GetPropertyValue<string>("pageTitle");
 	var pageTitle = !string.IsNullOrWhiteSpace(metaTitle) ? metaTitle : Model.Name;
-	var desc = Model.GetPropertyValue<string>("pageDescription");
+	var desc = Model.GetPropertyValue<HtmlString>("introduction");
 	var image = Model.GetPropertyValue<int>("pageImage");
 }
 <section class="c-page-title o-section">
 	<div class="o-wrap o-wrap--large">
 		<div class="c-page-title__content">
 			<h3 class="c-intro__heading u-tera js-underline">@pageTitle</h3>
-			@if(!string.IsNullOrWhiteSpace(desc))
+			@if(desc != null)
 			{
-				<p class="o-section__line line--black o-section__fancy">@desc</p>
+				<p class="o-section__line line--black o-section__fancy"></p>
+				<div class="c-intro__text o-section__fancy">
+					@desc
+				</div>
 			}
 		</div>
 		@if(image != 0)
