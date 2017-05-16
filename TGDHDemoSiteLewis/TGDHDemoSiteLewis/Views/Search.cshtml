@@ -12,7 +12,7 @@
 			</div>
 		</div>
 	</section>
-	<div class="o-section s-free-content o-wrap o-wrap--medium">
+	<div class="o-section s-free-content o-wrap o-wrap--medium u-clearfix">
 		<form action="/search" method="GET" class="c-search__form__inline u-clearfix">
             <input type="text" value="@Request["q"]" class="c-search__text" placeholder="Search here..." name="q" id="search">
             <input type="submit" name="" value="Search" class="c-search__submit">
@@ -22,7 +22,7 @@
 				rootContentNodeId = homePage.Id,
 				rootMediaNodeId = "",
 				indexType = "CONTENT",
-				searchFields = "nodeName,headline,pageContent,content,seoDescription,seoTitle,onSiteSearchKeywords",
+				searchFields = "nodeName,headline,pageContent,content,seoDescription,seoTitle,onSiteSearchKeywords,introduction,pageDescription,seoKeywords",
 				previewFields = "",
 				previewLength = "155",
 				pageSize = "10",
