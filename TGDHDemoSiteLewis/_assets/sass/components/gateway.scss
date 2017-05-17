@@ -20,6 +20,7 @@
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	margin-bottom: 4rem;
 }
 
 .c-non-featured__item{
@@ -92,7 +93,7 @@
 				}
 			}
 			&:nth-child(2){
-				margin-bottom: 4rem;
+				margin-bottom: 6rem;
 				.c-featured__item__content{
 					padding-left: 5rem;
 					float: right;
@@ -104,8 +105,8 @@
 		}
 	}
 	.c-non-featured__item{
-		@include column(1/2, $gutter: 4, $cycle: 2);
-		margin-bottom: 4rem;
+		@include column(1/2, $gutter: 6, $cycle: 2);
+		margin-bottom: 6rem;
 		padding: 8rem 4rem;
 		.c-non-featured__arrow{
 		    top: 7rem;
