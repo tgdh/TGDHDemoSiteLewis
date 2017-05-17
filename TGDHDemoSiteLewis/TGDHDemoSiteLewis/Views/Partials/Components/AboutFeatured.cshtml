@@ -10,15 +10,17 @@
 }
 <div class="c-about__featured o-section c-rte">
 	<div class="o-wrap o-wrap--large">
-		@if(!string.IsNullOrWhiteSpace(content))
-		{
-			@Html.Raw(content)
-		}
-		@if(link != null)
-		{
-			<a href="@decode.url" class="o-section__link border--black c-feat__button">
-			  <span>@decode.name</span>
-			</a>
-		}
+		<div class="c-featured__max-width">
+			@if(!string.IsNullOrWhiteSpace(content))
+			{
+				@Html.Raw(content)
+			}
+			@if(link != null)
+			{
+				<a href="@decode.url" class="o-section__link border--black c-feat__button">
+				<span>@decode.name</span>
+				</a>
+			}
+		</div>
 	</div>
 </div>

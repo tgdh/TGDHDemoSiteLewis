@@ -1618,6 +1618,63 @@ img {
   .c-button {
     display: inline-block; } }
 
+.c-downloads .c-link-list__item {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; }
+
+.c-downloads .c-link-list__link {
+  border: 2px solid black;
+  display: block;
+  margin-top: 1rem;
+  text-decoration: none;
+  position: relative; }
+  .c-downloads .c-link-list__link:hover .c-link-list__icon::before, .c-downloads .c-link-list__link:focus .c-link-list__icon::before {
+    top: 0; }
+
+.c-downloads .c-link-list__name {
+  padding: 2rem;
+  display: inline-block;
+  width: calc(100% - 175px); }
+
+.c-downloads .c-link-list__meta {
+  padding: 2rem;
+  display: inline-block;
+  position: absolute;
+  right: 6.5rem; }
+
+.c-downloads .c-link-list__icon {
+  color: white;
+  font-size: 3.5rem;
+  background-color: black;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 65px; }
+  .c-downloads .c-link-list__icon::before {
+    -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+    display: block;
+    position: relative;
+    top: -5px;
+    transition: ease 0.3s top; }
+
+.flexbox .c-link-list__icon {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
 /* ===========================================================
 
 	# Meta data
@@ -1759,12 +1816,12 @@ img {
 @media only screen and (min-width: 1000px) {
   .c-our-team__left {
     float: left;
-    width: 50%;
+    width: 60%;
     box-sizing: border-box;
     padding-right: 4rem; }
   .c-our-team__right {
     float: left;
-    width: 50%;
+    width: 40%;
     padding-left: 4rem; }
     .c-our-team__right ul li {
       margin-bottom: 1rem; }
@@ -1952,7 +2009,37 @@ img {
     top: initial; } }
 
 .c-component p {
-  line-height: 3rem; }
+  line-height: 2.75rem; }
+
+.c-accordion_item.js-active .c-accordion__header {
+  background-color: black;
+  color: white; }
+
+.c-accordion_item.js-active .c-accordion__content {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  max-height: 1000px;
+  overflow: auto; }
+
+.c-accordion_item .c-accordion__header {
+  background-color: white;
+  border: 2px solid black;
+  border-bottom: none;
+  padding: 3rem 2rem;
+  margin: 0;
+  cursor: pointer;
+  transition: ease 0.3s color, ease 0.3s background-color; }
+
+.c-accordion_item .c-accordion__content {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background-color: #f7f7f7;
+  max-height: 0;
+  overflow: hidden;
+  transition: ease 0.3s max-height, ease 0.3s padding; }
+
+.c-accordion_item:last-child .c-accordion__header {
+  border-bottom: solid black 2px; }
 
 /* ===========================================================
 
@@ -1984,6 +2071,9 @@ img {
     font-style: italic;
     opacity: .7;
     font-size: 1.5rem; }
+
+.c-featured__max-width {
+  max-width: 800px; }
 
 .flexbox .c-features__icon {
   display: -webkit-box;
@@ -2299,7 +2389,7 @@ img {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  margin-bottom: 4rem; }
+  margin-bottom: 6rem; }
 
 .c-non-featured__item {
   position: relative;
@@ -2350,13 +2440,11 @@ img {
     float: left; }
   .c-gateway__featured .c-featured__item:nth-child(1) .c-featured_image {
     right: 0; }
-  .c-gateway__featured .c-featured__item:nth-child(2) {
-    margin-bottom: 6rem; }
-    .c-gateway__featured .c-featured__item:nth-child(2) .c-featured__item__content {
-      padding-left: 5rem;
-      float: right; }
-    .c-gateway__featured .c-featured__item:nth-child(2) .c-featured_image {
-      left: 0; }
+  .c-gateway__featured .c-featured__item:nth-child(2) .c-featured__item__content {
+    padding-left: 5rem;
+    float: right; }
+  .c-gateway__featured .c-featured__item:nth-child(2) .c-featured_image {
+    left: 0; }
   .c-non-featured__item {
     *zoom: 1;
     float: left;
@@ -2365,7 +2453,7 @@ img {
     width: 47%;
     margin-left: 0%;
     margin-right: 6%;
-    margin-bottom: 6rem;
+    margin-top: 6rem;
     padding: 8rem 4rem; }
     .c-non-featured__item:before, .c-non-featured__item:after {
       content: '';

@@ -25,6 +25,7 @@
 		$window.SmoothScroll.init();
 		$window.Search.init();
 		$window.Menu.init();
+		$window.Accordion.init();
 		$window.Carousel.init($('.js-carousel'));
 		//MQ.init(breakpoints);
 	}

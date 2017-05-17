@@ -72,13 +72,13 @@
 @include respond-min($mq-large){
 	.c-our-team__left{
 		float: left;
-		width: 50%;
+		width: 60%;
 		box-sizing: border-box;
 		padding-right: 4rem;
 	}
 	.c-our-team__right{
 		float: left;
-		width: 50%;
+		width: 40%;
 		padding-left: 4rem;
 		ul{
 			li{
