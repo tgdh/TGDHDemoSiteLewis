@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "2dd42747b36b151d")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "c28e324010193aab")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 
 // FILE: models.generated.cs
@@ -4057,7 +4057,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Content
+		/// Content: This is the text that is directly below the cover.
 		///</summary>
 		[ImplementPropertyType("featuredTextContent")]
 		public IHtmlString FeaturedTextContent
