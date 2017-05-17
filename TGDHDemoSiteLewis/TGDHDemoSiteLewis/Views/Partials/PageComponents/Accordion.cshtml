@@ -1,7 +1,9 @@
-﻿@using UmbracoStarterKit.Core.ExtensionMethods
+﻿@using UmbracoStarterKit.ExtensionMethods
 @using UmbracoStarterKit.Core.Models.Components
 @inherits UmbracoViewPage<TabListViewModel>
 @{
+	var count = 0;
+	var first = "";
     if (!Model.Tabs.Any())
     {
         return;
@@ -11,7 +13,15 @@
 <div class="c-accordion js-accordion @Model.AdditionalClass @Model.WrapClasses">
     @foreach (var tab in Model.Tabs)
     {
-		<div class="c-accordion_item">
+		count++;
+		if(count == 1)
+		{
+			first = "js-active"; 
+		}
+		else{
+			first = "";
+		}
+		<div class="c-accordion_item @first">
 			<span class="c-accordion__button">
 				<i class="plus"></i>
 				<i class="minus"></i>
