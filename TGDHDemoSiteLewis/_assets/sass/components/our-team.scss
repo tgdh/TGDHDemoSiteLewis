@@ -35,60 +35,11 @@
 .c-our-team__image{
 	opacity: 1;
 	transition: $ease $speed opacity;
-	&:hover,
-	&:focus{
-		opacity: .75;
-		.c-our-team__hover-state{
-			top: calc(50% - 37.5px);
-			opacity: 1;
-			transform: rotate(0);
-			&::before{
-				content: "";
-				display: block;
-				width: 3rem;
-				height: .3rem;
-				background-color: black;
-				position: relative;
-				transform: rotate(90deg);
-				top: 35px;
-				left: 22px;
-				border-radius: 1px;
-			}
-			&::after{
-				content: "";
-				display: block;
-				width: 3rem;
-				height: .3rem;
-				background-color: black;
-				position: relative;
-				top: 32px;
-				left: 22px;
-				border-radius: 1px;
-			}
-		}
-	}
 }
 
 .c-our-team__image{
 	position: relative;
 	display: block;
-	.c-our-team__hover-state{
-		transition: $ease $speed top,
-					$ease $speed opacity,
-					$ease $speed transform;
-		width: 75px;
-		height: 75px;
-		background-color: white;
-		display: block;
-		position: absolute;
-		top: calc(50% - 27.5px);
-		left: calc(50% - 37.5px);
-		overflow: hidden;
-		border-radius: 50%;
-		box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-		opacity: 0;
-		transform: rotate(5deg);
-	}
 }
 
 .c-our-team__info{

@@ -2,8 +2,14 @@
 @{
 	var homePage = Model.Site();
     var settings = homePage.Descendants("globalSettings").FirstOrDefault();
-	var contactNumber = settings.GetPropertyValue<string>("contactNumber");
-	if(Model.Children.Count() == 0)
+	var contactNumber = settings.GetPropertyValue<IEnumerable<IPublishedContent>>("contactNumbers");
+	var firstNumber = "";
+	foreach(var contact in contactNumber.Take(1))
+	{
+		firstNumber = contact.GetPropertyValue<string>("number");
+	}
+	var teamMembers = Model.GetPropertyValue<IEnumerable<IPublishedContent>>("teamMembersList");
+	if(teamMembers == null)
 	{
 		return;
 	}
@@ -11,12 +17,12 @@
 <div class="c-our-team o-section c-rte">
 	<div class="o-wrap o-wrap--large u-clearfix">
 		<h2 class="c-our-team__title u-beta">Our Team</h2>
-		@if(!string.IsNullOrWhiteSpace(contactNumber))
+		@if(!string.IsNullOrWhiteSpace(firstNumber))
 		{
-			<a href="@contactNumber.Replace(" ", "")" class="c-our-team__contact u-gamma">@contactNumber</a>
+			<a href="@firstNumber.Replace(" ", "")" class="c-our-team__contact u-gamma">@firstNumber</a>
 		}
 		<div class="c-our-team__wrapper u-clearfix">
-			@foreach(var item in Model.Children)
+			@foreach(var item in teamMembers)
 			{
 				var image = item.GetPropertyValue<int>("memberImage");
 				var name  = item.GetPropertyValue<string>("memberName");
@@ -27,18 +33,17 @@
 					@* Only Render item if there is an image *@
 					@if(image != 0)
 					{
-						<a class="c-our-team__image" href="@item.Url">
+						<div class="c-our-team__image">
 							<img src="@Umbraco.TypedMedia(image).GetCropUrl("3:4")" class="c-team__image">
-							<span class="c-our-team__hover-state"></span>
-						</a>
+						</div>
 						<div class="c-our-team__info">
 							@if(!string.IsNullOrWhiteSpace(name))
 							{
 								<h3 class="c-our-team__info__name u-delta">@name</h3>
 							}
-							@if(!string.IsNullOrWhiteSpace(contactNumber) && !string.IsNullOrWhiteSpace(phone))
+							@if(!string.IsNullOrWhiteSpace(firstNumber) && !string.IsNullOrWhiteSpace(phone))
 							{
-								<a href="tel:@contactNumber.Replace(" ","")" class="c-our-team__info__ext">Ext: @phone</a>
+								<a href="tel:@firstNumber.Replace(" ","")" class="c-our-team__info__ext">Ext: @phone</a>
 							}
 							@if(!string.IsNullOrWhiteSpace(job))
 							{
