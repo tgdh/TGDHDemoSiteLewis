@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "c28e324010193aab")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "307e3063284a3ff8")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
 // FILE: models.generated.cs
@@ -3605,7 +3605,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Gateway</summary>
 	[PublishedContentModel("gateway")]
-	public partial class Gateway : PublishedContentModel, ICAdmin, ICHeadlineOnly, ICIntroduction, ICMeta, ICSeo
+	public partial class Gateway : PublishedContentModel, ICAdmin, ICMeta, ICSeo
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "gateway";
@@ -3629,7 +3629,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Featured Pages: Choose the two featured pages. If no pages are shown the pages will list out in order.
+		/// Featured Pages: Select up to 2 pages. These will be shown at the top
 		///</summary>
 		[ImplementPropertyType("gatewayFeaturedPages")]
 		public string GatewayFeaturedPages
@@ -3689,24 +3689,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public string UmbracoUrlName
 		{
 			get { return Umbraco.Web.PublishedContentModels.CAdmin.GetUmbracoUrlName(this); }
-		}
-
-		///<summary>
-		/// Headline: If left blank, the page name will be used
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.CHeadlineOnly.GetPageTitle(this); }
-		}
-
-		///<summary>
-		/// Introduction: Short introduction to the page and subpages
-		///</summary>
-		[ImplementPropertyType("introduction")]
-		public IHtmlString Introduction
-		{
-			get { return Umbraco.Web.PublishedContentModels.CIntroduction.GetIntroduction(this); }
 		}
 
 		///<summary>
