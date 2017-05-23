@@ -32,19 +32,7 @@ textarea {
 }
 
 input[type="submit"]{
-	background-color: white;
-	border-color: $border-colour;
-	float: left;
-	width: calc(50% - 2rem);
-	height: 6rem;
-	cursor: pointer;
-	transition: $ease $speed color,
-				$ease $speed background-color;
-	&:hover,
-	&:focus{
-		background-color: black;
-		color: white;
-	}
+	width: auto;
 }
 
 textarea {

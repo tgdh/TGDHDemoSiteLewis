@@ -37,6 +37,14 @@
 	}
 }
 
+@include respond-max($mq-medium){
+
+	.c-contact__item + .c-contact__item {
+		margin-top: $line-height * 2;
+	}
+
+}
+
 @include respond-min($mq-medium){
 	.c-contact__item{
 		@include column(1/2, $gutter: 3, $cycle:2);

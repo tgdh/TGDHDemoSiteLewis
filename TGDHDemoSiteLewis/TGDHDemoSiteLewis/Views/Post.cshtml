@@ -4,11 +4,20 @@
     Layout = "MasterBlog.cshtml";
 
     var allBlogPosts = BlogRepository.AllBlogPosts(Umbraco).ToList();
+
+
 }
 
-<main class="o-page__inner u-clearfix c-header__margin-top" role="main">
+<main id="main" class="o-page__inner u-clearfix c-header__margin-top" role="main">
 	<div class="c-page__wrapper">
-	    @Html.Partial("~/Views/Partials/Page/Headline.cshtml")
+		@Html.Partial("~/Views/Partials/Components/Hero.cshtml", new HeroViewModel
+		{
+			ImageId = Model.GetPropertyValue<int>("pageImage"),
+			Headline = Model.HasValue("headline") ? Model.GetPropertyValue<string>("headline") : Model.Name,
+			Subtitle = Model.GetPropertyValue<DateTime>("releaseDate").ToString("dddd, %d MMM yyyy"),
+			Copy = Model.GetPropertyValue<string>("pageDescription")
+		})
+
 		<div class="c-section_wrapper c-grid o-wrap o-wrap--large u-clearfix o-section">
 			<div class="c-blogs__blog-post">
 	    		@Html.Partial("~/Views/Partials/Page/Components.cshtml")

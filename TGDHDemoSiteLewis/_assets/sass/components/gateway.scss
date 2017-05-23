@@ -115,7 +115,29 @@
 }
 
 @include respond-max($mq-large){
+
+	.c-gateway__featured {
+
+		.c-button {
+			color: $white;
+			border-color: $white;
+
+			&:hover,
+			&:focus {
+				color: $pri !important;
+				background-color: $white;
+			}
+		}
+
+		.o-section__line::after {
+			background-color: $white;
+		}
+
+	}
+
 	.c-gateway__featured{
+		color: $white;
+
 		.c-featured__item{
 			.c-featured_image{
 				left: 0;
@@ -135,7 +157,7 @@
 				z-index: 2;
 				position: relative;
 				*{
-					color: white;
+					color: inherit;
 				}
 				.o-section__link{
 					border-color: white;

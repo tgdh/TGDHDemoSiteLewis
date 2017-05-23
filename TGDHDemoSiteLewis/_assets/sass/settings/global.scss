@@ -22,12 +22,14 @@ $black: 					#000000;
 $red:						#f44336;
 $green:						#4caf50;
 
-$dark-1:					#1d1d1d;
+$dark-1:					#2f2f2f;
 
-$light-1:					#f7f7f7;
+$light-1:					#f5f5f5;
 $light-2:					darken( $light-1, 5% );
 
-$pri: 						#00b7ce;
+$grey-1:					#a4a4a4;
+
+$pri: 						$black;
 $sec: 						#ed1165;
 $ter:				 		#fad620;
 
@@ -64,7 +66,7 @@ $link-colour:				$black;
 $link-colour-hover:			$black;
 $form-placeholder-colour:	#ccc;
 $placeholder-colour:		$light-1;
-$highlight-colour:			lighten( $pri, 50 );
+$highlight-colour:			lighten( $pri, 75 );
 
 $error:						$red;
 $success:					$green;
@@ -78,7 +80,7 @@ $padding-large:				8rem;
 $border-width: 				.2rem;
 $border-radius: 			.3rem;
 $speed: 					.3s;
-$ease:						ease;
+$ease:						ease-out;
 
 $light:						300;
 $regular:					400;

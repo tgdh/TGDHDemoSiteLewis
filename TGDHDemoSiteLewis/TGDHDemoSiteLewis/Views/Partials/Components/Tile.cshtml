@@ -1,0 +1,36 @@
+@inherits UmbracoViewPage<TileViewModel>
+@{
+	if(string.IsNullOrWhiteSpace(Model.Url)) {
+		return;
+	}
+
+	var image = Umbraco.TypedMedia(Model.ImageId);
+	var imageUrl = "";
+	if (image != null)
+	{
+		imageUrl = Url.GetCropUrl(image, cropAlias:  "21:9", width: 800, quality: 95, htmlEncode: false).ToString();
+		Model.ModifierClass = Model.ModifierClass + " c-tile--has-image";
+	}
+}
+<article class="c-tile @Model.ModifierClass">
+    <a href="@Model.Url" class="c-tile__link" style="background-image: url(@imageUrl);">
+        <div class="c-tile__content">
+			<div class="c-tile__copy">
+				@if(!String.IsNullOrWhiteSpace(Model.Headline))
+				{
+
+		            <h2 class="c-tile__headline u-alpha">
+						@Umbraco.Truncate(Model.Headline, 65)
+					</h2>
+				}
+
+                <div class="c-tile__subtitle u-font-sec">
+					@if(Model.Subtitle != null && !String.IsNullOrWhiteSpace(Model.Subtitle.ToString())) {
+                    	@Model.Subtitle
+					}
+                </div>
+
+			</div>
+        </div>
+    </a>
+</article>

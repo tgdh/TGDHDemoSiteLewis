@@ -23,4 +23,13 @@
 
 	}
 
+	.o-grid--two {
+
+		.o-grid__item {
+			@include column( 1/2, $cycle: 2 );
+			margin-bottom: $line-height;
+		}
+
+	}
+
 }

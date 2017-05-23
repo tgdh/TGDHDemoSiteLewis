@@ -34,6 +34,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-arrow-left:before {
+  content: "\e912";
+}
+.icon-arrow-right:before {
+  content: "\e913";
+}
 .icon-flag:before {
   content: "\e90f";
 }

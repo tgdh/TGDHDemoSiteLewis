@@ -1,0 +1,97 @@
+/* ===========================================================
+
+	# Hero
+
+=========================================================== */
+
+.c-hero {
+	background-color: $light-1;
+	position: relative;
+}
+
+.c-hero__image {
+	background-size: cover;
+	background-position: center;
+}
+
+@include respond-max( $mq-medium ) {
+
+	.c-hero__image {
+		@include pad-top(210,90);
+		margin-bottom: 4rem;
+	}
+
+}
+
+.c-hero__content {
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+}
+
+.c-hero__headline {
+	padding-bottom: 0;
+}
+
+.c-hero__subtitle {
+	font-family: $font-family-sec;
+	margin-top: $line-height
+}
+
+.c-hero__copy {
+	margin-top: $line-height;
+
+	&:before {
+		content: "";
+		width: 2.7rem;
+		height: 1px;
+		display: block;
+		background-color: $pri;
+		margin-bottom: $line-height;
+	}
+}
+
+@include respond-min( $mq-medium ) {
+
+	.c-hero__content {
+		width: 50%;
+		padding: 4rem 4rem 4rem 0;
+	}
+
+	.c-hero__image {
+		width: 50%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+}
+
+@include respond-min( $mq-large ) {
+
+	.c-hero {
+		min-height: 48rem;
+	}
+
+	.c-hero__content {
+		width: 50%;
+		padding: 6rem 6rem 6rem 0;
+	}
+
+	.flexbox {
+
+		.c-hero,
+		.c-hero__wrap {
+			display: flex;
+		}
+
+		.c-hero__content {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			margin-bottom: 10%;
+		}
+
+	}
+
+}

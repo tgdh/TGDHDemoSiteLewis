@@ -5,14 +5,18 @@
 
     var allNewsArticles = NewsRepository.AllNewsArticles(Umbraco).ToList();
 }
-<main class="o-page__inner u-clearfix c-header__margin-top" role="main">
+<main id="main" class="o-page__inner u-clearfix c-header__margin-top" role="main">
 	<div class="c-page__wrapper">
-		@Html.Partial("~/Views/Partials/Page/Headline.cshtml")
-		<div class="o-wrap o-wrap--large o-section u-clearfix">
-			<section class="u-clearfix">
-		    	@Html.Partial("~/Views/Partials/Page/Components.cshtml")
-			</section>
-		</div>
+		@Html.Partial("~/Views/Partials/Components/Hero.cshtml", new HeroViewModel
+		{
+			ImageId = Model.GetPropertyValue<int>("pageImage"),
+			Headline = Model.HasValue("headline") ? Model.GetPropertyValue<string>("headline") : Model.Name,
+			Subtitle = Model.GetPropertyValue<DateTime>("releaseDate").ToString("dddd, %d MMM yyyy"),
+			Copy = Model.GetPropertyValue<string>("pageDescription")
+		})
+		<section class="o-section u-clearfix">
+			@Html.Partial("~/Views/Partials/Page/Components.cshtml")
+		</section>
 		@Html.Partial("~/Views/Partials/Components/CallToAction.cshtml")
 	</div>
 </main>

@@ -12,9 +12,14 @@
     var selectedArticles = filteredNewsArticle.Skip(paging.Skip).Take(paging.Take).ToList();
 }
 
-<main class="o-page__inner u-clearfix c-header__margin-top" role="main">
+<main id="main" class="o-page__inner u-clearfix c-header__margin-top" role="main">
 	<div class="c-page__wrapper">
-		@Html.Partial("~/Views/Partials/Page/Headline.cshtml")
+		@Html.Partial("~/Views/Partials/Components/Hero.cshtml", new HeroViewModel
+		{
+			ImageId = Model.GetPropertyValue<int>("pageImage"),
+			Headline = Model.HasValue("headline") ? Model.GetPropertyValue<string>("headline") : Model.Name,
+			Copy = Model.GetPropertyValue<string>("pageDescription")
+		})
 		<div class="o-wrap o-wrap--large o-section u-clearfix">
 			<section class="o-page__content u-clearfix">
 		        @if (selectedArticles.Any())

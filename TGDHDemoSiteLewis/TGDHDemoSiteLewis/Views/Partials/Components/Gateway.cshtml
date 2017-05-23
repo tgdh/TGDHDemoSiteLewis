@@ -25,25 +25,25 @@
 	<div class="c-gateway__featured">
 		@foreach(var feat in featuredListIds)
 		{
-			var desc = feat.GetPropertyValue<HtmlString>("introduction");
+			var pageDescription = feat.GetPropertyValue<string>("pageDescription");
 			var pageTitle = feat.GetPropertyValue<string>("pageTitle");
 			var pageTitleCheck = !string.IsNullOrWhiteSpace(pageTitle) ? pageTitle: feat.Name;
-			var image = feat.GetPropertyValue<int>("pageImage");
+			var image = Umbraco.TypedMedia(feat.GetPropertyValue<int>("pageImage"));
 			<div class="c-featured__item">
 				<div class="o-wrap o-wrap--large o-section u-clearfix">
 					<div class="c-featured__item__content">
-						<h2 class="u-tera o-section__line line--black">@pageTitleCheck</h2>
-						@if(desc != null)
+						<h2 class="u-alpha o-section__line line--black">@pageTitleCheck</h2>
+						@if(!String.IsNullOrWhiteSpace(pageDescription))
 						{
-							@desc
+							<p>@pageDescription</p>
 						}
-						<a href="@feat.Url" class="o-section__link border--black c-feat__button">
+						<a href="@feat.Url" class="c-button c-button--primary u-space-top--large">
 						  <span>Learn More</span>
 						</a>
 					</div>
-					@if(image != 0)
+					@if(image != null)
 					{
-						<div class="c-featured_image" style="background-image: url(@Umbraco.TypedMedia(image).GetCropUrl("Gateway"))"></div>
+						<a href="@feat.Url" style="background-image: url(@image.GetCropUrl("Gateway"))" class="c-featured_image"></a>
 					}
 				</div>
 			</div>
@@ -51,11 +51,11 @@
 	</div>
 	<div class="c-gateway__non-featured">
 		<div class="o-wrap o-wrap--large u-clearfix c-non-featured__flex">
-			@foreach(var item in Model.Children)
+			@foreach(var item in Model.Children.Where( x => x.IsVisible() ))
 			{
 				if(item.Id != first && item.Id != second)
 				{
-					var desc = item.GetPropertyValue<HtmlString>("introduction");
+					var pageDescription = item.GetPropertyValue<string>("pageDescription");
 					var pageTitle = item.GetPropertyValue<string>("pageTitle");
 					var pageTitleCheck = !string.IsNullOrWhiteSpace(pageTitle) ? pageTitle: item.Name;
 					var image = item.GetPropertyValue<int>("pageImage");
@@ -63,7 +63,7 @@
 					if(image != 0)
 					{
 						<a class="c-non-featured__item has-image" href="@item.Url">
-							@nonFeatured(pageTitleCheck, desc)
+							@nonFeatured(pageTitleCheck, pageDescription)
 							<span class="c-non-featured__arrow">
 								<i class="icon-arrow"></i>
 							</span>
@@ -72,8 +72,8 @@
 					}
 					else{
 						<div class="c-non-featured__item">
-							@nonFeatured(pageTitleCheck, desc)
-							<a href="@item.Url" class="o-section__link border--black c-feat__button">
+							@nonFeatured(pageTitleCheck, pageDescription)
+							<a href="@item.Url" class="c-button c-button--primary u-space-top--large">
 							  <span>Learn More</span>
 							</a>
 						</div>
@@ -84,11 +84,11 @@
 	</div>
 </section>
 
-@helper nonFeatured(string title, HtmlString text)
+@helper nonFeatured(string title, string text)
 {
-	<h2 class="u-tera c-non-featured__title">@title</h2>
+	<h2 class="u-alpha c-non-featured__title">@title</h2>
 	if(text != null)
 	{
-		<div class="c-non-featured__desc">@text</div>
+		<div class="c-non-featured__desc"><p>@text</p></div>
 	}
 }

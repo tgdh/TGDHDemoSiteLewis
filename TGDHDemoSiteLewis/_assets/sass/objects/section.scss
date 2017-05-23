@@ -12,8 +12,8 @@
 @include respond-min-max( $mq-small, $mq-medium ) {
 
 	.o-section {
-		padding-bottom: 10rem;
-		padding-top: 10rem;
+		padding-bottom: 8rem;
+		padding-top: 8rem;
 	}
 
 }
@@ -21,8 +21,8 @@
 @include respond-min( $mq-medium ) {
 
 	.o-section {
-		padding-bottom: 15rem;
-		padding-top: 15rem;
+		padding-bottom: 10rem;
+		padding-top: 10rem;
 	}
 
 }
@@ -102,8 +102,8 @@
 	&::after{
 		content: "";
 		display: block;
-		width: 30px;
-		height: 2px;
+		width: 2.7rem;
+		height: 1px;
 		margin-top: 2rem;
 	}
 	&.line--white {

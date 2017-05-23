@@ -12,35 +12,30 @@
     var selectedBlogPosts = filteredBlogPosts.Skip(paging.Skip).Take(paging.Take).ToList();
 }
 
-<main class="o-page__inner u-clearfix c-header__margin-top" role="main">
+<main id="main" class="o-page__inner u-clearfix c-header__margin-top" role="main">
 	<div class="c-page__wrapper">
-	    @Html.Partial("~/Views/Partials/Page/Headline.cshtml")
+	    @Html.Partial("~/Views/Partials/Components/Hero.cshtml", new HeroViewModel
+		{
+			ImageId = Model.GetPropertyValue<int>("pageImage"),
+			Headline = Model.HasValue("headline") ? Model.GetPropertyValue<string>("headline") : Model.Name,
+			Copy = Model.GetPropertyValue<string>("pageDescription")
+		})
 		<div class="c-grid o-wrap o-wrap--large u-clearfix o-section">
-			<section class="o-page__content u-clearfix">
+			<section class="o-page__content u-clearfix o-grid--two">
 		        @if (selectedBlogPosts.Any())
 		        {
 		            foreach (var post in selectedBlogPosts)
 		            {
-		                var articleModel = new ArticleViewModel
+		                var articleModel = new TileViewModel
 		                {
-		                    Id = post.Id,
-		                    Name = post.HasValue("headline") ? post.GetPropertyValue<string>("headline") : post.Name,
-		                    Thumbnail = Umbraco.TypedMedia(post.GetPropertyValue<int>("pageImage")),
-		                    Excerpt = post.GetPropertyValue<string>("excerpt"),
-		                    Url = post.Url,
-		                    Category = GetMetaById(post.GetPropertyValue<int>("category")),
-		                    Author = GetMetaById(post.GetPropertyValue<int>("author")),
-		                    CreateDate = post.GetPropertyValue<DateTime>("releaseDate")
+							Url = post.Url,
+							ImageId = post.GetPropertyValue<int>("pageImage"),
+							Headline = post.HasValue("headline") ? post.GetPropertyValue<string>("headline") : post.Name,
+							Subtitle = post.GetPropertyValue<DateTime>("releaseDate").ToString("%d MMM yyyy"),
+							ModifierClass = "o-grid__item"
 		                };
 
-		                if (post.DocumentTypeAlias == UmbracoStarterKit.Core.Constants.InTheMedia)
-		                {
-		                    articleModel.Url = post.HasValue("source") ? post.GetPropertyValue<string>("source") : "#";
-		                    articleModel.LinkTarget = "_blank";
-		                    articleModel.ExtraClasses = "is-external";
-		                }
-
-		                @Html.Partial("~/Views/Partials/Cards/ArticleCard.cshtml", articleModel)
+		                @Html.Partial("~/Views/Partials/Components/Tile.cshtml", articleModel)
 		            }
 
 		            <div class="c-pagination u-clearfix c-pagination__float">

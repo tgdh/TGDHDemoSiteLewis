@@ -23,6 +23,11 @@
 		}
 }
 @include respond-min($mq-large){
+
+	.c-page-title {
+		min-height: 44rem;
+	}
+
 	.c-page-title__image{
 	  position: absolute;
 	  top: 0;

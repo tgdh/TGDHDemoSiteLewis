@@ -2,10 +2,8 @@ var Accordion = (function ($) {
 	'use strict';
 
 	var _accord = function() {
-		$(document).ready(function(){
-			$('.c-accordion__header').click(function(){
-                $(this).parent('.c-accordion_item').toggleClass('js-active');
-            });
+		$('.js-accordion__item__header').on('click', function(){
+			$(this).parent('.js-accordion__item').toggleClass('is-active');
 		});
 	};
 

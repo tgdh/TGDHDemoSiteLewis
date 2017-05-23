@@ -5,14 +5,8 @@
     var homePage = Model.Site();
 }
 <main class="o-page__inner u-clearfix c-header__margin-top" role="main">
-	<section class="c-page-title o-section">
-		<div class="o-wrap o-wrap--large">
-			<div class="c-page-title__content">
-				<h3 class="c-intro__heading u-tera js-underline">Search</h3>
-			</div>
-		</div>
-	</section>
 	<div class="o-section s-free-content o-wrap o-wrap--medium u-clearfix">
+		<h1 class="u-visually-hidden">@Model.Name</h1>
 		<form action="/search" method="GET" class="c-search__form__inline u-clearfix">
             <input type="text" value="@Request["q"]" class="c-search__text" placeholder="Search here..." name="q" id="search">
             <input type="submit" name="" value="Search" class="c-search__submit">

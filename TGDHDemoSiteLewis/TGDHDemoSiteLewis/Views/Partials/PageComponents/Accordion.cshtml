@@ -16,20 +16,20 @@
 		count++;
 		if(count == 1)
 		{
-			first = "js-active"; 
+			first = "js-active";
 		}
 		else{
 			first = "";
 		}
-		<div class="c-accordion_item @first">
+		<div class="c-accordion__item js-accordion__item @first">
 			<span class="c-accordion__button">
 				<i class="plus"></i>
 				<i class="minus"></i>
 			</span>
-			<h2 class="c-accordion__header js-accordion__header u-delta js-toggle-accordion">@tab.Title</h2>
-			<div class="c-accordion__content">
-		        <div class="c-accordion__panel js-accordion__panel">
-		            <div class="c-accordion__panel-inner">
+			<h2 class="c-accordion__item__header js-accordion__item__header u-delta js-toggle-accordion">@tab.Title</h2>
+			<div class="c-accordion__item__content">
+		        <div class="c-accordion__item__panel js-accordion__panel">
+		            <div class="c-accordion__item__panel-inner">
 		                @tab.Content
 		            </div>
 		        </div>

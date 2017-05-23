@@ -8,7 +8,7 @@
 	a{
 		color: black;
 		text-decoration: underline;
-		font-weight: bold;
+		font-weight: $bold;
 		&:hover,
 		&:focus{
 			text-decoration: none;
@@ -18,7 +18,7 @@
 
 @include respond-min($mq-large){
 	.c-cta{
-		padding: 6rem 0;
+		padding: 4rem 0;
 		background-color: $light-1;
 		.c-cta__heading{
 			float: left;

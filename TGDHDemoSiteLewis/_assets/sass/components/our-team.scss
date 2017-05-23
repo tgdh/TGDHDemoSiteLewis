@@ -69,6 +69,14 @@
 	}
 }
 
+@include respond-max($mq-large){
+
+	.c-our-team__left + .c-our-team__right {
+		margin-top: $line-height * 2;
+	}
+
+}
+
 @include respond-min($mq-large){
 	.c-our-team__left{
 		float: left;

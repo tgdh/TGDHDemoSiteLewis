@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?v95gc0');
-  src:  url('fonts/icomoon.eot?v95gc0#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?v95gc0') format('truetype'),
-    url('fonts/icomoon.woff?v95gc0') format('woff'),
-    url('fonts/icomoon.svg?v95gc0#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?r4rdzf');
+  src:  url('fonts/icomoon.eot?r4rdzf#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?r4rdzf') format('truetype'),
+    url('fonts/icomoon.woff?r4rdzf') format('woff'),
+    url('fonts/icomoon.svg?r4rdzf#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,14 +24,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-flag:before {
-  content: "\e90f";
+.icon-arrow-left:before {
+  content: "\e912";
 }
-.icon-cog:before {
-  content: "\e910";
-}
-.icon-speedometer:before {
-  content: "\e911";
+.icon-arrow-right:before {
+  content: "\e913";
 }
 .icon-arrow:before {
   content: "\e900";
@@ -78,4 +75,12 @@
 .icon-youtube:before {
   content: "\e90e";
 }
-
+.icon-flag:before {
+  content: "\e90f";
+}
+.icon-cog:before {
+  content: "\e910";
+}
+.icon-speedometer:before {
+  content: "\e911";
+}

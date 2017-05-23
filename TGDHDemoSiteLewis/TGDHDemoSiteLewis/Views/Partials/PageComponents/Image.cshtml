@@ -29,13 +29,15 @@
     var caption = image.GetPropertyValue<string>("caption");
     var altText = image.GetPropertyValue<string>("altText");
 }
-<div class="c-gallery__single-image">
-	<figure class="o-media @alignmentClass @aspectRatioClass @Model.AdditionalClass c-component">
-	    <img class="o-media__image js-lazyload" src="@imageUrlLow" data-src="@imageUrlHigh" alt="@altText" />
 
-	    @if (!string.IsNullOrEmpty(caption))
-	    {
-	        <figcaption class="c-caption">@caption</figcaption>
-	    }
-	</figure>
-</div>
+<figure class="o-media @alignmentClass @aspectRatioClass @Model.AdditionalClass">
+    <img class="o-media__image js-lazyload"
+         src="@imageUrlLow"
+		 data-src="@imageUrlHigh"
+         alt="@altText"/>
+
+    @if (!string.IsNullOrEmpty(caption))
+    {
+        <figcaption class="c-caption">@caption</figcaption>
+    }
+</figure>

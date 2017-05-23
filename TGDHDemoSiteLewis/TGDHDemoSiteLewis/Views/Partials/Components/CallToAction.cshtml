@@ -12,20 +12,16 @@
 	{
 		return;
 	}
-	if(onOff == false)
-	{
-		return;
-	}
 }
 <section class="c-cta">
 	<div class="o-wrap o-wrap--large u-clearfix o-relative">
 		@if(!string.IsNullOrWhiteSpace(heading))
 		{
-			<h2 class="c-cta__heading u-gamma o-section__fancy">@heading</h2>
+			<h2 class="c-cta__heading u-delta o-section__fancy">@heading</h2>
 		}
 		@if(decode != null)
 		{
-			<a href="@decode.url" class="o-section__link border--black c-cta__link">
+			<a href="@decode.url" class="c-button c-button--primary c-cta__link">
 				<span>@decode.name</span>
 			</a>
 		}

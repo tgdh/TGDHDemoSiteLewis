@@ -1,5 +1,6 @@
 @inherits UmbracoViewPage<IPublishedContent>
 @{
+	var headline = Model.GetPropertyValue<string>("introHeadline");
 	var content = Model.GetPropertyValue<string>("featuredTextContent");
 	var link = Model.GetPropertyValue<string>("featuredTextLink");
 	var decode = Json.Decode(link);
@@ -11,13 +12,19 @@
 <div class="c-about__featured o-section c-rte">
 	<div class="o-wrap o-wrap--large">
 		<div class="c-featured__max-width">
+			@if(!string.IsNullOrWhiteSpace(headline))
+			{
+				<h2 class="u-beta o-section__line line--black">@headline</h2>
+			}
 			@if(!string.IsNullOrWhiteSpace(content))
 			{
-				@Html.Raw(content)
+				<div class="u-space-top">
+					@Html.Raw(content)
+				</div>
 			}
 			@if(link != null)
 			{
-				<a href="@decode.url" class="o-section__link border--black c-feat__button">
+				<a href="@decode.url" class="c-button c-button--primary u-space-top--large">
 				<span>@decode.name</span>
 				</a>
 			}

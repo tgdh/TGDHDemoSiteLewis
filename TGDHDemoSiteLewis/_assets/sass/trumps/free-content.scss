@@ -4,22 +4,18 @@
 
 =========================================================== */
 
-.s-free-content {
-	
+@include respond-max( $mq-small ) {
+	.s-free-content {
+		.o-table {
+			margin: $line-height 0;
+		}
+	}
 }
 
 @include respond-min( $mq-small ) {
 	.s-free-content {
 		.o-table {
-			margin: $padding-medium / 2 0;
-		}
-	}
-}
-
-@include respond-min( $mq-medium ) {
-	.s-free-content {
-		.o-table {
-			margin: $padding-large / 2 0;
+			margin: $line-height * 2 0;
 		}
 	}
 }

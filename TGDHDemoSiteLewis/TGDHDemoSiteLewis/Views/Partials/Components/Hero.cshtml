@@ -1,0 +1,27 @@
+@inherits UmbracoViewPage<HeroViewModel>
+@{
+	var image = Umbraco.TypedMedia(Model.ImageId);
+	var imageUrl = "";
+	if (image != null)
+	{
+		imageUrl = Url.GetCropUrl(image, cropAlias:  "16:9", width: 800, quality: 95, htmlEncode: false).ToString();
+	}
+}
+<section class="c-hero u-clearfix">
+	<div class="c-hero__wrap o-wrap o-wrap--large">
+		<div class="c-hero__content">
+			<h1 class="c-hero__headline u-mega js-underline">@Model.Headline</h1>
+			@if(!String.IsNullOrWhiteSpace(Model.Subtitle))
+			{
+				<div class="c-hero__subtitle">@Model.Subtitle</div>
+			}
+			<div class="c-hero__copy">
+				<p>@Model.Copy</p>
+			</div>
+		</div>
+		@if(image != null)
+		{
+			<div class="c-hero__image" style="background-image: url(@imageUrl)"></div>
+		}
+	</div>
+</section>

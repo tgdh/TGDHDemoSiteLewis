@@ -1,19 +1,23 @@
 @using UmbracoStarterKit.Core.Models.Components
 @inherits UmbracoViewPage<QuoteViewModel>
 @{
-	if(Model.Quote == null){
-		return;
+    var alignment = !string.IsNullOrWhiteSpace(Model.Alignment) ? Model.Alignment.ToLower() : "default";
+    var alignmentClass = "o-align--" + alignment;
+
+	var modifierClass = "";
+	if( Model.Highlighted ) {
+		modifierClass = "c-quote--highlight";
 	}
-	var align = Model.Alignment != null ? "o-align--" + Model.Alignment.ToLower() : "";
-	var highlighted = Model.Highlighted == true ? "c-quote__highlight" : "";
 }
 
-<blockquote class="c-quote @align @highlighted">
-	<h4 class="c-quote__heading u-uppercase u-zeta c-block__heading c-section o-heading">@Model.Quote</h4>
-	@if(!string.IsNullOrWhiteSpace(Model.Source))
-	{
-		<footer>
-			<p class="c-quote__source">@Model.Source</p>
-		</footer>
-	}
-</blockquote>
+@if (!string.IsNullOrEmpty(Model.Quote.ToString()))
+{
+    <blockquote class="c-quote @alignmentClass @Model.AdditionalClass @modifierClass">
+        <div class="c-quote__copy">@Model.Quote</div>
+
+        @if (!string.IsNullOrWhiteSpace(Model.Source))
+        {
+            <footer class="c-quote__src u-small">@Model.Source</footer>
+        }
+    </blockquote>
+}

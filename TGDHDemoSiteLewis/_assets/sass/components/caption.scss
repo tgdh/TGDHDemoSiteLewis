@@ -5,6 +5,11 @@
 =========================================================== */
 
 .c-caption {
-	color: $pri;
-	margin-top: $line-height / 4;
+	color: $grey-1;
+	font-size: 12px;
+	background-color: $dark-1;
+	padding: .4rem 1rem;
+	position: absolute;
+	right: 0;
+	bottom: 0;
 }

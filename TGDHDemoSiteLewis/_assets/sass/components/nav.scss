@@ -28,6 +28,8 @@
 		}
 
 		&.is-active {
+			font-weight: $bold;
+
 			&::after{
 				width: 100%;
 			}

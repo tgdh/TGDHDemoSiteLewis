@@ -10,15 +10,15 @@
 	var socialIcons = settings.GetPropertyValue<IEnumerable<IPublishedContent>>("socialIcons");
 }
 <div class="c-contact__item">
-	<h2 class="c-contact__title u-mega o-section__line line--black">Contacts</h2>
+	<h2 class="c-contact__title u-alpha o-section__line line--black">Contacts</h2>
 	@if(!string.IsNullOrWhiteSpace(address))
 	{
-		<h3 class="u-gamma c-contact__heading">Address</h3>
+		<h3 class="u-delta c-contact__heading">Address</h3>
 		<p class="c-contact__address">@Html.Raw(address.Replace("\n", "</br>"))</p>
 	}
 	@if(contactNumbers.Count() != 0)
 	{
-		<h3 class="u-gamma c-contact__heading">Phone</h3>
+		<h3 class="u-delta c-contact__heading">Phone</h3>
 		foreach(var number in contactNumbers)
 		{
 			<a href="tel:@number.Name.Replace(" ","")" class="c-contact__link">@number.Name</a>
@@ -26,7 +26,7 @@
 	}
 	@if(emailAddresses.Count() != 0)
 	{
-		<h3 class="u-gamma c-contact__heading">Email</h3>
+		<h3 class="u-delta c-contact__heading">Email</h3>
 		foreach(var email in emailAddresses)
 		{
 			<a href="mailto:@email.Name" class="c-contact__link">@email.Name</a>
@@ -34,7 +34,7 @@
 	}
 	@if(socialIcons.Count() != 0)
 	{
-		<h3 class="u-gamma c-contact__heading">Follow us on</h3>
+		<h3 class="u-delta c-contact__heading">Follow us on</h3>
 		foreach(var icon in socialIcons)
 		{
 			var title = icon.GetPropertyValue<string>("iconTitle");

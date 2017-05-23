@@ -1,10 +1,31 @@
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th,
+td {
+	padding: 10px;
+	text-align: left;
+}
+
+td {
+	border-bottom: 1px solid black !important;
+}
+
+th,
+thead td {
+	font-size: 16px;
+	font-weight: bold;
+	border-bottom: 2px solid black !important;
+}
 
 
-/**umb_name:main-headline*/
-h2.mainHeadline.u-giga{}
+/**umb_name:Heading 1*/
+h2{}
 
-/**umb_name:headline*/
-h3.headline.u-alpha{}
+/**umb_name:Heading 2*/
+h3{}
 
-/**umb_name:small-headline*/
-h4.smallHeadline.u-gamma{}
+/**umb_name:Heading 3*/
+h4{}

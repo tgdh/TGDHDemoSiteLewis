@@ -1,25 +1,24 @@
 @inherits UmbracoViewPage<IPublishedContent>
 @{
-	var metaTitle = Model.GetPropertyValue<string>("pageTitle");
-	var pageTitle = !string.IsNullOrWhiteSpace(metaTitle) ? metaTitle : Model.Name;
-	var desc = Model.GetPropertyValue<HtmlString>("introduction");
-	var image = Model.GetPropertyValue<int>("pageImage");
+	var headline = Model.HasValue("headline") ? Model.GetPropertyValue<string>("headline") : Model.Name;
+	var pageDescription = Model.GetPropertyValue<string>("pageDescription");
+	var image = Umbraco.TypedMedia(Model.GetPropertyValue<int>("pageImage"));
 }
 <section class="c-page-title o-section">
 	<div class="o-wrap o-wrap--large">
 		<div class="c-page-title__content">
-			<h3 class="c-intro__heading u-tera js-underline">@pageTitle</h3>
-			@if(desc != null)
+			<h3 class="c-intro__heading u-tera js-underline">@headline</h3>
+			@if(!String.IsNullOrWhiteSpace(pageDescription))
 			{
-				<p class="o-section__line line--black o-section__fancy"></p>
-				<div class="c-intro__text o-section__fancy">
-					@desc
+				<div class="o-section__line line--black o-section__fancy"></div>
+				<div class="c-intro__text">
+					<p>@pageDescription</p>
 				</div>
 			}
 		</div>
-		@if(image != 0)
+		@if(image != null)
 		{
-			<div class="c-page-title__image" style="background-image: url(@Umbraco.TypedMedia(image).GetCropUrl("Gateway"))"></div>
+			<div class="c-page-title__image" style="background-image: url(@image.GetCropUrl("Gateway"))"></div>
 		}
 	</div>
 </section>

@@ -5,13 +5,16 @@
 =========================================================== */
 
 .c-button {
-	border-radius: $border-radius;
+	border-radius: 0;
 	display: block;
 	line-height: 1;
 	text-align: center;
-	padding: 1.5rem 2rem;
+	padding: 2rem 2rem;
+	border: 1px solid $pri;
+	text-align: center;
 	transition: background $speed $ease,
 				box-shadow $speed $ease,
+				border $speed $ease,
 				color $speed $ease;
 
 	&:hover,
@@ -33,25 +36,29 @@
 			background: $border-colour;
 		}
 	}
+
+
 }
 
 .c-button--primary {
-	background: $pri;
-	color: $white;
+	color: $pri;
+	border-color: $pri;
 
 	&:hover,
 	&:focus {
+		color: $white;
 		background: $black;
 	}
 }
 
 .c-button--secondary {
-	background: $sec;
 	color: $white;
+	border-color: $white;
 
 	&:hover,
 	&:focus {
-		background: $black;
+		color: $pri;
+		background: $white;
 	}
 }
 
@@ -67,6 +74,7 @@
 
 	.c-button {
 		display: inline-block;
+		min-width: 18rem;
 	}
 
 }

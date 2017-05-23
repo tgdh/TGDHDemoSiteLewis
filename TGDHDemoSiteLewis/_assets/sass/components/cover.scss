@@ -99,6 +99,7 @@
 }
 
 .c-cover-about{
+	color: $white;
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
@@ -117,7 +118,7 @@
 		background-color: rgba(0,0,0,0.15);
 	}
 	*{
-		color: white;
+		color: inherit;
 		position: relative;
 		z-index: 2;
 	}
