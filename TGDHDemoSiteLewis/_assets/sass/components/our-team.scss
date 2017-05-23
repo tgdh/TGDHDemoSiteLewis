@@ -96,6 +96,7 @@
 	}
 	.c-our-team__item{
 		@include column(1/3, $gutter: 4, $cycle: 3);
+		width: calc(30.6666666667% - 1px );
 	}
 }
 
@@ -103,6 +104,7 @@
 
 	.c-our-team__item{
 		@include column(1/2, $gutter: 4, $cycle: 2);
+		width: calc(48% - 1px);
 	}
 
 	.c-our-team__info__name{

@@ -97,6 +97,15 @@ html {
 	}
 }
 
+
+@include respond-max($mq-large){
+
+	.o-page__content + .o-page__aside {
+		margin-top: $line-height * 2;
+	}
+
+}
+
 @include respond-min($mq-large){
 	.o-page__aside{
 		@include column(6/20, $gutter: 5, $cycle: 2);
